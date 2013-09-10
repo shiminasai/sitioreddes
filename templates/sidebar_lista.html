@@ -1,0 +1,24 @@
+  <div class="large-3 columns">
+    <h4 class="donacion">Como colaborar con CESESMA?</h4>
+    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
+    <br>
+    <br>
+    <div class="title-sidebar">Eventos</div>
+    <div class="event-sidebar">
+    {% for obj in eventos %}
+      <div class="calendar-icon">{{obj.fecha_inicio|date:"j M"}}</div>
+      <div class="text-sidebar"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
+    {% endfor %}
+    </div>
+    <br>
+    <div class="title-sidebar">Contactenos</div>
+    <div class="text-box">
+     Ciudad de San Ramón, Matagalpa: De la Alcaldía, 1 cuadra al sur, ½ cuadra al oeste.
+      <br>
+      Teléfono y Fax: + 505 2772 5660
+      <br>
+      Correo electrónico: coordinacion@cesesma.org
+      <br>
+      Dirección postal: Apdo. #316, Matagalpa, Nicaragua
+    </div>
+  </div>

@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+
+
+{% load embed_video_tags %}
+
+{% block contenido %}
+<!--header -->  
+
+<div class="row">
+  <div class="large-12 top-content columns">
+
+  <div class="large-12 columns">
+    <div class="slide-img">
+      <ul data-orbit>
+      {% for obj in ultimas_destacadas %}
+        {% for imagen in obj.fotos.all|slice:"1" %}
+        <li>
+          {% thumbnail imagen.imagen "960x380" crop="10%" as img %}
+            <img src="/media/{{img}}">
+            <div class="orbit-caption"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div> 
+          {% endthumbnail %}
+        </li>
+        {% endfor %}
+      {% empty %}
+        <li><img src="http://placehold.it/960x380"></li>
+    {% endfor %}
+     </ul>
+    </div>
+ 
+    <div class="large-8 cont-donacion columns">
+     <h1 class="welcome">Bienvenidas y bienvenidos a CESESMA</h1>
+      <div class="text-welcome">
+      {% for  obj in texto %}
+          {{obj.texto|safe}}
+      {% empty %}
+          <p>No hay nada que mostrar</p>
+      {% endfor %} 
+      </div>
+    </div>
+
+     <div class="large-4 cont-donacion columns">
+
+      <span class="donacion"> Colabora con CESESMA</span>
+      <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
+     </div>
+
+
+
+  </div>
+  
+  </div>
+  </div><!--row top content  final -->  
+
+<div class="row">
+ 
+<div class="large-12 columns">
+
+ <div class="content">
+  <div class="icons-bar">
+  <span class="text-actores">Actores involucrados</span>
+
+   
+   <ul class="act-inv">
+     
+     <li class="ninos-icon"><br><br><br><a href="/ninos-ninas/">Niños, niñas y adolescentes</a></li>
+     <li class="red-icon"><a href="/promotores/"><br><br><br>Red de promotoras/es </a></li>
+     <li class="padres-icon"><a href="/familias/"><br><br><br>Madres - padres</a></li>
+     <li class="lideres-icon"><a href="/lideres/"> <br><br><br>Líderes y liderezas comunitarias</a></li>
+     <li class="maestros-icon"><a href="/familias/"><br><br><br>Maestras - maestros</a></li>
+     
+   </ul>
+  </div>
+ </div>
+</div><!--large-12 content-principal  -->
+</div><!-- Content row-->
+
+<div class=" noticias-bg">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="title-bar">Noticias</div>
+      <div class="news-post">
+
+       {% for noticia in ultimas_noticias %}
+        <div class="list-news">
+        {% if noticia.fotos.all %}
+          {% for imagen in noticia.fotos.all|slice:"1" %}
+            {% thumbnail imagen.imagen "210x157" crop="10%" as img %}
+              <div class="img-news"><a href="{{noticia.get_absolute_url}}"><img src="/media/{{img}}"></a></div>
+            {% endthumbnail %}          
+          {% endfor %}
+        {%else%}
+          <div class="img-news"><a href="{{noticia.get_absolute_url}}"><img src="http://placehold.it/210x157"></a></div>
+        {% endif %}        
+          <span class="fecha-inicio">Publicado:{{noticia.fecha|date:"j  F, Y"}}</span>
+          <h2 class="title-news"><a href="{{noticia.get_absolute_url}}">{{noticia.titulo}}</a></h2>
+          <div class="text-news">{{ noticia.descripcion|striptags|safe|truncatewords:16 }}</div>
+        </div>
+        {% empty %}
+          <p>No hay noticias</p>
+      {% endfor %}
+      <div class="read-more">
+        <img src="{{STATIC_URL}}img/plus.png">
+        <a href="{% url 'noticias_lista' %}">Ver más</a></div>
+
+      </div>
+      </div>
+  </div>
+</div>
+<div class="content-multi">
+  <div class="row">
+    <div class="large-12 columns">
+      
+    <div class="large-5  columns">
+
+        <div class="title-bar">Publicaciones</div>
+        
+        {% for publicacion in ultimas_publicaciones %}
+        <div class="pub-front">
+        {% if publicacion.portada %}
+        {% thumbnail publicacion.portada "165x210" crop="10%" as img %}
+          <a href="{{publicacion.get_absolute_url}}"><img src="/media/{{img}}"></a>
+        {% endthumbnail %}
+        {%else%}
+          <img src="http://placehold.it/165x210">
+        {%endif%}
+          <h2 class="title-pub"><a href="{{publicacion.get_absolute_url}}">{{publicacion.titulo|truncatewords:3}}</a></h2>
+        </div>
+        {% empty %}
+            <p>No hay publicacion</p>
+        {% endfor %}
+      <div class="read-more">
+        <img src="{{STATIC_URL}}img/plus.png">
+        <a href="{% url 'publicaciones_lista' %}">Ver más</a></div>
+    </div>
+  <div class="large-7 columns">
+    
+    <div class="video-box">
+      <div class="title-bar">Multimedia</div>
+    {% for obj in ultimos_videos %}
+      <div class="video-sample">{% video obj.url as video %}
+        <div class="play-icon"><a data-reveal-id="videoModal-{{obj.id}}" href="">
+            <img src="{{STATIC_URL}}img/play.png">
+          </a></div>
+                                <a data-reveal-id="videoModal-{{obj.id}}" href=""><img src="{{ video.thumbnail}}" alt=""></a>
+                                {% endvideo %}
+      </div>
+    {% endfor %}
+    <div class="read-more">
+        <img src="{{STATIC_URL}}img/plus.png">
+        <a href="{% url 'videos_lista' %}">Ver más</a></div>
+    </div>
+
+    <div class="title-bar">Próximos eventos</div>
+      <div class="eventos">
+        
+      {% for evento in ultimos_eventos %}
+        <div class="eventos-fronts">
+          <div class="fecha-box">
+            <div class="calendar-icon-front"></div>{{evento.fecha_inicio|date:"j M"}}
+          </div>
+          <div class="event-content">
+          <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:8 }}</a></h2>
+          
+          </div>
+         </div>
+        {% empty %}
+            <p>No hay evento</p>
+        {% endfor %}
+     <div class="read-more">
+        <img src="{{STATIC_URL}}img/plus.png">
+        <a href="{% url 'evento_lista' %}">Ver más</a></div>
+      </div>
+
+  </div>
+    
+  <div class="large-7 columns">
+  
+  
+
+  </div><!--large-7 videos -->    
+
+
+
+
+
+   </div>
+  </div>
+</div>
+
+<!--Video Modal box content --> 
+{% for obj in ultimos_videos %}
+  <div id="videoModal-{{obj.id}}" class="reveal-modal medium">
+  <h2>{{obj.nombre}}</h2>
+  <div class="flex-video">
+    {% video obj.url as video %}
+      {{video|embed:"640x480"}}  
+    {% endvideo %}
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+{% endfor %}
+<!--Video Modal box content --> 
+{% endblock contenido %}

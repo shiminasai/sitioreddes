@@ -1,0 +1,23 @@
+{% load menubuilder %}
+<div class="footer">
+<div class="row">
+  <div class="large-12 footer columns">
+<nav class="menu-footer">
+        <ul class="large-9 footer-menu columns">
+          {% menu principal %}
+        {% for item in menuitems %}
+          <li><a href="{{ item.url }}" title="{{ item.title|escape }}"{% if item.current %} class='current'{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}  
+        </ul>
+</nav>
+  <div class="large-2 redes-sociales columns">
+    <img src="/static/img/facebook.png">
+    <a href="http://www.youtube.com/cesesma"><img src="/static/img/youtube.png"></a>
+    <a href="/contactenos/"><img src="/static/img/mail.png"></a>
+  </div>
+   <span class="copyright">
+    <a href="/admin">Iniciar Sesión</a><br><br>
+    Auspiciado por FED-HIVOS.<br>Desarrollo por <a href="http://www.simas.org.ni">SIMAS</a>  bajo plataforma<a href="https://www.djangoproject.com/">&nbsp;Django</a> </span>
+  </div>
+</div>
+</div>

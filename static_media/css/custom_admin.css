@@ -1,0 +1,10 @@
+.geoposition-map img {
+    max-width: none !important;
+ }
+ .copyright {
+    display: none;
+ }
+
+ .tools {
+    display: none;
+ }

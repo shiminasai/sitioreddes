@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block contenido %}
+
+  
+<div class="row">
+ <div class="large-12 columns">
+
+
+   <h1 class="content-title">Noticias</h1>
+
+   <div class="filtro">
+    <h4 class="cat-titles">Buscar por Categorias</h4>
+<div class="box-blue tabb"><a href="{% url 'noticias_categoria' 'nines-adolecencia' %}">Niñez y adolescencia</a></div>
+<div class="box-blue tabb"><a href="{% url 'noticias_categoria' 'cesesma' %}">CESESMA</a></div>
+<div class="box-purple tabb"><a href="{% url 'noticias_categoria' 'territorio' %}">Sobre Territorio</a></div>
+</div>
+  
+  <div class="post-news">
+     {% for noticia in object_list %}
+       <div class="list-post-news">
+        {% if noticia.fotos.all %}
+          {% for imagen in noticia.fotos.all|slice:"1" %}
+          {% thumbnail imagen.imagen "220x160" crop="10%" as img %}
+              <div class="img-news-list"><a href="{{noticia.get_absolute_url}}"><img src="/media/{{img}}"></a></div>
+          {% endthumbnail %}          
+        {% endfor %}
+        {%else%}
+   <div class="img-news-list"><a href="{{noticia.get_absolute_url}}">
+    <img src="http://placehold.it/220x160"></a></div>
+        {% endif %}
+        <span class="fecha-inicio">Publicado:{{noticia.fecha|date:"j  F, Y"}}</span>
+        <h2 class="tlist-news"><a href="{{noticia.get_absolute_url}}">{{noticia.titulo}}</a></h2>
+        <div class="news-post-list">{{ noticia.descripcion|striptags|safe|truncatewords:16 }}</div>
+        <a class="more-news" href="{{noticia.get_absolute_url}}">Leer m&aacutes</a>
+      </div>
+	{% endfor %}
+  </div>
+
+  <div class="paginador">
+    <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="arrow unavailable"><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% endif %}
+    {% for numero in page_obj.paginator.page_range %}
+      <li class="{%if numero == 1 %}current{%endif%}"><a href="?page={{numero}}">{{numero}}</a></li>
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="arrow"><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% endif %}
+    </ul>
+  </div>
+
+ </div> 
+</div>
+ 
+  
+
+
+{% endblock %}

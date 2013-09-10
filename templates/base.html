@@ -1,0 +1,173 @@
+<!doctype html>
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]--> 
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+{% load staticfiles %}
+<head>
+
+	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<title>{% block title %}Cesesma{% endblock title %}</title>
+
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}" /> 
+	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" /> 
+	<link rel="stylesheet" href="{% static 'css/global.css' %}" />
+	
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<script src="{% static 'js/vendor/custom.modernizr.js' %}"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-43362921-1', 'cesesma.net');
+      ga('send', 'pageview');
+    </script>
+
+</head>
+{% load menubuilder %}
+{% load googlesearch_inclusion_tags %}
+<body>
+<!--header -->
+<div class="line-header"></div>
+<div class="top-header">
+<div class="row">
+<div class="large-12 top-header columns">
+<!--logo -->
+<a href="/"><div class="logo"></div></a>
+<!--logo -->
+
+ <div class="redes-front">
+    <a href="/contactenos/"><img src="/static/img/mail.png"></a>
+    <img src="/static/img/facebook.png">
+    <a href="http://www.youtube.com/cesesma"><img src="/static/img/youtube.png"></a> 
+    </div>
+
+  <div class="large-4 search columns">
+  	
+  <div class="small-11 columns">
+    {% googlesearch_form %}
+  </div>
+      
+
+  </div>
+
+<!--Menu principal -->
+
+<div class="menu-principal">
+<nav class="nav alineado">
+	<ul class="nav-list">{% menu principal %}
+        <li  class="nav-item home"><a href="/"><img src="/static/img/casa3.png" alt="inicio"></a></li>
+		{% for item in menuitems %}
+			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} class='current' data-dropdown="drop1"{% endif %}>{{ item.title }}</a></li>
+		{% endfor %}
+
+        <ul id="drop1" class="f-dropdown" data-dropdown-content>{%submenu  submenuprincipal%}
+            {% for item in submenu_items %}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}   
+        </ul>
+
+
+   </ul>
+</nav>
+</div>
+<!--Menu Principal -->
+</div>
+</div>
+</div>
+{% block contenido %}{% googlesearch_results %}{% endblock contenido %}
+{% include "footer.html" %}
+<script> 
+  document.write('<script src=' + 
+	('__proto__' in {} ? '/static/js/vendor/zepto' : '/static/js/vendor/jquery') + 
+	'.js><\/script>') 
+</script> 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="{% static 'js/foundation/foundation.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.alerts.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.clearing.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.cookie.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.dropdown.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.forms.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.joyride.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.magellan.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.orbit.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.placeholder.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.reveal.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.section.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.tooltips.js' %}"></script> 
+<script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
+<script src="{% static 'js/audio.min.js' %}"></script> 
+{% block extra_js %}{% endblock extra_js %}
+<script> $(document).foundation(); </script>
+<script>
+    (function () {
+    
+        // Create mobile element
+        var mobile = document.createElement('div');
+        mobile.className = 'nav-mobile';
+        document.querySelector('.nav').appendChild(mobile);
+    
+        // hasClass
+        function hasClass(elem, className) {
+            return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+        }
+    
+        // toggleClass
+        function toggleClass(elem, className) {
+            var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, ' ') + ' ';
+            if (hasClass(elem, className)) {
+                while (newClass.indexOf(' ' + className + ' ') >= 0) {
+                    newClass = newClass.replace(' ' + className + ' ', ' ');
+                }
+                elem.className = newClass.replace(/^\s+|\s+$/g, '');
+            } else {
+                elem.className += ' ' + className;
+            }
+        }
+    
+        // Mobile nav function
+        var mobileNav = document.querySelector('.nav-mobile');
+        var toggle = document.querySelector('.nav-list');
+        mobileNav.onclick = function () {
+            toggleClass(this, 'nav-mobile-open');
+            toggleClass(toggle, 'nav-active');
+        };
+    })();
+    </script>
+<script type="text/javascript">
+try{document.getElementsByName('googleSearchFrame')[0].height=900;}catch(e){}
+</script>
+<div id='IrArriba'>
+<a href='#Arriba'><span/></a>
+</div>
+<script type='text/javascript'>
+$(document).ready(function() {
+        $("#IrArriba").hide();
+    $(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+                $('#IrArriba').fadeIn();
+            } else {
+                $('#IrArriba').fadeOut();
+            }
+        });
+        $('#IrArriba a').on("click", function () {
+            $('html, body').animate({
+                scrollTop: 0}, 800);
+                return false;
+                console.log("di click aca");
+        });
+});
+
+});
+</script>
+
+</body>
+</html>

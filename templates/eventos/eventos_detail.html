@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load thumbnail%}
+
+{% block extra_js %}
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script>
+  function initialize() {
+  var myLatlng = new google.maps.LatLng({{object.position}});
+  var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hola!'
+  }); 
+};
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+{% endblock extra_js %}
+
+{% block contenido %}
+
+<style>
+  #map-canvas {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    height: 250px;
+  }
+</style>
+
+<div class="row">
+
+ <div class="large-12 columns">
+
+  <div class="large-9  columns">
+    <h1 class="content-title">{{object.titulo}}</h1>
+    <div class="pg-single">
+        <div class="event-image">
+        {% if object.fotos.all %}
+          {% for imagen in object.fotos.all|slice:"1" %}
+            {% thumbnail imagen.imagen "300x250" crop="1%" as img %}
+                <div class="img-pagina"><img src="/media/{{img}}"></div>
+            {% endthumbnail %} 
+          {%endfor%}
+       {% else %}
+         <div class="img-pagina"><img src="http://placehold.it/300x250"></div>
+      {% endif %}
+
+        </div>
+    
+    <div id="map-canvas"></div>
+  
+    
+    <br>
+  <div class="event-info-date">fecha del evento:{{object.fecha_inicio|date:"j-m-Y"}} hasta {{object.fecha_finalizacion|date:"j-m-Y"}}</div>
+      <div class="text-pages-event">
+        {{object.descripcion|safe}}
+       </div>
+
+
+  
+    </div>
+  
+   </div>
+  
+  <div class="large-3 side-barc columns">
+    <div class="title-sidebar">Noticias</div>
+
+    <div class="news-sidebar">
+    {% for obj in noticias %}
+      <div class="text-news-side"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
+    {% endfor %}  
+    <div class="read-more-side"><a href="/noticias/lista/">Leer m&aacutes</a></div>
+    </div>
+    
+    <div class="title-sidebar">Eventos</div>
+    <div class="event-sidebar">
+    {% for obj in eventos %}
+      <div class="calendar-icon">{{obj.fecha_inicio|date:"j M"}}</div>
+      <div class="text-sidebar"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
+    {% endfor %}
+    </div>
+
+  </div>
+
+ 
+
+</div>
+</div>
+</div>
+{% endblock contenido %}

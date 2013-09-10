@@ -98,9 +98,25 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'suit',
     'django.contrib.admin',
+    'django.contrib.flatpages',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'noticias',
+    'eventos',
+    'publicaciones',
+    #'foros',
+    'multimedia',
+    'socios',
+    # Terceras aplicaciones
+    'sorl.thumbnail',
+    'ckeditor',
+    'south',
+    'geoposition',
+    'embed_video',
+    'captcha',
+    'taggit',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -131,3 +147,26 @@ LOGGING = {
         },
     }
 }
+
+CKEDITOR_UPLOAD_PATH = os.environ.get('MEDIA_ROOT',os.path.join(SITE_ROOT, 'media'))
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            [      'Undo', 'Redo','Source',
+              '-', 'Bold', 'Italic', 'Underline','NumberedList','BulletedList',
+              '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock',
+              '-', 'Link', 'Unlink', 'Anchor',
+              '-', 'SpellChecker', 'Scayt','Image','Table',
+              '-', 'Cut','Copy','PasteText',
+            ],
+        ],
+        'width':'600',
+    },
+}
+#google search id
+#GOOGLE_SEARCH_PARTNER_ID = '008303288612978745529:bgtlcjhszgs'
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Administracion RED-DES',    
+}
+CAPTCHA_FONT_SIZE = 44

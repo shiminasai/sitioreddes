@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load admin_static %}
+
+
+{% block extrastyle %}
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/custom_admin.css" /> 
+{% endblock %}
+
+{% block header_content %}
+    {{ block.super }}
+    <div class="header-content">
+        <div class="header-column icon">
+            <i class="icon-home"></i><br>
+        </div>
+        <div class="header-column">
+            <a href="/" class="grey">clic para ver sitio</a><br>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block extra_js %}
+<link rel="stylesheet" href="{% static 'css/alertify.core.css' %}" />
+<link rel="stylesheet" href="{% static 'css/alertify.default.css' %}" />
+<script src="{% static 'js/alertify.js' %}"></script>
+  <script type="text/javascript">
+  $(document).ready(function($) {
+
+
+    $('#pony_form').on("submit", function(e){
+        e.preventDefault();
+        $.post('{% url 'contacto_ajax' %}', $("#pony_form").serialize(),
+          function(data) {
+            data = eval('('+data+')');
+            if ("exito" == data){
+                  $('#pony_form')[0].reset();
+
+                  $.getJSON('/captcha/refresh/', {}, function(json) {
+                  $('.captcha').attr('src', json.image_url);
+                  $('#id_captcha_0').val(json.key);
+                  $('#id_captcha_1').val('');
+                  });
+
+                   alertify.success("Se ha enviado con exito su mensaje gracias.");
+                }else{
+                    console.log("hubo un error");
+                    alertify.error("Ocurrieron error lo lamentamos vuelva a intentar");
+                }
+      });
+  });
+
+    $('.js-captcha-refresh').click(function(){
+    $form = $(this).parents('form');
+
+    $.getJSON($(this).data('url'), {}, function(json) {
+        // This your should update captcha image src and captcha hidden input
+    });return false;
+});
+ 
+ });
+</script>
+{% endblock extra_js %}
+
+{% block contenido %}
+
+  <div class="row">
+  
+  <h1 class="content-title">Contactenos</h1>
+  </div>
+  <div class="bg-single">
+  <div class="row">
+   <div class="large-12 columns">
+    <div class="large-6 contactos column">
+      
+      <form id="pony_form" method="POST" class='form-horizontal' >{% csrf_token %}
+      {% for field in form %}
+        <div class='control-group{% if field.errors %} error{% endif %}'>
+            <label class='control-label' for='{{ field.auto_id }}'>{{ field.label }}</label>
+            <div class='controls'>
+            {{ field }}
+            {% for error in field.errors %}
+            <span class='help-inline'>{{ error }}</span>
+            {% endfor %}
+            </div>
+        </div> 
+      {% endfor %}
+    <div class='form-actions'>
+        <input type="submit" class="tiny submit button" value="Enviar" />
+    </div>
+    </form>
+    </div>
+  <div class="large-5 contactos columns">
+    {% if texto2 %}
+       {% for obj in texto2 %}
+         {{obj.texto|safe}}
+       {% endfor %}
+    {%else%}
+      <p>No existe texto</p>
+    {% endif %} 
+  </div>
+  </div>
+ </div>
+</div>
+
+{% endblock contenido %}

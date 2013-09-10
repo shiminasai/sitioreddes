@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load thumbnail%}
+{% block contenido %}
+
+ 
+
+ <div class="row">
+  <div class="large-12 columns">
+  
+
+    <div class="large-9 columns">
+      <h1 class="content-title">Eventos</h1>
+        {% for obj in object_list %}
+        <div class="event-list">
+         <div class="event-image-list">
+      {% if obj.fotos.all %}
+          {% for imagen in obj.fotos.all|slice:"1" %}
+            {% thumbnail imagen.imagen "150x100" crop="1%" as img %}
+                <div class="img-pagina"><img src="/media/{{img}}"></div>
+            {% endthumbnail %} 
+          {%endfor%}
+      {% else %}
+         <div class="img-pagina"><img src="http://placehold.it/150x100"></div>
+      {% endif %}
+         </div>
+            <span class="title-event">
+            <a href="{{ obj.get_absolute_url }}">{{ obj.titulo }}</a>
+            </span>
+            <br>
+            <span class="texto-fecha">inicio:{{ obj.fecha_inicio|date:"j/m/Y" }} &nbsp; terminacion: {{obj.fecha_finalizacion|date:"j/m/Y"}}</span>
+            <br><br>
+            <span class="text-event">Descripcion:
+            {{ obj.descripcion|striptags|safe|truncatewords:8 }}<br></span>
+            <a class="tiny audios-d button" href="{{ obj.get_absolute_url }}">ver más</a>
+            </div>
+        {% endfor %}
+
+	</div>
+	
+	<div class="large-3 columns">
+   
+     <h4 class="donacion">Como colaborar con CESESMA?</h4>
+    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
+    <br>
+    <br>
+    
+
+  </div>
+
+  </div>
+  
+ </div>
+
+
+
+{% endblock %}

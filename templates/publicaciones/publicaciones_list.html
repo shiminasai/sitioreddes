@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load thumbnail%}
+{% block contenido %}
+
+
+
+
+<div class="row">
+<div class="large-9 columns">
+<h1 class="content-title">Publicaciones</h1>
+
+
+  <div class="pub-list">
+        {% for publicacion in object_list %}
+		  <div class="pub-view">
+        {% if publicacion.portada %}
+            {% thumbnail publicacion.portada "150x200" crop="1%" as img %}
+             <img src="/media/{{img}}">
+            {% endthumbnail %} 
+       {% else %}
+         <img src="http://placehold.it/150x200">
+      {% endif %}
+       <h2 class="pub-descripcion">
+        <a href="{{ publicacion.get_absolute_url }}">{{ publicacion.titulo }}</a><br>
+        <span class="fecha-list"> {{ publicacion.fecha }}</span>
+      
+
+        </h2>
+      </div>
+    {% empty %}
+        <p>No hay publicacion</p>
+
+       {% endfor %}
+
+  </div>
+    
+</div>
+<div class="large-3 columns">
+  <h4 class="donacion">Como colaborar con CESESMA?</h4>
+    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
+    <br>
+    <br>
+  
+</div>
+
+<div class="paginador">
+    <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="arrow unavailable"><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% endif %}
+    {% for numero in page_obj.paginator.page_range %}
+      <li class="{%if numero == 1 %}current{%endif%}"><a href="?page={{numero}}">{{numero}}</a></li>
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="arrow"><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% endif %}
+    </ul>
+  </div>
+
+</div>
+
+{% endblock %}

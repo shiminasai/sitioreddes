@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}{{flatpage.title}}{% endblock %}
+
+{% block contenido %}
+
+
+
+<div class="row">
+
+ <div class="large-12 columns">
+    
+ 
+ <div class="large-9  columns">
+  <h1 class="single-title">{{flatpage.title}}</h1>
+    <div class="pg-single">
+      <div class="text-pages">
+        {{flatpage.content|safe}}
+      </div>
+    </div>
+ </div>
+
+ <div class="large-3 columns">
+  <br>
+  <h4 class="donacion">Como colaborar con CESESMA?</h4>
+    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
+    <br>
+    <br>
+    <div class="box-green">
+      <ul class="secondary-menu">
+        {% for obj in menu_flat %}
+          <li><a href="{{obj.url}}">{{obj.title}}</a></li>
+        {% empty %}
+          <li><a href="#">No existe paginas creadas</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <br>
+    <div class="title-sidebar">Noticias</div>
+    <div class="news-sidebar">
+    {% for obj in noticias %}
+    	<div class="text-news-side"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
+    {% endfor %}
+    </div>
+    <div class="read-more-side"><a href="{% url 'noticias_lista' %}">Leer mas</a></div>
+    
+  	</div>
+ </div>
+</div>
+
+{% endblock contenido %}

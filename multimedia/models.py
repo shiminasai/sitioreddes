@@ -29,6 +29,11 @@ class Audio(models.Model):
 	nombre = models.CharField(max_length=150)
 	audio = models.FileField(upload_to=get_file_path, null=True, blank=True)
 	tags_audio = TaggableManager()
+
+	content_type = models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	content_object = generic.GenericForeignKey('content_type', 'object_id')
+
 	fileDir = 'audios/'
 	
 	def __unicode__(self):
@@ -40,6 +45,11 @@ class Videos(models.Model):
 	nombre= models.CharField(max_length=200, null=True, blank=True)
 	url = models.URLField(null=True, blank=True)
 	tags_video = TaggableManager()
+
+	content_type = models.ForeignKey(ContentType)
+	object_id = models.PositiveIntegerField()
+	content_object = generic.GenericForeignKey('content_type', 'object_id')
+
 
 	def __unicode__(self):
 		return self.nombre

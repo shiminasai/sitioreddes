@@ -106,7 +106,7 @@ INSTALLED_APPS = (
     'noticias',
     'eventos',
     'publicaciones',
-    #'foros',
+    'foros',
     'multimedia',
     'socios',
     # Terceras aplicaciones

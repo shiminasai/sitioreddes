@@ -10,11 +10,16 @@ from django.core.urlresolvers import reverse
 from taggit.managers import TaggableManager
 from geoposition.fields import GeopositionField
 from multimedia.models import Adjuntos
+from socios.models import Pais
 
 # Create your models here.
 class Categoria(models.Model):
     nombre = models.CharField(max_length=200)
-    slug = models.SlugField()
+    slug = models.SlugField(editable=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = (slugify(self.nombre))
+        super(Categoria, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.nombre
@@ -27,10 +32,11 @@ class Eventos(models.Model):
     slug = models.SlugField(max_length=200,editable=False)
     fecha_inicio = models.DateField()
     fecha_finalizacion = models.DateField()
+    pais = models.ForeignKey(Pais)
     descripcion = RichTextField('Descripción')
     position = GeopositionField(null=True, blank=True)
     fotos = generic.GenericRelation(Fotos)
-    categoria= models.ForeignKey(Categoria,null=True, blank=True)
+    categoria= models.ForeignKey(Categoria, null=True, blank=True)
     tags = TaggableManager()
     adjunto = generic.GenericRelation(Adjuntos)
 

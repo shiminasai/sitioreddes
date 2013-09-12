@@ -117,6 +117,8 @@ INSTALLED_APPS = (
     'embed_video',
     'captcha',
     'taggit',
+    'menu',
+    'googlesearch',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -165,7 +167,7 @@ CKEDITOR_CONFIGS = {
     },
 }
 #google search id
-#GOOGLE_SEARCH_PARTNER_ID = '008303288612978745529:bgtlcjhszgs'
+GOOGLE_SEARCH_PARTNER_ID = '008303288612978745529:bgtlcjhszgs'
 SUIT_CONFIG = {
     'ADMIN_NAME': 'Administracion RED-DES',    
 }

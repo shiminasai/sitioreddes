@@ -7,7 +7,7 @@
 	<meta charset="utf-8" /> 
 	<meta name="viewport" content="width=device-width" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-	<title>{% block title %}Cesesma{% endblock title %}</title>
+	<title>{% block title %}REDDES{% endblock title %}</title>
 
 	<link rel="stylesheet" href="{% static 'css/normalize.css' %}" /> 
 	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" /> 
@@ -34,53 +34,48 @@
 {% load googlesearch_inclusion_tags %}
 <body>
 <!--header -->
-<div class="line-header"></div>
-<div class="top-header">
-<div class="row">
-<div class="large-12 top-header columns">
-<!--logo -->
-<a href="/"><div class="logo"></div></a>
-<!--logo -->
 
- <div class="redes-front">
-    <a href="/contactenos/"><img src="/static/img/mail.png"></a>
-    <img src="/static/img/facebook.png">
-    <a href="http://www.youtube.com/cesesma"><img src="/static/img/youtube.png"></a> 
+<div class="top-header">
+
+<!--logo -->
+<a href="/"><div class="reddes_logo"></div>
+</a>
+<!--logo -->
+<!--Menu principal -->
+<header id="header_container">
+<div class="row">
+    <div class="large-12 columns">
+    <div class="menu-principal">
+    <nav class="nav alineado">
+    	<ul class="nav-list">{% menu principal %}
+            <li  class="nav-item home"><a href="/"><img src="/static/img/home.png" alt="inicio"></a></li>
+    		{% for item in menuitems %}
+    			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} class='current' data-dropdown="drop1"{% endif %}>{{ item.title }}</a></li>
+    		{% endfor %}
+            <ul id="drop1" class="f-dropdown" data-dropdown-content>{%submenu  submenuprincipal%}
+                {% for item in submenu_items %}
+                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                {% endfor %}   
+            </ul>
+       </ul>
+    </nav>
     </div>
 
-  <div class="large-4 search columns">
-  	
-  <div class="small-11 columns">
-    {% googlesearch_form %}
-  </div>
-      
+    <div class="social_icons">
+    <img src="/static/img/facebook.png">
+    <img src="/static/img/twitter.png">
+    </div>
 
-  </div>
+    <div class="search_box">{% googlesearch_form %}</div>
 
-<!--Menu principal -->
-
-<div class="menu-principal">
-<nav class="nav alineado">
-	<ul class="nav-list">{% menu principal %}
-        <li  class="nav-item home"><a href="/"><img src="/static/img/casa3.png" alt="inicio"></a></li>
-		{% for item in menuitems %}
-			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} class='current' data-dropdown="drop1"{% endif %}>{{ item.title }}</a></li>
-		{% endfor %}
-
-        <ul id="drop1" class="f-dropdown" data-dropdown-content>{%submenu  submenuprincipal%}
-            {% for item in submenu_items %}
-                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% endfor %}   
-        </ul>
-
-
-   </ul>
-</nav>
+    </div>
+    
 </div>
+</header>
 <!--Menu Principal -->
-</div>
-</div>
-</div>
+</div><!--Top Header -->
+
+
 {% block contenido %}{% googlesearch_results %}{% endblock contenido %}
 {% include "footer.html" %}
 <script> 
@@ -91,16 +86,6 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="{% static 'js/foundation/foundation.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.alerts.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.clearing.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.cookie.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.dropdown.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.forms.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.joyride.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.magellan.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.orbit.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.placeholder.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.reveal.js' %}"></script> 
-<script src="{% static 'js/foundation/foundation.section.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.tooltips.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
 <script src="{% static 'js/audio.min.js' %}"></script> 

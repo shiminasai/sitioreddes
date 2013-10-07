@@ -8,186 +8,148 @@
 {% block contenido %}
 <!--header -->  
 
-<div class="row">
-  <div class="large-12 top-content columns">
-
-  <div class="large-12 columns">
-    <div class="slide-img">
+<section id= "hero-content">
+    
+  <div class="slide-img">
       <ul data-orbit>
       {% for obj in ultimas_destacadas %}
         {% for imagen in obj.fotos.all|slice:"1" %}
         <li>
-          {% thumbnail imagen.imagen "960x380" crop="10%" as img %}
+          {% thumbnail imagen.imagen "960x370" crop="10%" as img %}
             <img src="/media/{{img}}">
             <div class="orbit-caption"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div> 
           {% endthumbnail %}
         </li>
         {% endfor %}
       {% empty %}
-        <li><img src="http://placehold.it/960x380"></li>
+        <li><img src="http://placehold.it/960x370"></li>
     {% endfor %}
      </ul>
     </div>
- 
-    <div class="large-8 cont-donacion columns">
-     <h1 class="welcome">Bienvenidas y bienvenidos a CESESMA</h1>
-      <div class="text-welcome">
-      {% for  obj in texto %}
-          {{obj.texto|safe}}
-      {% empty %}
-          <p>No hay nada que mostrar</p>
-      {% endfor %} 
-      </div>
-    </div>
 
-     <div class="large-4 cont-donacion columns">
+</section><!--hero content  final -->
 
-      <span class="donacion"> Colabora con CESESMA</span>
-      <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
-     </div>
-
-
-
-  </div>
-  
-  </div>
-  </div><!--row top content  final -->  
-
+<section class="feeds-content">
 <div class="row">
- 
-<div class="large-12 columns">
-
- <div class="content">
-  <div class="icons-bar">
-  <span class="text-actores">Actores involucrados</span>
-
-   
-   <ul class="act-inv">
-     
-     <li class="ninos-icon"><br><br><br><a href="/ninos-ninas/">Niños, niñas y adolescentes</a></li>
-     <li class="red-icon"><a href="/promotores/"><br><br><br>Red de promotoras/es </a></li>
-     <li class="padres-icon"><a href="/familias/"><br><br><br>Madres - padres</a></li>
-     <li class="lideres-icon"><a href="/lideres/"> <br><br><br>Líderes y liderezas comunitarias</a></li>
-     <li class="maestros-icon"><a href="/familias/"><br><br><br>Maestras - maestros</a></li>
-     
-   </ul>
+<div class="large-12 column">
+<section class="tabs">
+  <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+    <label for="tab-1" class="tab-label-1">Energia renovable</label>
+    
+  <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+    <label for="tab-2" class="tab-label-2">Produccion Sostenible</label>
+    
+  <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
+    <label for="tab-3" class="tab-label-3">Fortalecimiento institucional</label>
+      
+          <div class="clear-shadow"></div>
+        
+  <div class="content">
+    <div class="content-1">
+      <h2>About us</h2>
+         <p>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.</p>
+            
+    </div>
+    <div class="content-2">
+      <h2>Services</h2>
+         <p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.</p>
+           
+    </div>
+    <div class="content-3">
+      <h2>Portfolio</h2>
+        <p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
+            
+    </div>
+            
   </div>
- </div>
-</div><!--large-12 content-principal  -->
-</div><!-- Content row-->
+</section><!--end section tab content -->
+</div>
+</div>
+</section><!--end section feed content -->
 
-<div class=" noticias-bg">
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="title-bar">Noticias</div>
-      <div class="news-post">
-
-       {% for noticia in ultimas_noticias %}
-        <div class="list-news">
-        {% if noticia.fotos.all %}
-          {% for imagen in noticia.fotos.all|slice:"1" %}
-            {% thumbnail imagen.imagen "210x157" crop="10%" as img %}
-              <div class="img-news"><a href="{{noticia.get_absolute_url}}"><img src="/media/{{img}}"></a></div>
-            {% endthumbnail %}          
-          {% endfor %}
-        {%else%}
-          <div class="img-news"><a href="{{noticia.get_absolute_url}}"><img src="http://placehold.it/210x157"></a></div>
-        {% endif %}        
-          <span class="fecha-inicio">Publicado:{{noticia.fecha|date:"j  F, Y"}}</span>
-          <h2 class="title-news"><a href="{{noticia.get_absolute_url}}">{{noticia.titulo}}</a></h2>
-          <div class="text-news">{{ noticia.descripcion|striptags|safe|truncatewords:16 }}</div>
+<section class="content-digital">
+<div class="row">
+<div class="large-6 columns">
+  <div class="title-bar">Publicaciones</div>
+      {% for publicacion in ultimas_publicaciones %}
+        <div class="pub-front">
+      {% if publicacion.portada %}
+      {% thumbnail publicacion.portada "165x210" crop="10%" as img %}
+        <a href="{{publicacion.get_absolute_url}}"><img src="/media/{{img}}"></a>
+      {% endthumbnail %}
+      {%else%}
+        <img src="http://placehold.it/165x210">
+      {%endif%}
+        <h2 class="title-pub"><a href="{{publicacion.get_absolute_url}}">{{publicacion.titulo|truncatewords:3}}</a></h2>
         </div>
-        {% empty %}
-          <p>No hay noticias</p>
+      {% empty %}
+        <p>No hay publicacion</p>
       {% endfor %}
       <div class="read-more">
-        <img src="{{STATIC_URL}}img/plus.png">
-        <a href="{% url 'noticias_lista' %}">Ver más</a></div>
-
+        <img src="{{STATIC_URL}}img/arrow-left.png">
+        <a href="{% url 'publicaciones_lista' %}">Ver más</a>
       </div>
-      </div>
-  </div>
 </div>
-<div class="content-multi">
-  <div class="row">
-    <div class="large-12 columns">
-      
-    <div class="large-5  columns">
-
-        <div class="title-bar">Publicaciones</div>
-        
-        {% for publicacion in ultimas_publicaciones %}
-        <div class="pub-front">
-        {% if publicacion.portada %}
-        {% thumbnail publicacion.portada "165x210" crop="10%" as img %}
-          <a href="{{publicacion.get_absolute_url}}"><img src="/media/{{img}}"></a>
-        {% endthumbnail %}
-        {%else%}
-          <img src="http://placehold.it/165x210">
-        {%endif%}
-          <h2 class="title-pub"><a href="{{publicacion.get_absolute_url}}">{{publicacion.titulo|truncatewords:3}}</a></h2>
-        </div>
-        {% empty %}
-            <p>No hay publicacion</p>
-        {% endfor %}
-      <div class="read-more">
-        <img src="{{STATIC_URL}}img/plus.png">
-        <a href="{% url 'publicaciones_lista' %}">Ver más</a></div>
-    </div>
-  <div class="large-7 columns">
-    
-    <div class="video-box">
-      <div class="title-bar">Multimedia</div>
+  
+  <div class="large-3 columns">
+    <div class="title-bar">Multimedia</div>
     {% for obj in ultimos_videos %}
       <div class="video-sample">{% video obj.url as video %}
-        <div class="play-icon"><a data-reveal-id="videoModal-{{obj.id}}" href="">
+        <div class="play-icon">
+          <a data-reveal-id="videoModal-{{obj.id}}" href="">
             <img src="{{STATIC_URL}}img/play.png">
-          </a></div>
-                                <a data-reveal-id="videoModal-{{obj.id}}" href=""><img src="{{ video.thumbnail}}" alt=""></a>
-                                {% endvideo %}
+          </a>
+        </div>
+         <a data-reveal-id="videoModal-{{obj.id}}" href="">
+          <img src="{{ video.thumbnail}}" alt="">
+         </a>
+          {% endvideo %}
       </div>
     {% endfor %}
     <div class="read-more">
-        <img src="{{STATIC_URL}}img/plus.png">
-        <a href="{% url 'videos_lista' %}">Ver más</a></div>
+        <img src="{{STATIC_URL}}img/arrow-left.png">
+        <a href="{% url 'videos_lista' %}">Ver más</a>
     </div>
-
-    <div class="title-bar">Próximos eventos</div>
-      <div class="eventos">
-        
-      {% for evento in ultimos_eventos %}
-        <div class="eventos-fronts">
-          <div class="fecha-box">
-            <div class="calendar-icon-front"></div>{{evento.fecha_inicio|date:"j M"}}
-          </div>
-          <div class="event-content">
-          <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:8 }}</a></h2>
-          
-          </div>
-         </div>
-        {% empty %}
-            <p>No hay evento</p>
-        {% endfor %}
-     <div class="read-more">
-        <img src="{{STATIC_URL}}img/plus.png">
-        <a href="{% url 'evento_lista' %}">Ver más</a></div>
-      </div>
-
   </div>
-    
-  <div class="large-7 columns">
-  
-  
-
-  </div><!--large-7 videos -->    
-
-
-
-
-
-   </div>
+  <div class="large-3 columns">
+    <div class="title-bar"> Plataformas y blogs</div>
   </div>
 </div>
+
+</section><!--end section digital content -->
+
+<section class="social-content">
+<div class="row">
+  <div class="large-3 columns">
+    <div class="title-bar">Unete a RED-DES</div>
+    <div class="socio_button">Hazte socio</div>
+  </div>
+  <div class="large-4 columns">
+    <div class="title-bar calendar">Próximos eventos</div>
+    <div class="eventos">
+            
+        {% for evento in ultimos_eventos %}
+          <div class="eventos-fronts">
+            <div class="fecha-box">
+              <div class="calendar-icon-front"></div>{{evento.fecha_inicio|date:"j M"}}
+              </div>
+            <div class="event-content">
+              <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:8 }}</a></h2>
+              
+            </div>
+          </div>
+        {% empty %}
+          <p>No hay evento</p>
+        {% endfor %}
+        <div class="read-more">
+          <img src="{{STATIC_URL}}img/arrow-left.png">
+            <a href="{% url 'evento_lista' %}">Ver más</a>
+        </div>
+      </div>
+  </div>
+</div>
+</section><!--end section social --> 
+
 
 <!--Video Modal box content --> 
 {% for obj in ultimos_videos %}

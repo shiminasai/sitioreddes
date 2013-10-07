@@ -20,8 +20,21 @@ class AdjuntosAdmin(generic.GenericTabularInline):
 	extra = 1
 
 class NoticiasAdmin(admin.ModelAdmin):
-	inlines = [FotosAdmin, AdjuntosAdmin]
-	list_display = ['titulo','fecha','autor']
+    def queryset(self, request):
+        if request.user.is_superuser:
+            return self.model.objects.all()
+        elif request.user.is_staff:
+            return self.model.objects.filter(autor=request.user)
+
+    def save_model(self, request, obj, form, change):
+        instance = form.save(commit=False)
+        instance.autor = request.user
+        instance.save()
+        return instance
+
+    exclude = ['autor']
+    inlines = [FotosAdmin, AdjuntosAdmin]
+    list_display = ['titulo','fecha','autor']
 
 
 class FlatpageForm(FlatpageFormOld):

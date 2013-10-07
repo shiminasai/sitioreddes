@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from settings import *
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -15,3 +17,10 @@ urlpatterns = patterns('',
     url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^search/', include('googlesearch.urls')),
 )
+
+urlpatterns += staticfiles_urlpatterns()
+
+if DEBUG:
+    urlpatterns += patterns('',
+                (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
+                )

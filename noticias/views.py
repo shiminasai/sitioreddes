@@ -9,13 +9,18 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
 from tagging.models import Tag, TaggedItem
-
+from socios.models import Pais
 
 def index(request, template='index.html'):
     #ultimas 3 noticias
-    ultimas_noticias = Noticias.objects.order_by('-fecha')[0:4]
-    #ultimas 4 noticias destacadas
-    ultimas_destacadas = Noticias.objects.filter(destacada=True).order_by('-id')[0:4]
+    noticias_energia = Noticias.objects.filter(id=1).order_by('-fecha')[0:4]
+    noticias_produccion = Noticias.objects.filter(id=2).order_by('-fecha')[0:4]
+    noticias_fortalecimiento = Noticias.objects.filter(id=3).order_by('-fecha')[0:4]
+    #ultimas 5 noticias de distintos paises destacadas
+    ultimas_destacadas = []
+    for obj in Pais.objects.all():
+        ultimas_destacadas.append(Noticias.objects.filter(destacada=True,pais=obj).order_by('-id')[0:2])
+
     #2 videos 
     ultimos_videos = Videos.objects.order_by('-id')[0:2]
     #2 eventos
@@ -27,13 +32,15 @@ def index(request, template='index.html'):
     #testo al inicio de la pagina
     texto = InicioTexto.objects.filter(id=1)
     
-    return render(request, template, {'ultimas_noticias':ultimas_noticias,
-                                       'ultimas_destacadas':ultimas_destacadas,
-                                       'ultimos_videos':ultimos_videos,
-                                       'ultimos_eventos':ultimos_eventos,
-                                       'ultimas_publicaciones':ultimas_publicaciones,
-                                       'ultimos_audios':ultimos_audios,
-                                       'texto':texto})
+    return render(request, template, {'noticias_energia':noticias_energia,
+                        'noticias_produccion':noticias_produccion,
+                        'noticias_fortalecimiento':noticias_fortalecimiento,
+                        'ultimas_destacadas':ultimas_destacadas,
+                        'ultimos_videos':ultimos_videos,
+                        'ultimos_eventos':ultimos_eventos,
+                        'ultimas_publicaciones':ultimas_publicaciones,
+                        'ultimos_audios':ultimos_audios,
+                        'texto':texto})
 
 
 class NoticiasList(ListView):

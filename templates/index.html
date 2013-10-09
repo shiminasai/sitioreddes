@@ -11,13 +11,15 @@
   <div class="slide-img">
       <ul data-orbit>
       {% for obj in ultimas_destacadas %}
-        {% for imagen in obj.fotos.all|slice:"1" %}
+        {% for caratula in obj %}
+          {% for imagen in caratula.fotos.all|slice:"1" %}
         <li>
           {% thumbnail imagen.imagen "960x370" crop="10%" as img %}
             <img src="/media/{{img}}">
             <div class="orbit-caption"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div> 
           {% endthumbnail %}
         </li>
+        {% endfor %}
         {% endfor %}
       {% empty %}
         <li><img src="http://placehold.it/960x370"></li>
@@ -49,10 +51,24 @@
               {% for obj in noticias_energia %}
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion}} <br>
+                {{obj.descripcion|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre energia renovable</p>
               {% endfor %} 
+         </p>
+         <p>
+           {% for obj in ultimas_destacadas %}
+             {% for caratula in obj %}
+                {% for imagen in caratula.fotos.all|slice:"1" %}
+                  {% thumbnail imagen.imagen "50x70" crop="10%" as img %}
+            <img src="/media/{{img}}">
+            <div class="orbit-caption"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div> 
+          {% endthumbnail %}
+                {% endfor %}
+             {% endfor %}
+           {% empty %}
+             <p>no hay ultimas destacadas</p>
+           {% endfor %}
          </p>
             
     </div>
@@ -62,7 +78,7 @@
               {% for obj in noticias_produccion %}
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion}} <br>
+                {{obj.descripcion|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre producción sostenible</p>
               {% endfor %} 
@@ -75,7 +91,7 @@
               {% for obj in noticias_fortalecimiento %}
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion}} <br>
+                {{obj.descripcion|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre fortalecimiento institucional</p>
               {% endfor %} 

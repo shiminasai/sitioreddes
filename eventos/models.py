@@ -37,7 +37,7 @@ class Eventos(models.Model):
     position = GeopositionField(null=True, blank=True)
     fotos = generic.GenericRelation(Fotos)
     categoria= models.ForeignKey(Categoria, null=True, blank=True)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
     adjunto = generic.GenericRelation(Adjuntos)
 
     autor = models.ForeignKey(User)

@@ -3,6 +3,18 @@
 
 {% load embed_video_tags %}
 
+{% block extra_js %}
+  <script type="text/javascript" >
+    $(document).ready(function () {  
+        $('#divRss').FeedEk({
+            FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
+            MaxCount: 2
+        });
+    });    
+
+</script>
+{% endblock extra_js %}
+
 {% block contenido %}
 <!--header -->  
 
@@ -49,9 +61,16 @@
       <h2>About us</h2>
          <p> 
               {% for obj in noticias_energia %}
+                {% for imagen in  obj.fotos.all|slice:"1"%}
+                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                    <img src="/media/{{img}}">
+                  {% endthumbnail %}
+                {% empty %}
+                  <img src="http://placehold.it/100x150" alt="">
+                {% endfor %} <br>
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion|truncatewords:12}} <br>
+                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre energia renovable</p>
               {% endfor %} 
@@ -62,9 +81,16 @@
       <h2>Services</h2>
          <p>
               {% for obj in noticias_produccion %}
+                {% for imagen in  obj.fotos.all|slice:"1"%}
+                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                    <img src="/media/{{img}}">
+                  {% endthumbnail %}
+                {% empty %}
+                  <img src="http://placehold.it/100x150" alt="">
+                {% endfor %} <br>
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion|truncatewords:12}} <br>
+                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre producción sostenible</p>
               {% endfor %} 
@@ -75,9 +101,16 @@
       <h2>Portfolio</h2>
         <p>
               {% for obj in noticias_fortalecimiento %}
+                {% for imagen in  obj.fotos.all|slice:"1"%}
+                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                    <img src="/media/{{img}}">
+                  {% endthumbnail %}
+                {% empty %}
+                  <img src="http://placehold.it/100x150" alt="">
+                {% endfor %} <br>
                 {{obj.titulo}} <br>
                 {{obj.fecha}} <br>
-                {{obj.descripcion|truncatewords:12}} <br>
+                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
               {% empty %}
                 <p>Aún no hay noticias sobre fortalecimiento institucional</p>
               {% endfor %} 
@@ -137,6 +170,7 @@
   </div>
   <div class="large-3 columns">
     <div class="title-bar"> Plataformas y blogs</div>
+    <div id="divRss"></div>
   </div>
 </div>
 

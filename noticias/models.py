@@ -22,7 +22,7 @@ class Noticias(models.Model):
     categoria= models.ManyToManyField(Categoria, 
                                     null=True, blank=True)
     pais = models.ForeignKey(Pais)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
     destacada = models.BooleanField()
     adjunto = generic.GenericRelation(Adjuntos)
 

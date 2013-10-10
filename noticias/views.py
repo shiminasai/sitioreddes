@@ -28,8 +28,8 @@ def index(request, template='index.html'):
     #3 ultimas publicaciones
     ultimas_publicaciones = Publicaciones.objects.order_by('-id')[0:2]
     #4 ultimos audios
-    ultimos_audios = Audio.objects.order_by('-id')[0:5]
-    #testo al inicio de la pagina
+    ultimos_audios = Audio.objects.order_by('-id')[0:2]
+    #texto al inicio de la pagina
     texto = InicioTexto.objects.filter(id=1)
     
     return render(request, template, {'noticias_energia':noticias_energia,

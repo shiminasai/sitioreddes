@@ -50,13 +50,9 @@
     	<ul class="nav-list">{% menu principal %}
             <li  class="nav-item home"><a href="/"><img src="/static/img/home.png" alt="inicio"></a></li>
     		{% for item in menuitems %}
-    			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} class='current' data-dropdown="drop1"{% endif %}>{{ item.title }}</a></li>
+    			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} {% endif %}>{{ item.title }}</a></li>
     		{% endfor %}
-            <ul id="drop1" class="f-dropdown" data-dropdown-content>{%submenu  submenuprincipal%}
-                {% for item in submenu_items %}
-                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                {% endfor %}   
-            </ul>
+
        </ul>
     </nav>
     </div>
@@ -88,6 +84,7 @@
 <script src="{% static 'js/foundation/foundation.alerts.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.tooltips.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
+<script src="{% static 'js/foundation/foundation.orbit.js' %}"></script> 
 <script src="{% static 'js/audio.min.js' %}"></script> 
 {% block extra_js %}{% endblock extra_js %}
 <script> $(document).foundation(); </script>

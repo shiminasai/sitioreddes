@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
 from tagging.models import Tag, TaggedItem
-from socios.models import Pais
+from socios.models import Pais, Socios
 
 def index(request, template='index.html'):
     #ultimas 3 noticias
@@ -78,10 +78,26 @@ def contacto_ajax(request):
             message = form.cleaned_data['mensaje']
             sender = form.cleaned_data['correo']
 
-            recipients = ['coordinacion@cesesma.org',
-                                    'crocha09.09@gmail.com']
+            recipients = ['crocha09.09@gmail.com',]
 
             send_mail(subject, message, sender, recipients)
             return HttpResponse( json.dumps( 'exito' ), mimetype='application/json' )
         else:
             return HttpResponse( json.dumps( 'falso' ), mimetype='application/json' )
+
+def mapa_completo(request):
+    if request.is_ajax():
+        lista = []
+        for objeto in Socios.objects.all():
+            dicc = dict(nombre=objeto.nombre,
+                        id=objeto.id,
+                        lon=float(objeto.position.longitude), 
+                        lat=float(objeto.position.latitude),
+                        ruta=objeto.get_absolute_url(),
+                    )
+            lista.append(dicc)
+        serializado = json.dumps(lista)
+        return HttpResponse(serializado, mimetype='application/json')
+
+def mapa(request, template='mapa.html'):
+    return render(request, template)

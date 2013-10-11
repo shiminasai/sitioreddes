@@ -101,6 +101,7 @@ def mapa_completo(request):
         return HttpResponse(serializado, mimetype='application/json')
 
 def mapa_pais(request):
+    #if request.method == 'POST':
     pass
 
 def mapa(request, template='mapa.html'):

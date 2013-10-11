@@ -10,7 +10,9 @@ $light_grey:#f9f9f9;
 $light_orange:#f87e11;
 $orange:#e77e23;
 $dark_green:#0a7180;
-
+$font-black: #343233;
+$boxes-color: #eae8e9;
+$border-color: #d9d0d1;
 @mixin menu ($color) {
 	background: $color;
 	float: left;
@@ -85,12 +87,13 @@ body {
 }
 .orbit-bullets {
 	top: 380px;
+	float: left;
   left: 50%;
 }
 .slide-box {
 	text-align: center;
 	position: absolute;
-	top: 5%;
+	top: 4%;
 	left: 0px;
 	width: 100%;
 	overflow: visible;
@@ -101,7 +104,7 @@ body {
 
 .slide-img { 
 	position: absolute;
-	 margin-top: -52px; /* Half the height */
+	 margin-top: -12px; /* Half the height */
    margin-left: -480px; /* Half the width */
 	left: 50%;
 	width: 960px;
@@ -115,10 +118,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-/**** front- news list ****/
-.tab_news_image{
-	float: left;
-}
 
 /* Navigation styling */
 .menu-principal {
@@ -232,6 +231,9 @@ body {
 	padding-left: 45px;
 	padding-bottom:10px;
 }
+
+
+
 
 /******Tabs******/
 .tabs {
@@ -377,6 +379,71 @@ body {
 	
 }
 
+/**** front- news list ****/
+
+.tab_news_image{
+	float: left;
+}
+
+.feed-title { 
+	float: left;
+	margin-top: 10px;
+	width:190px;
+	font-weight: bold;
+	color:#686959;
+	font-size: 15px;
+}
+
+.feed-date {
+	float: left;
+	margin-top: 5px; 
+	clear: both;
+	color:#686959;
+	font-size: 12px;
+}
+
+.feed-text {
+	float: left;
+	clear: both;
+	color:#888a7d;
+	margin-top: 5px;
+  width: 190px;
+	font-size: 14px;
+}  
+
+
+/***** blogs ****/
+.feedEkList {
+
+	background-color: transparent;
+	
+	border: none;
+	margin-top: 10px;
+}
+
+ul.feedEkList {
+	margin-left: 0;
+}
+
+/**** Eventos *****/
+
+h2.title-event {
+	font-size: 12px;
+	color: $font-black;
+	a {
+		color: $font-black;
+	}
+}
+
+.eventos {
+	background: $boxes-color;
+	padding: 15px;
+	border: $border-color solid 1px;
+	margin-top: 20px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
 
 
 
@@ -388,7 +455,11 @@ height: 200px;
  	color:$white;
  }
 }
-
+.country-title{ 
+	font-size: 16px;
+	color: $white;
+	font-weight: bold;
+}
 .footer-nav {
 	margin-left: 0;
 	float: left;
@@ -422,8 +493,51 @@ height: 200px;
 	color: $white;
 	padding: 10px;
 }
+
+.gua:before {
+	background: url('../img/flags/guatemala.png') no-repeat;
+	content:'';
+	width: 32px;
+	height: 32px;
+	padding-left:22px;
+}
+
+.hon:before {
+	background: url('../img/flags/honduras.png') no-repeat;
+	content:'';
+	width: 32px;
+	height: 32px;
+	padding-left:22px;
+}
+
+.sal:before {
+	background: url('../img/flags/salvador.png') no-repeat;
+	content:'';
+	width: 32px;
+	height: 32px;
+	padding-left:22px;
+}
+
+.ni:before {
+	background: url('../img/flags/nicaragua.png') no-repeat;
+	content:'';
+	width: 32px;
+	height: 32px;
+	padding-left:22px;
+}
+
+.cr:before {
+	background: url('../img/flags/costarica.png') no-repeat;
+	content:'';
+	width: 32px;
+	height: 32px;
+	padding-left:22px;
+}
+
 .copyright {
 	float: right;
+	color: $white;
+	margin-left: 25px;
 }
 #IrArriba {
 position: fixed;

@@ -60,42 +60,43 @@
         
   <div class="content">
     <div class="content-1">
-        <img class="tab_news_image" src="http://placehold.it/190x140">
+        
 
          <p class="news_front_list"> 
-
+            
               {% for obj in noticias_energia %}
                 {% for imagen in  obj.fotos.all|slice:"1"%}
-                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                  {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/100x150" alt="">
+                  <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                {{obj.titulo}} <br>
-                {{obj.fecha}} <br>
-                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
+                <span class="feed-title">{{obj.titulo}} </span>
+                <span class="feed-date">{{obj.fecha}}</span>
+                <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre energia renovable</p>
               {% endfor %} 
+
          </p>
             
     </div>
     <div class="content-2">
      
          <p>
-          <img src="http://placehold.it/190x140">
+          
               {% for obj in noticias_produccion %}
                 {% for imagen in  obj.fotos.all|slice:"1"%}
-                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                  {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/100x150" alt="">
+                  <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                {{obj.titulo}} <br>
-                {{obj.fecha}} <br>
-                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
+                <span class="feed-title">{{obj.titulo}}</span>
+                <span class="feed-date">{{obj.fecha}}</span>
+                <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre producción sostenible</p>
               {% endfor %} 
@@ -103,19 +104,20 @@
            
     </div>
     <div class="content-3">
-      <img src="http://placehold.it/190x140">
+      
         <p>
+
               {% for obj in noticias_fortalecimiento %}
                 {% for imagen in  obj.fotos.all|slice:"1"%}
-                  {% thumbnail imagen.imagen "100x150" crop="10%" as img %}
+                  {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/100x150" alt="">
+                  <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                {{obj.titulo}} <br>
-                {{obj.fecha}} <br>
-                {{obj.descripcion|striptags|safe|truncatewords:12}} <br>
+                <span class="feed-title">{{obj.titulo}}</span>
+                <span class="feed-date">{{obj.fecha}}</span>
+                <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre fortalecimiento institucional</p>
               {% endfor %} 
@@ -197,7 +199,7 @@
               <div class="calendar-icon-front"></div>{{evento.fecha_inicio|date:"j M"}}
               </div>
             <div class="event-content">
-              <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:8 }}</a></h2>
+              <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:12 }}</a></h2>
               
             </div>
           </div>

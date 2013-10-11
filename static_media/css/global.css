@@ -534,3 +534,7 @@ body {
     display: none;
   }
 }
+
+#mapa img {
+  max-width: none !important;
+}  

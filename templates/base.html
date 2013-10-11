@@ -10,6 +10,7 @@
 	<title>{% block title %}REDDES{% endblock title %}</title>
 
 	<link rel="stylesheet" href="{% static 'css/normalize.css' %}" /> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/FeedEk.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/foundation.css' %}" /> 
 	<link rel="stylesheet" href="{% static 'css/global.css' %}" />
 	
@@ -85,7 +86,8 @@
 <script src="{% static 'js/foundation/foundation.tooltips.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
 <script src="{% static 'js/foundation/foundation.orbit.js' %}"></script> 
-<script src="{% static 'js/audio.min.js' %}"></script> 
+<script src="{% static 'js/audio.min.js' %}"></script>
+<script src="{% static 'js/FeedEk.js' %}"></script>
 {% block extra_js %}{% endblock extra_js %}
 <script> $(document).foundation(); </script>
 <script>

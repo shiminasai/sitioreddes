@@ -17,7 +17,7 @@ class Publicaciones(models.Model):
     descripcion = RichTextField('Descripción')
     adjunto = models.FileField(upload_to=get_file_path, null=True, blank=True)
     portada = ImageField(upload_to=get_file_path, blank=True, null=True)
-    categoria= TaggableManager()
+    categoria= TaggableManager(blank=True)
 
     fileDir = 'publicaciones/'
 

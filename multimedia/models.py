@@ -12,7 +12,7 @@ from taggit.managers import TaggableManager
 class Fotos(models.Model):
 	nombre = models.CharField(max_length=150)
 	imagen = ImageField(upload_to=get_file_path, blank=True, null=True)
-	tags_fotos = TaggableManager()
+	tags_fotos = TaggableManager(blank=True)
 
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
@@ -28,7 +28,7 @@ class Fotos(models.Model):
 class Audio(models.Model):
 	nombre = models.CharField(max_length=150)
 	audio = models.FileField(upload_to=get_file_path, null=True, blank=True)
-	tags_audio = TaggableManager()
+	tags_audio = TaggableManager(blank=True)
 
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
@@ -44,7 +44,7 @@ class Audio(models.Model):
 class Videos(models.Model):
 	nombre= models.CharField(max_length=200, null=True, blank=True)
 	url = models.URLField(null=True, blank=True)
-	tags_video = TaggableManager()
+	tags_video = TaggableManager(blank=True)
 
 	content_type = models.ForeignKey(ContentType)
 	object_id = models.PositiveIntegerField()
@@ -70,3 +70,9 @@ class Adjuntos(models.Model):
 		return self.nombre
 	class Meta:
 		verbose_name_plural = "Adjuntos"
+
+class Multimedia(models.Model):
+	titulo = models.CharField(max_length=250)
+
+	def __unicode__(self):
+		return u'%s' % (self.titulo)

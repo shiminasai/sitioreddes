@@ -36,5 +36,8 @@ class Socios(models.Model):
     def __unicode__(self):
         return self.nombre
 
+    def get_absolute_url(self):
+        return '/socios/%d/' % (self.id,)
+
     class Meta:
         verbose_name_plural = 'Socios'

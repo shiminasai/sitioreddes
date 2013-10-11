@@ -32,6 +32,7 @@ class Socios(models.Model):
     autor = models.ForeignKey(User)
     pagina_web = models.URLField(blank=True, null=True)
 
+    fileDir = 'logosocios/'
 
     def __unicode__(self):
         return self.nombre

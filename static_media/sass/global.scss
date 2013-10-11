@@ -595,4 +595,28 @@ background: url(http://lh5.googleusercontent.com/-luDGEoQ_WZE/T1Ak-gta5MI/AAAAAA
 		-moz-border-radius:5px 5px 0 0;
 	}
  .logo{ display: none;}
-}				   
+}
+
+#mapa {
+	z-index: 99;
+	border: #666 3px solid;
+}
+
+#mapa img {
+	max-width: none !important;
+}
+
+#wraper_map {
+	position: relative;
+}
+.forma {
+	position: absolute;
+	top: 240px;
+	right: 7px;
+	z-index: 100;
+	width: 250px;
+	height: 101px;
+	background: rgba(0,0,255,0.3);
+	border-radius: 3px;
+	
+}  				   

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="row">
+  <div class="large-12 column">
+
+    {% for obj in socio %}
+    nombre: {{obj.nombre}} <br>
+    pais: {{obj.pais}} <br>
+    descripción: {{obj.descripcion}} <br>
+    contacto: {{obj.contacto}} <br>
+    telefono: {{obj.telefono}} <br>
+    logo: <img src="/media/{{obj.logo}}" alt="{{obj.nombre}}">  <br>
+    pagina web: {{obj.pagina_web}} <br>
+  {% empty %}
+      <p>No hay datos que mostrar</p>
+  {% endfor %}
+
+  </div>
+</div>
+  
+    
+{% endblock contenido %}

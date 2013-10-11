@@ -9,6 +9,6 @@ urlpatterns = patterns('noticias.views',
                                  name='noticias_detalle'),
     url(r'^categoria/(?P<categoria1>[-_\w]+)/$', 'filtro_categoria', 
                                  name='noticias_categoria'),
-    url(r'^mapas/$', 'mapa', name='mapas'),
+    
         
     )

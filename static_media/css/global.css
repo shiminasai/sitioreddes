@@ -653,3 +653,30 @@ h2.title-event a {
     display: none;
   }
 }
+/* line 600, ../sass/global.scss */
+#mapa {
+  z-index: 99;
+  border: #666 3px solid;
+}
+
+/* line 605, ../sass/global.scss */
+#mapa img {
+  max-width: none !important;
+}
+
+/* line 609, ../sass/global.scss */
+#wraper_map {
+  position: relative;
+}
+
+/* line 612, ../sass/global.scss */
+.forma {
+  position: absolute;
+  top: 240px;
+  right: 7px;
+  z-index: 100;
+  width: 250px;
+  height: 101px;
+  background: rgba(0, 0, 255, 0.3);
+  border-radius: 3px;
+}

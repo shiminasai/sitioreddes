@@ -4,7 +4,7 @@ from .models import Noticias, InicioTexto
 from multimedia.models import Videos, Audio
 from eventos.models import Eventos
 from publicaciones.models import Publicaciones
-from .forms import ContactForm
+from .forms import ContactForm, PaisForm
 from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
@@ -13,13 +13,14 @@ from socios.models import Pais, Socios
 
 def index(request, template='index.html'):
     #ultimas 3 noticias
-    noticias_energia = Noticias.objects.filter(id=1).order_by('-fecha')[0:4]
-    noticias_produccion = Noticias.objects.filter(id=2).order_by('-fecha')[0:4]
-    noticias_fortalecimiento = Noticias.objects.filter(id=3).order_by('-fecha')[0:4]
+    noticias_energia = Noticias.objects.filter(categoria__id=1).order_by('-fecha')[0:4]
+    print noticias_energia
+    noticias_produccion = Noticias.objects.filter(categoria__id=2).order_by('-fecha')[0:4]
+    noticias_fortalecimiento = Noticias.objects.filter(categoria__id=3).order_by('-fecha')[0:4]
     #ultimas 5 noticias de distintos paises destacadas
     ultimas_destacadas = []
     for obj in Pais.objects.all():
-        ultimas_destacadas.append(Noticias.objects.filter(destacada=True,pais=obj).order_by('-id')[0:2])
+        ultimas_destacadas.append(Noticias.objects.filter(destacada=True,pais=obj).order_by('-id')[0:1])
 
     #2 videos 
     ultimos_videos = Videos.objects.order_by('-id')[0:2]
@@ -99,5 +100,13 @@ def mapa_completo(request):
         serializado = json.dumps(lista)
         return HttpResponse(serializado, mimetype='application/json')
 
+def mapa_pais(request):
+    pass
+
 def mapa(request, template='mapa.html'):
-    return render(request, template)
+    form = PaisForm()
+    return render(request, template, {'form':form})
+
+def ficha_socio(request, id, template='socios.html'):
+    socio = Socios.objects.filter(id=id)
+    return render(request,template,{'socio':socio})

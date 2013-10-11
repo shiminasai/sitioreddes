@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^search/', include('googlesearch.urls')),
     url(r'^ver_mapa_completo/$', 'noticias.views.mapa_completo', name='mapa-completo'),
     url(r'^mapas/$', 'noticias.views.mapa', name='mapas'),
+     url(r'^socios/(?P<id>\d+)/$', 'noticias.views.ficha_socio', name='ficha-socio'),
 )
 
 urlpatterns += staticfiles_urlpatterns()

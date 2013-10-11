@@ -61,10 +61,9 @@
   <div class="content">
     <div class="content-1">
         
-
-         <p class="news_front_list"> 
-            
-              {% for obj in noticias_energia %}
+        {% for obj in noticias_energia %}
+            <p class="news_front_list"> 
+             
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
@@ -77,16 +76,14 @@
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre energia renovable</p>
-              {% endfor %} 
-
-         </p>
-            
+              
+             </p>
+      {% endfor %}      
     </div>
     <div class="content-2">
-     
-         <p>
           
               {% for obj in noticias_produccion %}
+              <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
@@ -99,15 +96,15 @@
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre producción sostenible</p>
-              {% endfor %} 
-         </p>
+
+            </p>
+              {% endfor %}
            
     </div>
     <div class="content-3">
       
-        <p>
-
               {% for obj in noticias_fortalecimiento %}
+              <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
                     <img src="/media/{{img}}">
@@ -120,9 +117,10 @@
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
                 <p>Aún no hay noticias sobre fortalecimiento institucional</p>
+
+                </p>
               {% endfor %} 
-        </p>
-            
+                     
     </div>
             
   </div>

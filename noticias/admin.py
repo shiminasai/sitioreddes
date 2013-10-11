@@ -34,7 +34,9 @@ class NoticiasAdmin(admin.ModelAdmin):
 
     exclude = ['autor']
     inlines = [FotosAdmin, AdjuntosAdmin]
-    list_display = ['titulo','fecha','autor']
+    search_fields = ['titulo']
+    list_display = ['titulo','fecha','autor','pais']
+    list_filter = ['categoria']
 
 
 class FlatpageForm(FlatpageFormOld):

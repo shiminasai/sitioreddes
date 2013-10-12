@@ -139,6 +139,10 @@ def mapa(request, template='mapa.html'):
 
     return render(request, template, {'form':form,'variable':variable})
 
-def ficha_socio(request, id, template='socios.html'):
+def socios(request, template='socios/socios_lista.html'):
+    socios = Socios.objects.all()
+    return render(request,template,{'socios':socios})
+
+def ficha_socio(request, id, template='socios/socios_detalle.html'):
     socio = Socios.objects.filter(id=id)
     return render(request,template,{'socio':socio})

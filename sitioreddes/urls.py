@@ -16,9 +16,11 @@ urlpatterns = patterns('',
     url(r'^captcha/', include('captcha.urls')),
     url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^search/', include('googlesearch.urls')),
+    url(r'^ver_mapa_completo_dos/$', 'noticias.views.mapa_completo_dos', name='mapa-completo-dos'),
     url(r'^ver_mapa_completo/$', 'noticias.views.mapa_completo', name='mapa-completo'),
     url(r'^mapas/$', 'noticias.views.mapa', name='mapas'),
-     url(r'^socios/(?P<id>\d+)/$', 'noticias.views.ficha_socio', name='ficha-socio'),
+    url(r'^socios/(?P<id>\d+)/$', 'noticias.views.ficha_socio', name='ficha-socio'),
+    url(r'^posicion_mapa/$', 'noticias.views.mapa_pais', name="posicion_mapa"),
 )
 
 urlpatterns += staticfiles_urlpatterns()

@@ -87,6 +87,19 @@ def contacto_ajax(request):
             return HttpResponse( json.dumps( 'falso' ), mimetype='application/json' )
 
 def mapa_completo(request):
+    lista = []
+    for objeto in Socios.objects.filter(pais=request.GET['varPais']):
+        dicc = dict(nombre=objeto.nombre,
+                    id=objeto.id,
+                    lon=float(objeto.position.longitude), 
+                    lat=float(objeto.position.latitude),
+                    ruta=objeto.get_absolute_url(),
+                )
+    lista.append(dicc)
+    serializado = json.dumps(lista)
+    return HttpResponse(serializado, mimetype='application/json')
+
+def mapa_completo_dos(request):
     if request.is_ajax():
         lista = []
         for objeto in Socios.objects.all():
@@ -101,12 +114,30 @@ def mapa_completo(request):
         return HttpResponse(serializado, mimetype='application/json')
 
 def mapa_pais(request):
-    #if request.method == 'POST':
-    pass
+    lista = [] 
+    for objeto in Pais.objects.filter(id=request.POST['varPais']):  
+        dicc = dict( 
+            lon=float(objeto.longitud) , 
+            lat=float(objeto.latitud),
+            )
+
+        lista.append(dicc)
+
+    serializado = json.dumps(lista)
+    return HttpResponse(serializado, mimetype='application/json') 
 
 def mapa(request, template='mapa.html'):
-    form = PaisForm()
-    return render(request, template, {'form':form})
+    variable = 0
+    if request.method == 'POST':
+        form = PaisForm(request.POST)
+        if form.is_valid():
+            request.session["pais"] =form.cleaned_data['pais']
+            variable = 1
+    else:
+        form = PaisForm()
+        variable = 0
+
+    return render(request, template, {'form':form,'variable':variable})
 
 def ficha_socio(request, id, template='socios.html'):
     socio = Socios.objects.filter(id=id)

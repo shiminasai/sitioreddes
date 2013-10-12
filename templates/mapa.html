@@ -14,6 +14,32 @@
   var styledMap = new google.maps.StyledMapType(styles,
   {name: "Styled Map"});
 
+  var varPais = document.getElementById('id_pais').value
+
+  if ( {{variable}} == 1 ) {
+      var latitud;
+      var longitud;
+        $.ajax({
+          type:'POST',
+          url: '/posicion_mapa/',
+          data:{varPais:varPais},
+          async:false,
+          success:function(data){
+            latitud = (data[0].lat); 
+            longitud = (data[0].lon);
+        }
+      });
+        var mapOptions = {
+        zoom: 8, 
+        center: new google.maps.LatLng(latitud,longitud), 
+        mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    },
+        scrollwheel: false
+    };
+
+    } // ciera el if
+  else {
   var mapOptions = {
         center: new google.maps.LatLng(12.605, -85.224),
         zoom: 6,
@@ -22,12 +48,18 @@
             mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
         }
       }
+
+    } //cierra el else de la condicion
+
+
+
+
   var map = new google.maps.Map(document.getElementById('mapa'),
                                     mapOptions);
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
-
-   $.getJSON('/ver_mapa_completo/', function(data){
+  if ({{variable}} == 1){
+       $.getJSON('/ver_mapa_completo/',{varPais:varPais}, function(data){
           $.each(data, function(i, elemento){
               var latlng = new google.maps.LatLng(elemento.lat, elemento.lon);
               var marker = new google.maps.Marker({
@@ -47,6 +79,30 @@
                 });
           });
       });
+  }
+  else{
+     $.getJSON('/ver_mapa_completo_dos/', function(data){
+          $.each(data, function(i, elemento){
+              var latlng = new google.maps.LatLng(elemento.lat, elemento.lon);
+              var marker = new google.maps.Marker({
+                  position: latlng,
+                  map: map,
+                  name: elemento.nombre,
+                  //icon: '/files/img/wifi.png'
+              });
+              google.maps.event.addListener(marker, "click", function() {
+               var html = '<b>'+ elemento.nombre +'</b> ' +
+                          '<br><a href="'+ elemento.ruta +'" class="btn">Ver detalle</a>';
+                infowindow = new google.maps.InfoWindow({
+                          content: html,
+                          zIndex: 999,
+                });
+                infowindow.open(map, this);
+                });
+          });
+      });
+  }
+  
 
 
 
@@ -57,7 +113,7 @@
 {% block contenido %}
     <br><br>
     <div class="forma">
-      <form action="">
+      <form action="" method="POST">{% csrf_token %}
         {{form}}
         <input type="submit" value="consultar">
       </form>

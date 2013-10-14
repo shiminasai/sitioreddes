@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
-
+{% load staticfiles %}
 {% load embed_video_tags %}
 
 {% block extra_js %}
@@ -12,10 +12,42 @@
         });
     });    
 
-  
-
-
 </script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+<script type="text/javascript" src="{% static 'js/jmpress.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.jmslideshow.js' %}"></script>
+   <script type="text/javascript">
+      $(function() {
+        
+        var jmpressOpts = {
+          animation   : { transitionDuration : '0.9s' }
+        };
+        
+        $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
+          autoplay  : true,
+          bgColorSpeed: '0.9s',
+          arrows    : false
+        }));
+        
+      });
+    </script>
+    <noscript>
+      <style>
+      .step {
+        width: 100%;
+        position: relative;
+      }
+      .step:not(.active) {
+        opacity: 1;
+        filter: alpha(opacity=99);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=99)";
+      }
+      .step:not(.active) a.jms-link{
+        opacity: 1;
+        margin-top: 40px;
+      }
+      </style>
+    </noscript>
 {% endblock extra_js %}
 
 {% block contenido %}
@@ -24,25 +56,34 @@
 <section id= "hero-content">
     
   <div class="slide-box">
-    <section class="slide">
-      <ul data-orbit>
+    
       
-      {% for obj in ultimas_destacadas %}
-        {% for caratula in obj %}
-          {% for imagen in caratula.fotos.all|slice:"1" %}
-        
-          {% thumbnail imagen.imagen "960x370" crop="10%" as img %}
-            <img src="/media/{{img}}">
-            <div class="orbit-caption"><a href="{{obj.get_absolute_url}}">{{caratula.pais}}</a></div> 
-          {% endthumbnail %}
-        
+      <section id="jms-slideshow" class="jms-slideshow">
+        {% for obj in ultimas_destacadas %}
+            {% for caratula in obj %}
+
+            <div class="step" data-color="color-{{forloop.parentloop.counter}}" {%if forloop.parentloop.counter == 2%} data-y="900" data-rotate-x="80" {%elif forloop.parentloop.counter == 3%} data-x="-100" data-z="1500" data-rotate="170" {%elif forloop.parentloop.counter == 4%} data-x="4500" data-z="1000" data-rotate-y="45" {%else%} data-x="3000" {%endif%}>
+              <div class="jms-content">
+                <h3>{{caratula.titulo}}</h3>
+                <p>{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
+                <a class="jms-link" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
+                <h5 class="jms-link">{{caratula.pais}}</h5>
+              </div>
+              {% for imagen in caratula.fotos.all|slice:"1" %}
+                {% thumbnail imagen.imagen "350x330" crop="10%" as img %}
+                  <img src="/media/{{img}}">
+                {% endthumbnail %}
+              {% empty %}
+                <img src="http://placehold.it/360x370">
+              {% endfor %}
+            </div>
+
+            {% endfor %}
+          
         {% endfor %}
-        {% endfor %}
-      {% empty %}
-        <li><img src="http://placehold.it/960x370"></li>
-    {% endfor %}
-     </ul>
-   </section>
+      </section>
+
+   
      
     </div> <!-- slide-box  final -->
 

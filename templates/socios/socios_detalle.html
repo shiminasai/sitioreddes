@@ -1,23 +1,33 @@
 {% extends "base.html" %}
-
+{% load thumbnail %}
 {% block contenido %}
-<div class="row">
-  <div class="large-12 column">
+<div class="social-content">
+  <div class="row">
+    <div class="large-8  column">
+      {% for obj in socio %}
+      <div class="socios-detail">
+      <h1 class="h-titles">{{obj.nombre}}</h1>
+      {% thumbnail obj.logo "200x200" crop="10%" as img %}
+         <div class="socios-logo"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
+      {% endthumbnail %}<br>
+      <span><i class="icon-compass"></i> &nbsp; &nbsp;Pais: {{obj.pais}}</span> <br>
+      <span><i class="icon-envelope icon-2"></i>&nbsp; &nbsp;Contacto: {{obj.contacto}}</span> <br>
+      <span><i class="icon-phone icon-2"></i>&nbsp; &nbsp;Telefono: {{obj.telefono}}</span> <br>
+      
+     <span><i class="icon-link icon-2"></i>&nbsp; &nbsp;Pagina web: {{obj.pagina_web}}</span> <br><br>
+      <span>Descripción:<br> {{obj.descripcion}}</span>
+      </div>
+    {% empty %}
+        <p>No hay datos que mostrar</p>
+    {% endfor %}
 
-    {% for obj in socio %}
-    nombre: {{obj.nombre}} <br>
-    pais: {{obj.pais}} <br>
-    descripción: {{obj.descripcion}} <br>
-    contacto: {{obj.contacto}} <br>
-    telefono: {{obj.telefono}} <br>
-    logo: <img src="/media/{{obj.logo}}" alt="{{obj.nombre}}">  <br>
-    pagina web: {{obj.pagina_web}} <br>
-  {% empty %}
-      <p>No hay datos que mostrar</p>
-  {% endfor %}
+    </div>
+    <div class="large-4 column">
+      <h1 class="h-titles">Notas de socio</h1>
+      <h1 class="h-titles">Publicaciones de socio</h1>
+    </div>
 
   </div>
-</div>
-  
+</div> 
     
 {% endblock contenido %}

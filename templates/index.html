@@ -12,6 +12,9 @@
         });
     });    
 
+  
+
+
 </script>
 {% endblock extra_js %}
 
@@ -21,7 +24,8 @@
 <section id= "hero-content">
     
   <div class="slide-box">
-      
+    <section class="slide">
+      <ul data-orbit>
       
       {% for obj in ultimas_destacadas %}
         {% for caratula in obj %}
@@ -37,7 +41,8 @@
       {% empty %}
         <li><img src="http://placehold.it/960x370"></li>
     {% endfor %}
-     
+     </ul>
+   </section>
      
     </div> <!-- slide-box  final -->
 
@@ -66,12 +71,12 @@
              
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <img src="/media/{{img}}">
+                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <span class="feed-title">{{obj.titulo}} </span>
+                <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}} </span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -86,12 +91,12 @@
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <img src="/media/{{img}}">
+                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <span class="feed-title">{{obj.titulo}}</span>
+                <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -107,12 +112,12 @@
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <img src="/media/{{img}}">
+                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <span class="feed-title">{{obj.titulo}}</span>
+                <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -133,17 +138,27 @@
 <div class="row">
 <div class="large-6 columns">
   <div class="title-bar">Publicaciones</div>
+  
       {% for publicacion in ultimas_publicaciones %}
-        <div class="pub-front">
+        
+      <ul class="grid cs-style-4">
+      <li>
+          <figure>    
       {% if publicacion.portada %}
-      {% thumbnail publicacion.portada "165x210" crop="10%" as img %}
+      <div>
+      {% thumbnail publicacion.portada "250x350" crop="10%" as img %}
         <a href="{{publicacion.get_absolute_url}}"><img src="/media/{{img}}"></a>
       {% endthumbnail %}
+      </div>
       {%else%}
         <img src="http://placehold.it/165x210">
       {%endif%}
-        <h2 class="title-pub"><a href="{{publicacion.get_absolute_url}}">{{publicacion.titulo|truncatewords:3}}</a></h2>
-        </div>
+      <figcaption>
+        <a href="{{publicacion.get_absolute_url}}">{{publicacion.titulo|truncatewords:3}}</a>
+      </figcaption>
+      </figure>
+      </li>
+      </ul>
       {% empty %}
         <p>No hay publicacion</p>
       {% endfor %}
@@ -151,6 +166,7 @@
         <img src="{{STATIC_URL}}img/arrow-left.png">
         <a href="{% url 'publicaciones_lista' %}">Ver más</a>
       </div>
+   
 </div>
   
   <div class="large-3 columns">
@@ -193,13 +209,11 @@
             
         {% for evento in ultimos_eventos %}
           <div class="eventos-fronts">
-            <div class="fecha-box">
-              <div class="calendar-icon-front"></div>{{evento.fecha_inicio|date:"j M"}}
-              </div>
-            <div class="event-content">
-              <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:12 }}</a></h2>
-              
-            </div>
+                <div class="fecha-box">
+                {{evento.fecha_inicio|date:"j M"}}
+                </div>
+                <h2 class="title-event"><a href="{{evento.get_absolute_url}}">{{evento.titulo|safe|truncatewords:12 }}</a>
+                </h2>
           </div>
         {% empty %}
           <p>No hay evento</p>
@@ -229,3 +243,4 @@
 {% endfor %}
 <!--Video Modal box content --> 
 {% endblock contenido %}
+

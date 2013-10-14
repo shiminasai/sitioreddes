@@ -37,60 +37,49 @@
 <div class="row">
 
 </div>
-<div class="bg-single">
-<div class="row">
- 
- <div class="large-12 bg-single columns">
- 
-   <div class="large-9  columns">
-    <h1 class="single-title">{{object.titulo}}</h1>
-     <div class="pg-single">
-  <div id="slider1">
-  	{% for imagen in object.fotos.all %}
-  		{% thumbnail imagen.imagen "580x280" crop="30%" as img %}
-  			<div class="img-pagina"><img src="/media/{{img}}"></div>
-  	  {% endthumbnail %} 
-  	{%endfor%}
-  </div>
-  {% if object.fotos.all.count > 1%}
-  <div class="thumbs">
-  {% for imagen in object.fotos.all%}
-    {% thumbnail imagen.imagen "79x79" crop="1%" as img %}
-      <a href="#"><img width="65" height="65" src="/media/{{img}}"></a>
-    {% endthumbnail %} 
-  {% endfor %}
-    <div class="clean"></div>
-  </div>
-  {%endif%}
+<div class="content-digital">
+  <div class="row">
+   
+   <div class="large-12 columns">
+   
+       <div class="large-8 news-list  columns">
+        <h1 class="h-titles">{{object.titulo}}</h1>
+      <div id="slider1">
+      	{% for imagen in object.fotos.all %}
+      		{% thumbnail imagen.imagen "580x280" crop="30%" as img %}
+      			<div class="img-pagina"><img src="/media/{{img}}"></div>
+      	  {% endthumbnail %} 
+      	{%endfor%}
+      </div>
+      {% if object.fotos.all.count > 1%}
+      <div class="thumbs">
+      {% for imagen in object.fotos.all%}
+        {% thumbnail imagen.imagen "79x79" crop="1%" as img %}
+          <a href="#"><img width="65" height="65" src="/media/{{img}}"></a>
+        {% endthumbnail %} 
+      {% endfor %}
+      </div>
+      {%endif%}
 
 
-      <span class="author">Publicado por: {{object.autor}}</span><br>
-      <span class="dates">fecha:{{object.fecha|date:"j/m/Y"}}</span>
-      <div class="text-pages">
-      	{{object.descripcion|safe}}
-	  </div>
-     </div>
-  
-   </div>
+          <span class="author">Publicado por: {{object.autor}}</span><br>
+          <span class="dates">fecha:{{object.fecha|date:"j/m/Y"}}</span>
+          <div class="text-pages">
+          	{{object.descripcion|safe}}
+    	  </div>
+      
+       </div>
 
-  <div class="large-3 columns">
-    <h4 class="donacion">Como colaborar con CESESMA?</h4>
-    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
-    <br>
-    <br>
-    
-    <div class="title-sidebar">Eventos</div>
-    <div class="event-sidebar">
-    {% for obj in eventos %}
-      <div class="calendar-icon">{{obj.fecha_inicio|date:"j M"}}</div>
-      <div class="text-sidebar"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
-    {% endfor %}
+      <div class="large-4 columns">
+        <h1 class="h-titles">Notas por categoria</h1>
+      
+      
+        
+
+      </div>
+
     </div>
 
   </div>
-
- </div>
-
-</div>
 </div>
 {% endblock contenido %}

@@ -1,23 +1,32 @@
 {% extends "base.html" %}
-
+{% load thumbnail %}
 {% block contenido %}
-    <div class="row">
-  <div class="large-12 column">
+<div class="social-content">
+  <div class="row">
+    <div class="large-12 column">
+    <h1 class="h-titles">Nuestros Socios</h1>
 
-    {% for obj in socios %}
-    nombre: {{obj.nombre}} <br>
-    pais: {{obj.pais}} <br>
-    descripción: {{obj.descripcion}} <br>
-    contacto: {{obj.contacto}} <br>
-    telefono: {{obj.telefono}} <br>
-    logo: <img src="/media/{{obj.logo}}" alt="{{obj.nombre}}">  <br>
-    pagina web: {{obj.pagina_web}} <br>
-    <hr>
-  {% empty %}
-      <p>No hay datos que mostrar</p>
-  {% endfor %}
-    
+      
+      {% for obj in socios %}
+      <div class="socios-list">
+      {% thumbnail obj.logo "300x200" crop="10%" as img %}
+       <div class="logo-lista"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
+      {% endthumbnail %}
+      <span>Nombre:</span> {{obj.nombre}} <br>
+      <span>Pais:</span> {{obj.pais}} <br>
+      <span>Descripción:<br> </span>{{obj.descripcion}}<br> 
+      <span>Contacto:</span> {{obj.contacto}} <br>
+      <span>Telefono:</span> {{obj.telefono}} <br>
+      
+      <span>Pagina web:</span> {{obj.pagina_web}} <br>
+      <hr>
+    </div>
+    {% empty %}
+        <p>No hay datos que mostrar</p>
+
+    {% endfor %}
+     
+    </div>
   </div>
-</div>
-  
+</div> 
 {% endblock contenido %}

@@ -1,61 +1,40 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% block contenido %}
-
-
-
+<div class="content-digital">
 <div class="row">
-  <div class="large-9  columns">
-    <h1 class="content-title">{{object.titulo}}</h1>
-    <br>
-   <div class="pg-single">
-  	<div class="small-block-3">
-  	 <div class="pub-detail">
+  <div class="large-8  columns">
+    
+  	<div class="pub-detail">
+      <h1 class="h-titles">{{object.titulo}}</h1>
+      <span class="dates">{{ object.fecha }}</span>
 		{% if object.portada %}
   		{% thumbnail object.portada "250x350" crop="10%" as img %}
-            <div class="img-news"><a href="{{noticia.get_absolute_url}}"><img src="/media/{{img}}"></a></div>
+       <div class="img-pub">
+        <a href="{{noticia.get_absolute_url}}"><img src="/media/{{img}}"></a>
+      </div>
           {% endthumbnail %}
     	{%else%}
       <img src="http://placehold.it/250x350">
     	{%endif%}
-      <div class="descargar"><a class="tiny button" href="/media/{{object.adjunto}}">Descargar publicacion</a></div>
-     </div>
-    </div>
-    <div class="small-block-grid-3">
-    <span class="dates">{{ object.fecha }}</span>  
+      
+     
+   
+   
+      
    <div class="text-pages">{{ object.descripcion|safe }}</div>
-   </div>   
+   <div class="descargar">
+        <i class="icon-download"></i>
+        <a href="/media/{{object.adjunto}}">Descargar archivo</a>
+      </div>
+    <i class="icon-tag"></i> &nbsp;<span class="cat-tag">Categoria</span>
+   </div>
+     
+  
   </div>
-  </div>
-  <div class="large-3 columns">
-
-
-
-    
-    <div class="title-sidebar">Noticias</div>
-
-    <div class="news-sidebar">
-      
-        
-      
-    {% for obj in noticias %}
-    <ul>
-     <li class="text-news-side"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></li>
-     </ul>
-    {% endfor %}  
-    <div class="read-more-side"><a href="/noticias/lista/">Leer m&aacutes</a></div>
-    
-    </div>
-    
-    <div class="title-sidebar">Eventos</div>
-    <div class="event-sidebar">
-    {% for obj in eventos %}
-      <div class="calendar-icon">{{obj.fecha_inicio|date:"j M"}}</div>
-      <div class="text-sidebar">{{obj.titulo}}</div>
-    {% endfor %}
-    </div>
-
+  <div class="large-4 columns">
+   <h1 class="h-titles">publicacion por region</h1>
   </div>
 </div>
- 
+</div>
 {% endblock contenido %}

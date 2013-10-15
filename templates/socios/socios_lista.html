@@ -9,9 +9,13 @@
       
       {% for obj in socios %}
       <div class="socios-list">
-      {% thumbnail obj.logo "110x110" crop="10%" as img %}
-       <div class="logo-lista"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
-      {% endthumbnail %}
+        {% if obj.logo %}
+          {% thumbnail obj.logo "110x110" crop="10%" as img %}
+            <div class="logo-lista"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
+          {% endthumbnail %}
+        {% else %}
+          <div class="logo-lista"><img src="http://placehold.it/110x110" alt="{{obj.nombre}}"></div>
+        {% endif %}
       <span class='socio-title'> {{obj.nombre}}</span>
       <span class="country-socio">Pais: {{obj.pais}}</span>
       <span class="socio-summary">{{obj.descripcion|striptags|safe|truncatewords:8}}</span>

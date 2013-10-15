@@ -1,14 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Noticias, InicioTexto
 from multimedia.models import Videos, Audio
-from eventos.models import Eventos
+from eventos.models import Eventos, Categoria
 from publicaciones.models import Publicaciones
 from .forms import ContactForm, PaisForm
 from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
-from tagging.models import Tag, TaggedItem
 from socios.models import Pais, Socios
 
 def index(request, template='index.html'):
@@ -50,6 +49,11 @@ class NoticiasList(ListView):
 
 class NoticiasDetailView(DetailView):
     model = Noticias
+
+    def get_context_data(self, **kwargs):
+        context = super(NoticiasDetailView, self).get_context_data(**kwargs)
+        context['relacion'] = Noticias.objects.all()
+        return context
 
 def multimedia(request, template='multimedia/multimedia.html'):
     ultimos_audios = Audio.objects.order_by('-id')[0:4]

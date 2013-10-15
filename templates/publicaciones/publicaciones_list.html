@@ -2,8 +2,6 @@
 {% load thumbnail%}
 {% block contenido %}
 
-
-
 <div class="content-digital">
   <div class="row">
   <div class="large-8 columns">
@@ -19,18 +17,14 @@
                <img src="/media/{{img}}">
               {% endthumbnail %} 
          {% else %}
-           <img src="http://placehold.it/150x200">
+           <img src="http://placehold.it/650x400">
         {% endif %}
          <h2 class="tlist-news">
           <a href="{{ publicacion.get_absolute_url }}">{{ publicacion.titulo }}</a><br>
-          
-        
-
           </h2>
         </div>
       {% empty %}
           <p>No hay publicacion</p>
-
          {% endfor %}
 
     </div>
@@ -53,11 +47,14 @@
 
   </div>
 
-<div class="large-4 column">
-  <h1 class="h-titles"> Categoria de publicaciones</h1>
-
-</div>
-  
+  <div class="large-4 column">
+    <h1 class="h-titles"> Categoria de publicaciones</h1>
+      {% for tag in tags %}
+        <li><a href="{% url 'tagged' tag.slug %}">{{ tag.name }}</a></li>
+      {% empty %}
+        <p>No existen tags</p>
+      {% endfor %}
+  </div>
 
   </div>
 </div>

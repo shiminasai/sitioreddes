@@ -65,14 +65,20 @@
           <span class="author">Publicado por: {{object.autor}}</span><br>
           <span class="dates">fecha:{{object.fecha|date:"j/m/Y"}}</span>
           <div class="text-pages">
+            <br>
           	{{object.descripcion|safe}}
     	  </div>
-      <i class="icon-tag"></i> &nbsp;<span class="cat-tag">Categoria</span>
+        <br>
+      <i class="icon-tag"></i> &nbsp;<span class="cat-tag">{% for obj in object.categoria.all %}{{obj.nombre}}{% endfor %}</span>
        </div>
 
       <div class="large-4 columns">
         <h1 class="h-titles">Notas por categoria</h1>
-
+          {% for obj in relacion %}
+            <a href="{{obj.get_absolute_url}}">{{obj}}</a> <br>
+          {% empty %}
+            <p>No existen noticias relacionada a esta categoria</p>
+          {% endfor %}
       </div>
 
     </div>

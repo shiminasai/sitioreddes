@@ -52,7 +52,12 @@ class NoticiasDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(NoticiasDetailView, self).get_context_data(**kwargs)
-        context['relacion'] = Noticias.objects.all()
+        self.object = self.get_object()
+        miobjeto = self.object
+        variables = []
+        for obj in miobjeto.categoria.all():
+            variables.append(obj.id)
+        context['relacion'] = Noticias.objects.filter(categoria__in=variables).exclude(id=miobjeto.id)[0:6]
         return context
 
 def multimedia(request, template='multimedia/multimedia.html'):

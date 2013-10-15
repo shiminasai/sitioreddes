@@ -6,9 +6,6 @@ urlpatterns = patterns('noticias.views',
                      name='noticias_lista'),
         
     url(r'^(?P<slug>[-_\w]+)/$', view=NoticiasDetailView.as_view(), 
-                                 name='noticias_detalle'),
-    url(r'^categoria/(?P<id>\d+)/$', 'filtro_categoria', 
-                                 name='noticias_categoria'),
-    
+                                 name='noticias_detalle'),    
         
     )

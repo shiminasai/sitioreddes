@@ -5,7 +5,7 @@
   <div class="row">
     <div class="large-12 column">
     <h1 class="h-titles">Nuestros Socios</h1>
-    <div class="intro-socios">See how our 140 partners are improving, enrollment and retention.</div>
+    <div class="intro-socios">Conozca un poco acerca de nuestros socios</div>
       
       {% for obj in socios %}
       <div class="socios-list">
@@ -14,8 +14,8 @@
       {% endthumbnail %}
       <span class='socio-title'> {{obj.nombre}}</span>
       <span class="country-socio">Pais: {{obj.pais}}</span>
-      <span class="socio-summary">{{obj.descripcion}}</span>
-      <span class="socio-link">ver Socio</span>
+      <span class="socio-summary">{{obj.descripcion|striptags|safe|truncatewords:8}}</span>
+      <span class="socio-link"> <a href="{{obj.get_absolute_url}}">Ver Socio</a> </span>
     </div>
     {% empty %}
         <p>No hay datos que mostrar</p>

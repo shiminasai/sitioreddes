@@ -85,6 +85,8 @@
 	'.js><\/script>') 
 </script> 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="{% static 'js/modernizr.custom.26633.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.gridrotator.js' %}"></script>
 <script src="{% static 'js/foundation/foundation.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.alerts.js' %}"></script> 
 <script src="{% static 'js/foundation/foundation.tooltips.js' %}"></script> 
@@ -157,6 +159,23 @@ $(document).ready(function() {
 
 });
 </script>
+
+<script type="text/javascript"> 
+            $(function() {
+            
+                $( '#ri-grid' ).gridrotator( {
+                    w320 : {
+                        rows : 6,
+                        columns : 6
+                    },
+                    w240 : {
+                        rows : 3,
+                        columns : 3
+                    }
+                } );
+            
+            });
+        </script>
 
 </body>
 </html>

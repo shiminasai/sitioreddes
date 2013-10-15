@@ -66,11 +66,11 @@
 }
 .step h3{
 	color: #fff;
-	font-size: 52px;
+	font-size: 32px;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 	margin: 0;
-	padding: 60px 0 10px 0;
+	padding: 25px 0 20px 0;
 }
 .step p {
 	color: #fff;
@@ -114,6 +114,7 @@ a.jms-link{
 	margin-top: 80px;
 }
 .step img{
+	border: #fff solid 4px;
 	position: absolute;
 	right: 0px;
 	top: 30px;

@@ -210,6 +210,11 @@ body {
 	padding-bottom: 20px;
 	padding-top: 20px;
 }
+
+.patter-content{ 
+	background: url('../img/pattern12.png') repeat;
+	padding-top: 20px;
+}
 .socio_button{
 	margin-top: 10px;
 	-webkit-border-radius: 10px;
@@ -494,7 +499,7 @@ h2.title-event {
 .h-titles {
 	font-size: 24px;
 	text-transform: uppercase;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 .news-list {
 	border-right: 1px solid #eee;
@@ -508,7 +513,7 @@ h2.tlist-news{
 	}
 	& a:hover{
 		
-		color: #2795b6;
+		color: #999999;
 	}
 }
 .more-news {
@@ -562,14 +567,9 @@ span.author {
 
 .socios-list {
 	float: left;
+	margin: 15px;
 	font-size: 16px;
-	width: 300px;
-	padding: 10px;
-	span {
-		font-weight: bold;
-		padding-top: 50px;
-		text-align: center;
-	}
+	width: 250px;
 }
 
 .socios-logo img {
@@ -578,23 +578,90 @@ span.author {
 	border-radius: 80px;
 }
 .logo-lista {
-	margin-bottom: 10px;
-	clear: both;
-	float: left;
+	margin: 0 auto;
+	display: table;
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+	background-color: #fff;
 }
+.logo-lista img {
+	border-radius: 50%;
+	text-align: center;
+	padding: 10px 10px 0 10px;
+}
+
 /**** detalle socio *****/
 .socios-detail {
 	text-style: normal;
-	span {
-		font-size: 16px;
-		line-height: 1.4;
-		float: left;
-		width: 300px;
-		padding-left: 15px;
-		clear: right;
-	}
+	
 }
 
+.socio-title{
+	font-size: 18px;
+	color: #555555;
+	margin-top: 10px;
+	padding: 10px;
+	font-weight: bold;
+	float: left;
+	text-align: center;
+}
+
+.country-socio {
+	float: left;
+	margin-left: 30% ;
+	font-size: 12px;
+	padding: 2px;
+	text-align: center;
+}
+
+.socio-summary{
+	float: left;
+	color: #7f8c8d;
+	text-align: center;
+	padding: 5px;
+}
+.intro-socios{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color:$ligth_blue;
+	padding: 1em;
+	margin: 2em;
+	border-bottom: #999 solid 2px;
+}
+.mapa-google{
+	border-top: solid 1px #999 ;
+	background: url('../img/mapagoogle.png') no-repeat center;
+	text-align: center;
+	width: 100%;
+	height: 300px;
+}
+.socio-link{
+	float: left;
+	margin-top: 20px;
+	text-align: center;
+	margin-left: 30%
+}
+.full-width{ 
+	background:#f7f7f3;
+	padding: 2em;
+}
+.btn {
+	border-radius: 2px;
+	float: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-left: 50%;
+	margin-top: 50px;
+	padding: 10px;
+	background: #009bc7;
+	color: #fff;
+	text-shadow: none;
+	a{
+		color: #fff;
+	}
+}
 /***** Publicaciones ****/
 
 .descargar{
@@ -656,6 +723,13 @@ span.author {
 	border: solid 4px #17bee1;
 	color:#17bee1;
 
+}
+
+.play-icon {
+z-index: 25;
+position: absolute;
+margin-top: 30%;
+margin-left: 37%;
 }
 
 /**** footer ****/
@@ -899,8 +973,153 @@ background: url(http://lh5.googleusercontent.com/-luDGEoQ_WZE/T1Ak-gta5MI/AAAAAA
 }
 
 
+/***** grid images effect *****/
 
+.ri-grid{
+	margin: 30px auto 30px;
+	position: relative;
+	height: auto;
+}
 
+.ri-grid ul {
+	list-style: none;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* Clear floats by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+
+.ri-grid ul:before,
+.ri-grid ul:after{
+	content: '';
+    display: table;
+}
+
+.ri-grid ul:after {
+    clear: both;
+}
+
+.ri-grid ul {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+} 
+
+.ri-grid ul li {
+	-webkit-perspective: 400px;
+	-moz-perspective: 400px;
+	-o-perspective: 400px;
+	-ms-perspective: 400px;
+	perspective: 400px;	
+	margin: 0;
+	padding: 0;
+	float: left;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	background: #000;
+}
+
+.ri-grid ul li a{
+	display: block;
+	outline: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: #333;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* Grid wrapper sizes */
+.ri-grid-size-1{
+	width: 55%;
+}
+.ri-grid-size-2{
+	width: 100%;
+}
+.ri-grid-size-3{
+	width: 100%;
+	margin-top: 0px;
+}
+
+/* Shadow style */
+.ri-shadow:after,
+.ri-shadow:before{
+	content: "";
+	position: absolute;
+	z-index: -2;
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	height: 20%;
+	max-width: 300px;
+	max-height: 100px;
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+}
+.ri-shadow:after{
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	transform: rotate(3deg);
+}
+
+.ri-grid-loading:after,
+.ri-grid-loading:before{
+	display: none;
+}
+
+.ri-loading-image{
+	display: none;
+}
+
+.ri-grid-loading .ri-loading-image{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	left: 50%;
+	margin: 100px 0 0 -15px;
+	display: block;
+}
+
+.ri-grid{
+	width: 450px;
+}
+
+.ri-grid ul li,
+.ri-grid ul li a{
+	width: 100px;
+	height: 100px;
+}
+.ri-grid ul li a img{
+	width: 100%;
+}
 
 
 /*------------------------------------*\

@@ -1,25 +1,21 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% block contenido %}
-<div class="social-content">
+<div class="patter-content">
   <div class="row">
     <div class="large-12 column">
     <h1 class="h-titles">Nuestros Socios</h1>
-
+    <div class="intro-socios">See how our 140 partners are improving, enrollment and retention.</div>
       
       {% for obj in socios %}
       <div class="socios-list">
-      {% thumbnail obj.logo "300x200" crop="10%" as img %}
+      {% thumbnail obj.logo "110x110" crop="10%" as img %}
        <div class="logo-lista"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
       {% endthumbnail %}
-      <span>Nombre:</span> {{obj.nombre}} <br>
-      <span>Pais:</span> {{obj.pais}} <br>
-      <span>Descripción:<br> </span>{{obj.descripcion}}<br> 
-      <span>Contacto:</span> {{obj.contacto}} <br>
-      <span>Telefono:</span> {{obj.telefono}} <br>
-      
-      <span>Pagina web:</span> {{obj.pagina_web}} <br>
-      <hr>
+      <span class='socio-title'> {{obj.nombre}}</span>
+      <span class="country-socio">Pais: {{obj.pais}}</span>
+      <span class="socio-summary">{{obj.descripcion}}</span>
+      <span class="socio-link">ver Socio</span>
     </div>
     {% empty %}
         <p>No hay datos que mostrar</p>
@@ -28,5 +24,19 @@
      
     </div>
   </div>
+<div class="full-width">
+  <div class="row">
+  <div class="large-12 column">
+  <h2 class="h-titles">Socios alrededor de toda Centro America. Para mayor informacion ver mapa.</h2>
+  </div>
+  </div>
+</div>
+<div class="mapa-google"> 
+<div class="row">
+  <div class="large-12 column">
+  <span class="btn"><a href="/mapas">mas info para ver mapa</a></span>
+  </div>
+</div>
+</div>
 </div> 
 {% endblock contenido %}

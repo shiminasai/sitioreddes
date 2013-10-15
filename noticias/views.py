@@ -58,12 +58,8 @@ def multimedia(request, template='multimedia/multimedia.html'):
     return render(request, template, { 'ultimos_videos':ultimos_videos,  
                                      'ultimos_audios':ultimos_audios})
 
-def filtro_categoria(request,categoria1,template='noticias/noticias_list.html'):
-    try:
-        tag1 = Tag.objects.get(name=categoria1)
-    except:
-        tag1 = ''
-    object_list = TaggedItem.objects.get_union_by_model(Noticias, [tag1])
+def filtro_categoria(request,id,template='noticias/noticias_list.html'):
+    object_list = Noticias.objects.filter(categoria__id=id)
     return render(request, template, {'object_list':object_list})
 
 def contacto(request, template='contacto.html'):

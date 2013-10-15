@@ -29,9 +29,10 @@
        <div class="filtro">
         <h1 class="h-titles">Buscar por Categorias</h1>
         <ul class="cat-list">
-          <li><a href="{% url 'noticias_categoria' 'energia-renovable' %}">Energia Renovable</a></li>
-          <li><a href="{% url 'noticias_categoria' 'produccion-sostenible' %}">Producción sostenible</a></li>
-          <li><a href="{% url 'noticias_categoria' 'fortalecimiento-institucional' %}">Fortalecimiento institucional</a></li>
+          {% for  obj in  categorias%}
+            <li><a href="{% url 'noticias_categoria' obj.id %}">{{obj.nombre}}</a></li>
+          {% endfor %}
+          
         </ul>
         
         </div>

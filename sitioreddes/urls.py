@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^lista/socios/$', 'noticias.views.socios', name='lista-socios'),
     url(r'^socios/(?P<id>\d+)/$', 'noticias.views.ficha_socio', name='ficha-socio'),
     url(r'^posicion_mapa/$', 'noticias.views.mapa_pais', name="posicion_mapa"),
+    url(r'^recursos/$', 'noticias.views.recursos', name='recursos'),
     url('^pages/', include('django.contrib.flatpages.urls')),
 )
 

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="row">
+  <div class="large-12 columns">
+
+
+<div class="section-container vertical-tabs" data-section="vertical-tabs">
+  <section>
+    <p class="title" data-section-title><a href="#">Fotos</a></p>
+    <div class="content" data-section-content>
+
+        {% for obj in fotos %}
+            {{obj}} <br>
+        {% empty %}
+            <p>No existen fotos en el sitio</p>
+        {% endfor %}
+
+    </div>
+  </section>
+
+  <section>
+    <p class="title" data-section-title><a href="#">Videos</a></p>
+    <div class="content" data-section-content>
+
+        {% for obj in videos %}
+            {{obj}} <br>
+        {% empty %}
+            <p>No existen videos en el sitio</p>
+        {% endfor %}
+     
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#">Audios</a></p>
+    <div class="content" data-section-content>
+      
+      {% for obj in audios %}
+          {{obj}} <br>
+      {% empty %}
+          <p>No existen audios en el sitio</p>
+      {% endfor %}
+
+    </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#">Adjuntos</a></p>
+    <div class="content" data-section-content>
+        
+        {% for obj in adjuntos %}
+            {{obj}} <br>
+        {% empty %}
+            <p>No existen documentos adjuntos en el sitio</p>
+        {% endfor %}
+
+    </div>
+  </section>
+</div> {# fin del tabs #}
+
+
+
+  </div>
+</div>
+    
+{% endblock contenido %}

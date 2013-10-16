@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Noticias, InicioTexto
-from multimedia.models import Videos, Audio
+from multimedia.models import Videos, Audio, Fotos, Adjuntos
 from eventos.models import Eventos, Categoria
 from publicaciones.models import Publicaciones
 from .forms import ContactForm, PaisForm
@@ -156,3 +156,10 @@ def ficha_socio(request, id, template='socios/socios_detalle.html'):
     publicaciones = Publicaciones.objects.filter(autor__id=variable)
     return render(request,template,{'socio':socio, 'noticias':noticias,
                                                             'publicaciones':publicaciones})
+
+def recursos(request, template="recursos.html"):
+    fotos = Fotos.objects.order_by('-id')[0:8]
+    videos = Videos.objects.order_by('-id')[0:8]
+    audios = Audio.objects.order_by('-id')[0:8]
+    adjuntos = Adjuntos.objects.order_by('-id')[0:8]
+    return render(request, template, locals())

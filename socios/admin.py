@@ -14,9 +14,9 @@ class SociosAdmin(admin.ModelAdmin):
         instance.save()
         return instance
 
-    #exclude = ['autor']
-    list_display = ['nombre','pais','contacto']
-    list_filter = ('autor',)
+    exclude = ['autor']
+    list_display = ['nombre','pais','contacto','autor']
+    list_filter = ('autor','pais',)
     search_fields = ('nombre',)
 
 admin.site.register(Socios, SociosAdmin)

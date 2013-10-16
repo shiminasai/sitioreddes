@@ -6,6 +6,7 @@ from django.contrib.contenttypes import generic
 from sorl.thumbnail import ImageField
 from sitioreddes.utils import get_file_path
 from taggit.managers import TaggableManager
+from django.contrib.auth.models import User
 
 # Create your models here.
 # 
@@ -73,6 +74,7 @@ class Adjuntos(models.Model):
 
 class Multimedia(models.Model):
 	titulo = models.CharField(max_length=250)
+	autor = models.ForeignKey(User, null=True, blank=True)
 
 	def __unicode__(self):
 		return u'%s' % (self.titulo)

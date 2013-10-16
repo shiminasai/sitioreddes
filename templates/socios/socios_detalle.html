@@ -25,14 +25,14 @@
     <div class="large-4 column">
       <h1 class="h-titles">Notas de socio</h1>
       {% for obj in noticias %}
-          {{obj}}
+          {{obj}} <br>
         {%empty%}
           <p>No tiene notas</p>
       {% endfor %}
 
       <h1 class="h-titles">Publicaciones de socio</h1>
       {% for obj in publicaciones %}
-          {{obj}}
+          {{obj}} <br>
       {% empty %}
           <p>No tiene publicaciones</p>
       {% endfor %}

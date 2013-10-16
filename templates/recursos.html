@@ -1,5 +1,40 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+{% load embed_video_tags %}
+
+{% block extra_js %}
+  <script>
+  $(function() { 
+    // Setup the player to autoplay the next track
+    var a = audiojs.createAll({
+      trackEnded: function() {
+        var next = $('ol li.playing').next();
+        if (!next.length) next = $('ol li').first();
+        next.addClass('playing').siblings().removeClass('playing');
+        audio.load($('a', next).attr('data-src'));
+        audio.play();
+      }
+    });
+    
+    // Load in the first track
+    var audio = a[0];
+        first = $('ol a').attr('data-src');
+    $('ol li').first().addClass('playing');
+    audio.load(first);
+
+    // Load in a track on click
+    $('ol li').click(function(e) {
+      e.preventDefault();
+      $(this).addClass('playing').siblings().removeClass('playing');
+      audio.load($('a', this).attr('data-src'));
+      audio.play();
+    });
+    
+  });
+</script>
+{% endblock extra_js %}
+
 {% block contenido %}
 
 <div class="row">
@@ -8,39 +43,55 @@
 
 <div class="section-container vertical-tabs" data-section="vertical-tabs">
   <section>
-    <p class="title" data-section-title><a href="#">Fotos</a></p>
+    <p class="title" data-section-title><a href="#">Videos</a></p>
     <div class="content" data-section-content>
-
-        {% for obj in fotos %}
-            {{obj}} <br>
-        {% empty %}
-            <p>No existen fotos en el sitio</p>
-        {% endfor %}
-
+      
+      <div class="video-container">
+      {% for video in videos %}
+        <li>
+          <div class="flex-video">
+          {% video video.url as my_video %}
+            {{ my_video|embed:'small' }}
+          {% endvideo %}
+        </div>
+        </li>
+    {% endfor %}
+      </div>
+       
     </div>
   </section>
 
   <section>
-    <p class="title" data-section-title><a href="#">Videos</a></p>
+    <p class="title" data-section-title><a href="#">Fotos</a></p>
     <div class="content" data-section-content>
+        
+         {% for obj in fotos %}
+          {% thumbnail obj.imagen "190x140" crop="10%" as img %}
+            <img src="/media/{{img}}">
+          {% endthumbnail %}
 
-        {% for obj in videos %}
-            {{obj}} <br>
         {% empty %}
-            <p>No existen videos en el sitio</p>
+            <p>No existen fotos en el sitio</p>
         {% endfor %}
-     
+
+        
+        
     </div>
   </section>
   <section>
     <p class="title" data-section-title><a href="#">Audios</a></p>
     <div class="content" data-section-content>
       
-      {% for obj in audios %}
-          {{obj}} <br>
-      {% empty %}
-          <p>No existen audios en el sitio</p>
-      {% endfor %}
+     {% for obj in audios %}
+            <div class="audio-container">
+            <audio  preload="auto">
+              <source src="/media/{{obj.audio}}">
+            </audio>
+            <span class="titulo-audio">{{obj.nombre}}</span>
+            </div>
+      {%empty%}
+        <p>No existen audios en el sitio</p>
+      {% endfor %}    
 
     </div>
   </section>

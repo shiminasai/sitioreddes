@@ -13,7 +13,6 @@ from socios.models import Pais, Socios
 def index(request, template='index.html'):
     #ultimas 3 noticias
     noticias_energia = Noticias.objects.filter(categoria__id=1).order_by('-fecha')[0:4]
-    print noticias_energia
     noticias_produccion = Noticias.objects.filter(categoria__id=2).order_by('-fecha')[0:4]
     noticias_fortalecimiento = Noticias.objects.filter(categoria__id=3).order_by('-fecha')[0:4]
     #ultimas 5 noticias de distintos paises destacadas
@@ -31,6 +30,8 @@ def index(request, template='index.html'):
     ultimos_audios = Audio.objects.order_by('-id')[0:2]
     #texto al inicio de la pagina
     texto = InicioTexto.objects.filter(id=1)
+    #fotos de las publicaciones
+    shotos = Publicaciones.objects.order_by('-id')[0:24]
     
     return render(request, template, {'noticias_energia':noticias_energia,
                         'noticias_produccion':noticias_produccion,
@@ -40,7 +41,7 @@ def index(request, template='index.html'):
                         'ultimos_eventos':ultimos_eventos,
                         'ultimas_publicaciones':ultimas_publicaciones,
                         'ultimos_audios':ultimos_audios,
-                        'texto':texto})
+                        'texto':texto,'shotos':shotos})
 
 
 class NoticiasList(ListView):
@@ -158,7 +159,7 @@ def ficha_socio(request, id, template='socios/socios_detalle.html'):
                                                             'publicaciones':publicaciones})
 
 def recursos(request, template="recursos.html"):
-    fotos = Fotos.objects.order_by('-id')[0:8]
+    fotos = Fotos.objects.order_by('-id')[0:6]
     videos = Videos.objects.order_by('-id')[0:8]
     audios = Audio.objects.order_by('-id')[0:8]
     adjuntos = Adjuntos.objects.order_by('-id')[0:8]

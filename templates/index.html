@@ -16,7 +16,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
 <script type="text/javascript" src="{% static 'js/jmpress.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.jmslideshow.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
    <script type="text/javascript">
+   $('#tab-container').easytabs();
       $(function() {
         
         var jmpressOpts = {
@@ -184,37 +186,16 @@
         <div id="ri-grid" class="ri-grid ri-grid-size-1 ri-shadow">
           <img class="ri-loading-image" src="{{STATIC_URL}}images/loading.gif"/>
           <ul>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/1.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/2.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/3.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/4.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/5.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/6.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/7.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/8.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/9.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/10.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/11.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/12.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/13.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/14.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/15.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/16.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/17.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/18.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/19.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/20.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/21.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/22.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/23.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/24.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/25.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/26.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/27.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/28.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/29.jpg"/></a></li>
-            <li><a href="#"><img src="{{STATIC_URL}}images/medium/30.jpg"/></a></li>
-            
+            {% for obj in shotos %}
+              {% if obj.portada %}
+              {% thumbnail obj.portada "300x300" crop="10%" as img %}
+                <li><a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"/></a></li>
+              {% endthumbnail %}
+              {%else%}
+                <img src="http://placehold.it/300x300">
+              {%endif%}
+            {% endfor %}
+                        
           </ul>
         </div>
   <!-- 
@@ -305,6 +286,35 @@
         </div>
       </div>
   </div>
+  <div class="large-5 columns">
+    <div class="title-bar">Redes sociales</div>
+    <div id="tab-container" class="tab-container">
+      <ul class='etabs'>
+        <li class='tab'><a href="#tabs1-html">Twitter</a></li>
+        <li class='tab'><a href="#tabs1-js">Facebook</a></li>
+      </ul>
+    <div id="tabs1-html">
+      <a class="twitter-timeline" data-dnt="true" data-chrome="noheader nofooter" data-chrome-noscrollbar="true" data-tweet-limit="3" href="https://twitter.com/sacrac1" data-widget-id="337698416543006721"></a>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+    <div id="tabs1-js">
+     
+      <div class="fb-like-box" data-href="http://www.facebook.com/FacebookDevelopers" data-width="520" data-height="The pixel height of the plugin" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
+   
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=200691280061950";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+    </div>
+  </div>
+  </div> <!--end large-5 --> 
+
 </div>
 </section><!--end section social --> 
 

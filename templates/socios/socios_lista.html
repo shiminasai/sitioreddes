@@ -16,7 +16,7 @@
         {% else %}
           <div class="logo-lista"><img src="http://placehold.it/110x110" alt="{{obj.nombre}}"></div>
         {% endif %}
-      <span class='socio-title'> {{obj.nombre}}</span>
+      <div class='socio-title'> {{obj.nombre}}</div>
       <span class="country-socio">Pais: {{obj.pais}}</span>
       <span class="socio-summary">{{obj.descripcion|striptags|safe|truncatewords:8}}</span>
       <span class="socio-link"> <a href="{{obj.get_absolute_url}}">Ver Socio</a> </span>

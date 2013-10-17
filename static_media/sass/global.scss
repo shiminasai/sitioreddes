@@ -186,6 +186,17 @@ body {
 
 /**** MAIN CONTENT ****/
 
+.small-line{
+
+display: block;
+height: 3px;
+background-color: #000;
+opacity: 0.1;
+margin: 15px 0 15px;
+width: 80px;
+
+}
+
 
 .read-more{
 	margin-top: 10px;
@@ -227,14 +238,40 @@ body {
 	color: $white;
 	text-align: center;
 }
+.title-content{
+	font-size: 22px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 1.4em;
+
+	
+}
+
 
 .title-bar {
 	color: #323232;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
+	margin-bottom: 20px;
 	text-transform: uppercase;
 	font-weight: bold;
+
 }
+
+.blogs:before {
+	content: '';
+	background: url('../img/bubble.png') no-repeat;
+	padding-left: 35px;
+	padding-bottom:5px;
+}
+
+.videos:before {
+	content: '';
+	background: url('../img/videos-icon.png') no-repeat;
+	padding-left: 35px;
+	padding-bottom:5px;
+}
+
 
 .calendar:before  {
 	content: '';
@@ -562,6 +599,26 @@ span.author {
 	font-weight: bold
 }
 
+.related-post {
+	font-size: 14px;
+	
+	border-bottom: 1px solid #eeeeee;
+	padding: 0px 0px 10px 8px;
+	margin-bottom: 10px;
+
+
+	a{
+	color: #3d3e3e;
+		&:hover{
+			text-decoration: underline;
+			color:$dark_green;
+		}
+
+	}
+
+
+
+}
 
 /***** Socios listas ****/
 
@@ -603,7 +660,6 @@ span.author {
 	margin-top: 10px;
 	padding: 10px;
 	font-weight: bold;
-	float: left;
 	text-align: center;
 }
 
@@ -612,6 +668,7 @@ span.author {
 	margin-left: 30% ;
 	font-size: 12px;
 	padding: 2px;
+	clear: both;
 	text-align: center;
 }
 

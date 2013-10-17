@@ -76,8 +76,8 @@
         <h1 class="h-titles">Notas por categoria</h1>
         <div class="small-line"></div>
         <div class="related-post">
-          <i class="icon-th-large"></i>
           {% for obj in relacion %}
+            <i class="icon-th-large"></i>
             <a href="{{obj.get_absolute_url}}">{{obj}}</a> <br>
           {% empty %}
             <p>No existen noticias relacionada a esta categoria</p>

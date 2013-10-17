@@ -1,24 +1,14 @@
 from django.conf.urls import patterns, url
-from django.views.generic import ListView, DetailView
-from .models import Audio, Videos
+from .views import FotosListView, AudioListView, VideosListView, AdjuntoListView
+from .models import *
 
 urlpatterns = patterns('',
-        url(r'^audio/$',  ListView.as_view(model=Audio,
-                                           queryset=Audio.objects.all(),
-                                           paginate_by=5), 
+        url(r'^audio/$',  AudioListView.as_view(), 
                                            name='audio_lista'),
-
-        url(r'^audio/(?P<slug>[-_\w]+)/$', DetailView.as_view(model=Audio,
-                                                        queryset=Audio.objects.all(),
-                                                        ), 
-                                                        name='audio_detalles'),
-        url(r'^videos/$',  ListView.as_view(model=Videos,
-                                           queryset=Videos.objects.all(),
-                                           paginate_by=5), 
+        url(r'^videos/$',  VideosListView.as_view(), 
                                            name='videos_lista'),
-
-        url(r'^videos/(?P<slug>[-_\w]+)/$', DetailView.as_view(model=Videos,
-                                                        queryset=Videos.objects.all(),
-                                                        ), 
-                                                        name='videos_detalles'),
+        url(r'^fotos/$',  FotosListView.as_view(), 
+                                           name='fotos_lista'),
+        url(r'^adjuntos/$',  AdjuntoListView.as_view(), 
+                                           name='adjuntos_lista'),
     )

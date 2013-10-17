@@ -61,7 +61,7 @@
     {% empty %}
           <p>No existen fotos en el sitio</p>
     {% endfor %}
-
+      <a href="{% url 'fotos_lista'%}">Ver más</a>
   </div>
 
   <div id="side-tab2">
@@ -82,6 +82,7 @@
          </a>
           {% endvideo %}
       </div>
+        <a href="{% url 'videos_lista'%}">Ver más</a>
     {% endfor %}
 
       </div>
@@ -100,7 +101,7 @@
       {%empty%}
         <p>No existen audios en el sitio</p>
       {% endfor %}    
-
+      <a href="{% url 'audio_lista'%}">Ver más</a>
 
   </div>
   <div id="side-tab4">
@@ -110,7 +111,7 @@
         {% empty %}
             <p>No existen documentos adjuntos en el sitio</p>
         {% endfor %}
-
+    <a href="{% url 'adjuntos_lista'%}">Ver más</a>
   </div>
 
  </div> <!-- fin del panel container -->

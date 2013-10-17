@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
 {% load thumbnail %}
 {% load embed_video_tags %}
 
 {% block extra_js %}
+<script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
+
   <script>
+  $('#tab-side-container').easytabs();
   $(function() { 
     // Setup the player to autoplay the next track
     var a = audiojs.createAll({
@@ -40,49 +44,53 @@
 <div class="row">
   <div class="large-12 columns">
 
-
-<div class="section-container vertical-tabs" data-section="vertical-tabs">
-  <section>
-    <p class="title" data-section-title><a href="#">Videos</a></p>
-    <div class="content" data-section-content>
-      
-      <div class="video-container">
-      {% for video in videos %}
-        <li>
-          <div class="flex-video">
-          {% video video.url as my_video %}
-            {{ my_video|embed:'small' }}
-          {% endvideo %}
-        </div>
-        </li>
+<div id="tab-side-container">
+ <ul>
+  <li><a href="#side-tab1">Fotos</a></li>
+  <li><a href="#side-tab2">Videos</a></li>
+  <li><a href="#side-tab3">Audios</a></li>
+  <li><a href="#side-tab4">Adjuntos</a></li>
+ </ul>
+ <div class="panel-container">
+  <div id="side-tab1">
+   
+   {% for obj in fotos %}
+        {% thumbnail obj.imagen "190x140" crop="10%" as img %}
+          <img src="/media/{{img}}">
+        {% endthumbnail %}
+    {% empty %}
+          <p>No existen fotos en el sitio</p>
     {% endfor %}
-      </div>
+
+  </div>
+
+  <div id="side-tab2">
+   
+    <div class="video-container">
        
-    </div>
-  </section>
-
-  <section>
-    <p class="title" data-section-title><a href="#">Fotos</a></p>
-    <div class="content" data-section-content>
-        
-         {% for obj in fotos %}
-          {% thumbnail obj.imagen "190x140" crop="10%" as img %}
-            <img src="/media/{{img}}">
+      {% for obj in videos %}
+      <div class="video-sample">{% video obj.url as video %}
+        <div class="play-icon">
+          <a data-reveal-id="videoModal-{{obj.id}}" href="">
+            <img src="{{STATIC_URL}}img/play.png">
+          </a>
+        </div>
+         <a data-reveal-id="videoModal-{{obj.id}}" href="">
+          {% thumbnail video.thumbnail "190x140" crop="10%" as img %}
+              <img src="/media/{{ img}}" alt="">
           {% endthumbnail %}
+         </a>
+          {% endvideo %}
+      </div>
+    {% endfor %}
 
-        {% empty %}
-            <p>No existen fotos en el sitio</p>
-        {% endfor %}
+      </div>
 
-        
-        
-    </div>
-  </section>
-  <section>
-    <p class="title" data-section-title><a href="#">Audios</a></p>
-    <div class="content" data-section-content>
-      
-     {% for obj in audios %}
+  </div>
+
+  <div id="side-tab3">
+   
+    {% for obj in audios %}
             <div class="audio-container">
             <audio  preload="auto">
               <source src="/media/{{obj.audio}}">
@@ -93,25 +101,39 @@
         <p>No existen audios en el sitio</p>
       {% endfor %}    
 
-    </div>
-  </section>
-  <section>
-    <p class="title" data-section-title><a href="#">Adjuntos</a></p>
-    <div class="content" data-section-content>
-        
-        {% for obj in adjuntos %}
+
+  </div>
+  <div id="side-tab4">
+   
+    {% for obj in adjuntos %}
             {{obj}} <br>
         {% empty %}
             <p>No existen documentos adjuntos en el sitio</p>
         {% endfor %}
 
-    </div>
-  </section>
-</div> {# fin del tabs #}
+  </div>
 
+ </div> <!-- fin del panel container -->
+</div> <!-- fin del tab-side-container -->
 
+<br><br>
 
   </div>
 </div>
-    
+  
+
+  <!--Video Modal box content --> 
+{% for obj in videos %}
+  <div id="videoModal-{{obj.id}}" class="reveal-modal medium">
+  <h2>{{obj.nombre}}</h2>
+  <div class="flex-video">
+    {% video obj.url as video %}
+      {{video|embed:"640x480"}}  
+    {% endvideo %}
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+{% endfor %}
+<!--Video Modal box content --> 
 {% endblock contenido %}

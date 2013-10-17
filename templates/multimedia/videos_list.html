@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+{% load embed_video_tags %}
+
 {% block contenido %}
 <div class="row">
     <div class="large-12 column">
         {% for obj in object_list %}
             {{obj.nombre}}
-            {{obj.url}} <br>
+            
+             <div class="video-sample">{% video obj.url as video %}
+                <div class="play-icon">
+                    <a data-reveal-id="videoModal-{{obj.id}}" href="">
+                    <img src="{{STATIC_URL}}img/play.png">
+                    </a>
+                </div>
+                <a data-reveal-id="videoModal-{{obj.id}}" href="">
+                  {% thumbnail video.thumbnail "200x200" crop="10%" as img %}
+                      <img src="/media/{{ img }}" alt="">
+                  {% endthumbnail %}
+                </a>
+                {% endvideo %}
+            </div>
         {% empty %}
             <p>No existen videos</p>
         {% endfor %}
@@ -28,4 +44,19 @@
 
     </div>
 </div>
+
+<!--Video Modal box content --> 
+{% for obj in object_list %}
+  <div id="videoModal-{{obj.id}}" class="reveal-modal medium">
+  <h2>{{obj.nombre}}</h2>
+  <div class="flex-video">
+    {% video obj.url as video %}
+      {{video|embed:"640x480"}}  
+    {% endvideo %}
+  </div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+{% endfor %}
+<!--Video Modal box content --> 
 {% endblock contenido %}

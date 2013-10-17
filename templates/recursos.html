@@ -4,6 +4,7 @@
 {% load thumbnail %}
 {% load embed_video_tags %}
 
+
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
 
@@ -20,12 +21,6 @@
         audio.play();
       }
     });
-    
-    // Load in the first track
-    var audio = a[0];
-        first = $('ol a').attr('data-src');
-    $('ol li').first().addClass('playing');
-    audio.load(first);
 
     // Load in a track on click
     $('ol li').click(function(e) {
@@ -82,9 +77,8 @@
          </a>
           {% endvideo %}
       </div>
-        <a href="{% url 'videos_lista'%}">Ver más</a>
     {% endfor %}
-
+        <a href="{% url 'videos_lista'%}">Ver más</a>
       </div>
 
   </div>
@@ -92,25 +86,47 @@
   <div id="side-tab3">
    
     {% for obj in audios %}
-            <div class="audio-container">
-            <audio  preload="auto">
-              <source src="/media/{{obj.audio}}">
-            </audio>
-            <span class="titulo-audio">{{obj.nombre}}</span>
-            </div>
-      {%empty%}
-        <p>No existen audios en el sitio</p>
-      {% endfor %}    
+      <div class="audio-container">
+        <audio  preload="auto">
+          <source src="/media/{{obj.audio}}">
+        </audio>
+        <span class="titulo-audio">{{obj.nombre}}</span>
+      </div>
+    {%empty%}
+      <p>No existen audios en el sitio</p>
+    {% endfor %}    
       <a href="{% url 'audio_lista'%}">Ver más</a>
 
   </div>
   <div id="side-tab4">
    
+<table>
+  <thead>
+    <tr>
+      <th width="200">Nombre documento</th>
+      <th width="150">Descargar</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for obj in adjuntos %}
-            {{obj}} <br>
-        {% empty %}
-            <p>No existen documentos adjuntos en el sitio</p>
-        {% endfor %}
+        <tr>
+          {% if obj.nombre %}
+            <td>{{obj.nombre}}</td>
+            <td><div class="descargar">
+              <i class="icon-download"></i>
+              <a href="/media/{{obj.archivo}}">Descargar archivo</a>
+              </div></td>
+          {% else %}
+            <td>{{obj.titulo}}</td>
+            <td><div class="descargar">
+              <i class="icon-download"></i>
+              <a href="/media/{{obj.adjunto}}">Descargar archivo</a>
+              </div></td>
+          {% endif %}
+        </tr> 
+      {% endfor %}
+  </tbody>
+</table>
     <a href="{% url 'adjuntos_lista'%}">Ver más</a>
   </div>
 

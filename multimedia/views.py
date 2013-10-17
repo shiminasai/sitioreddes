@@ -5,7 +5,7 @@ from .models import *
 class FotosListView(ListView):
     template_name = 'multimedia/fotos_list.html'
     model = Fotos
-    paginate_by = 8
+    paginate_by = 4
 
 class VideosListView(ListView):
     template_name = 'multimedia/videos_list.html'

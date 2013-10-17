@@ -3,12 +3,34 @@
 {% block contenido %}
 <div class="row">
     <div class="large-12 column">
-        {% for obj in object_list %}
-            {{obj.nombre}}
-            {{obj.archivo}} <br>
-        {% empty %}
-            <p>No existen adjuntos</p>
-        {% endfor %}
+        <h2>Documentos para descargar</h2>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Nombre documento</th>
+      <th width="150">Descargar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for obj in object_list %}
+        <tr>
+          {% if obj.nombre %}
+            <td>{{obj.nombre}}</td>
+            <td><div class="descargar">
+              <i class="icon-download"></i>
+              <a href="/media/{{obj.archivo}}">Descargar archivo</a>
+              </div></td>
+          {% else %}
+            <td>{{obj.titulo}}</td>
+            <td><div class="descargar">
+              <i class="icon-download"></i>
+              <a href="/media/{{obj.adjunto}}">Descargar archivo</a>
+              </div></td>
+          {% endif %}
+        </tr> 
+      {% endfor %}
+  </tbody>
+</table>
 
 
 {% if is_paginated %}

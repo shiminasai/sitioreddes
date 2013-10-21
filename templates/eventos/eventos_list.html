@@ -6,43 +6,46 @@
 <div class="patter-content">
 
  <div class="row">
-  <div class="large-12 columns">
   
 
-    <div class="large-8 columns">
+  <div class="large-12 columns">
       <h1 class="h-titles">Eventos</h1>
-        {% for obj in object_list %}
-        <div class="event-list">
+    {% for obj in object_list %}
+      <div class="event-list">
          <div class="event-image-list">
       {% if obj.fotos.all %}
           {% for imagen in obj.fotos.all|slice:"1" %}
-            {% thumbnail imagen.imagen "150x100" crop="1%" as img %}
+            {% thumbnail imagen.imagen "250x200" crop="1%" as img %}
                 <div class="img-pagina"><img src="/media/{{img}}"></div>
             {% endthumbnail %} 
           {%endfor%}
       {% else %}
-         <div class="img-pagina"><img src="http://placehold.it/150x100"></div>
+         <div class="event-image-list"><img src="http://placehold.it/250x200"></div>
       {% endif %}
          </div>
-            <span class="title-event">
+            <div class="event-detail">
+            <h1 class="title-event">
             <a href="{{ obj.get_absolute_url }}">{{ obj.titulo }}</a>
-            </span>
+            </h1>
             <br>
-            <span class="texto-fecha">inicio:{{ obj.fecha_inicio|date:"j/m/Y" }} &nbsp; terminacion: {{obj.fecha_finalizacion|date:"j/m/Y"}}</span>
-            <br><br>
+            <span class="texto-fecha">
+             <i class="icon-calendar"></i> Inicio:{{ obj.fecha_inicio|date:"j/m/Y" }} &nbsp; 
+             <i class="icon-calendar"></i> Terminacion: {{obj.fecha_finalizacion|date:"j/m/Y"}}</span>
+  
             <span class="text-event">Descripcion:
-            {{ obj.descripcion|striptags|safe|truncatewords:8 }}<br></span>
-            <a class="tiny audios-d button" href="{{ obj.get_absolute_url }}">ver más</a>
+            {{ obj.descripcion|striptags|safe|truncatewords:8 }}<br>
+            <a class="tiny event button" href="{{ obj.get_absolute_url }}">ver más</a>
+
+            </span>
             </div>
-        {% endfor %}
+      </div>
+    {% endfor %}
 
 	</div>
 	
-	
-
-  </div>
   
  </div>
+
 </div>
 
 

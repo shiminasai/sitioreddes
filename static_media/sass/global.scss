@@ -13,6 +13,7 @@ $dark_green:#0a7180;
 $font-black: #343233;
 $boxes-color: #eae8e9;
 $border-color: #d9d0d1;
+
 @mixin menu ($color) {
 	background: $color;
 	float: left;
@@ -43,13 +44,13 @@ body {
 
 .social_icons {
 	float: left;
-	margin-top: 1.2em;
+	margin-top: 2.2em;
 	margin-left: 20%;
 }
 
 .search_box {
 	width: 140px;
-	margin-top: 1.2em;
+	margin-top: 2.2em;;
 	margin-right: 20px;
 	float: right;
 }
@@ -122,6 +123,7 @@ body {
 /* Navigation styling */
 .menu-principal {
 	@include menu(white);
+	margin-top: 20px;
 }
 .nav {
 	position:relative;
@@ -286,7 +288,7 @@ width: 80px;
 /******Tabs******/
 .tabs {
   position: relative;
-	margin: 25px auto;
+	margin: 65px 0 25px 0;
 }
 
 .tabs input {
@@ -531,6 +533,84 @@ h2.title-event {
 }
 
 
+/*** Eventos lista *****/
+
+.event-list {
+	float: left;
+	width: 100%;
+	margin: 20px;
+	padding-bottom: 2em;
+	border-bottom: #d6d6d6 solid 1px;
+}
+.event-image-list {
+	float: left;
+	margin-right: 10px;
+}
+
+h1.title-event {
+	font-size: 20px;
+	float: left;
+	width: 100%;
+	color: $font-black;
+	a {
+		color: $font-black;
+	}
+}
+
+.event-detail {
+	float: left;
+	margin-left: 25px;
+	width: 600px;
+}
+
+.texto-fecha {
+	float: left;
+	font-size: 11px;
+	margin-top: 5px;
+	
+}
+
+
+.text-event {
+	float: left;
+	margin-top: 10px;
+
+}
+
+a.tiny.event.button {
+	margin-top: 15px;
+	
+}
+
+
+.map-canvas {
+	margin-left: 10px;
+	float: left;
+}
+/**** video ***/
+
+.video-sample {
+	margin-bottom: 18px;
+	border: 1px solid #555555;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 3px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 3px 5px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 3px 5px rgba(50, 50, 50, 0.75);
+
+}
+
+.video-list {
+	float: left;
+	margin: 15px;
+}
+
+.video-title{ 
+	margin-top: 10px;
+	text-align: center;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+}
+
 /**** noticia lista *****/
 
 .h-titles {
@@ -538,6 +618,19 @@ h2.title-event {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
 }
+
+.socios-titles {
+	font-size: 38px;
+	color: #555555;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.h-sidebar{
+	font-size: 22px;
+	font-family: 'Open Sans', sans-serif;
+}
+
 .news-list {
 	border-right: 1px solid #eee;
 }
@@ -601,11 +694,9 @@ span.author {
 
 .related-post {
 	font-size: 14px;
-	
-	border-bottom: 1px solid #eeeeee;
 	padding: 0px 0px 10px 8px;
 	margin-bottom: 10px;
-
+	
 
 	a{
 	color: #3d3e3e;
@@ -613,9 +704,16 @@ span.author {
 			text-decoration: underline;
 			color:$dark_green;
 		}
-
+	
 	}
 
+.related-content {
+	float: left;
+	margin-top: 10px;
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
 
 
 }
@@ -652,6 +750,27 @@ span.author {
 .socios-detail {
 	text-style: normal;
 	
+}
+
+.socios-info {
+	float: left;
+	margin-top: 20px;
+	width: 360px;
+	padding-left: 20px;
+
+}
+.socios-text {
+	float: left;
+	margin-top: 1em;
+	padding-top: 10px;
+	margin-bottom: 1em;
+	border-top: #d6d6d6 solid 2px;
+	
+}
+.socios-info span{
+	padding-bottom: 10px;
+	float: left;
+	clear: both;
 }
 
 .socio-title{
@@ -788,6 +907,32 @@ position: absolute;
 margin-top: 30%;
 margin-left: 37%;
 }
+
+
+
+
+/**** Share button ****/
+
+.share-buttom li {
+	display: inline-block;
+	list-style: none;
+
+}
+
+
+/**** Recursos ****/
+
+.foto-list {
+	float: left;
+	margin: 10px;
+}
+
+.fotos-titles {
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
 
 /**** footer ****/
 #footer {
@@ -1224,6 +1369,30 @@ background: url(../img/upflecha.png) no-repeat center center;
 	border: #666 3px solid;
 }
 
+a.mapa-btn {
+ font-family: 'Open Sans', sans-serif;
+ color: #fff;
+ font-size: 11px;
+ margin-left: 5%;
+ margin-top: 20px;
+
+}
+
+input[type=submit] {
+margin-top: 5px;
+padding: 10px;
+width: 80px;
+color: #ffffff;
+background-color: #40cc75;
+border: none;
+float: right;
+font-weight: bold;
+font-size: 12px;
+}
+
+
+
+
 #mapa img {
 	max-width: none !important;
 }
@@ -1238,7 +1407,7 @@ background: url(../img/upflecha.png) no-repeat center center;
 	padding: 10px;
 	z-index: 100;
 	width: 250px;
-	height: 101px;
+	height: 120px;
 	background: rgba(0,0,255,0.3);
 	border-radius: 3px;
 	

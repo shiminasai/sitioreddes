@@ -70,7 +70,7 @@
               });
               google.maps.event.addListener(marker, "click", function() {
                var html = '<b>'+ elemento.nombre +'</b> ' +
-                          '<br><a href="'+ elemento.ruta +'" class="btn">Ver detalle</a>';
+                          '<br><a href="'+ elemento.ruta +'" class="mapa-btn btn">Ver detalle</a>';
                 infowindow = new google.maps.InfoWindow({
                           content: html,
                           zIndex: 999,
@@ -92,7 +92,7 @@
               });
               google.maps.event.addListener(marker, "click", function() {
                var html = '<b>'+ elemento.nombre +'</b> ' +
-                          '<br><a href="'+ elemento.ruta +'" class="btn">Ver detalle</a>';
+                          '<br><a href="'+ elemento.ruta +'" class="mapa-btn btn">Ver detalle</a>';
                 infowindow = new google.maps.InfoWindow({
                           content: html,
                           zIndex: 999,

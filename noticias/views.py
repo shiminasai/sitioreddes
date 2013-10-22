@@ -156,7 +156,11 @@ def ficha_socio(request, id, template='socios/socios_detalle.html'):
     noticias = Noticias.objects.filter(autor__id=variable)
     publicaciones = Publicaciones.objects.filter(autor__id=variable)
     return render(request,template,{'socio':socio, 'noticias':noticias,
-                                                            'publicaciones':publicaciones})
+                                    'publicaciones':publicaciones})
+
+def socios_pais(request, id_pais, template="socios/socios_lista.html"):
+    socios = Socios.objects.filter(pais=id_pais)
+    return render(request,template,{'socios':socios})
 
 def recursos(request, template="recursos.html"):
     from itertools import chain

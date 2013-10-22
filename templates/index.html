@@ -67,7 +67,7 @@
             <div class="step" data-color="color-{{forloop.parentloop.counter}}" {%if forloop.parentloop.counter == 2%} data-y="900" data-rotate-x="80" {%elif forloop.parentloop.counter == 3%} data-x="-100" data-z="1500" data-rotate="170" {%elif forloop.parentloop.counter == 4%} data-x="4500" data-z="1000" data-rotate-y="45" {%else%} data-x="3000" {%endif%}>
               <div class="jms-content">
                 <h3>{{caratula.titulo}}</h3>
-                <p>{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
+                <p data-jmpress="warp-left">{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
                 <a class="jms-link" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
                 <h5 class="jms-link">{{caratula.pais}}</h5>
               </div>

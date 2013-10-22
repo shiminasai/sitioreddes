@@ -198,55 +198,57 @@
     </li>
     {% endfor %}
     
-    
-  
-
- <li class="mix video mix_all" data-name="Video" style=" ">
-   
-    <div class="video-container">
        
       {% for obj in videos %}
+ 
+
       <div class="video-grid">{% video obj.url as video %}
         <div class="play-icon-grid">
           <a data-reveal-id="videoModal-{{obj.id}}" href="">
             <img src="{{STATIC_URL}}img/play.png">
           </a>
         </div>
-         <a data-reveal-id="videoModal-{{obj.id}}" href="">
+         
+      <li class="mix video mix_all" data-name="Video" style=" ">
+          <a data-reveal-id="videoModal-{{obj.id}}" href="">
           {% thumbnail video.thumbnail "190x140" crop="10%" as img %}
               <img src="/media/{{ img}}" alt="">
-          {% endthumbnail %}
-         </a>
+          {% endthumbnail %} </a>
+      </li>
+        
           {% endvideo %}
       </div>
+
+
     {% endfor %}
 
-      </div>
+      
 
-  </li>
+  
 
-   <li class="mix audios mix_all" data-name="Audios" style=" ">
+   
    <div class="meta region">
             <p>audios</p>
    </div>
     {% for obj in audios %}
-      <div class="audio-container">
-        <audio  preload="auto">
-          <source src="/media/{{obj.audio}}">
-        </audio>
-        <span class="titulo-audio">{{obj.nombre}}</span>
-      </div>
-    {%empty%}
-      <p>No existen audios en el sitio</p>
-    {% endfor %}    
-      <a href="{% url 'audio_lista'%}">Ver más</a>
+      <li class="mix audios mix_all" data-name="Audios" style=" ">
+        <div class="audio-container">
+          <audio  preload="auto">
+            <source src="/media/{{obj.audio}}">
+          </audio>
+          <span class="titulo-audio">{{obj.nombre}}</span>
+        </div>
+      {%empty%}
+        <p>No existen audios en el sitio</p>
+      </li>
+      {% endfor %}
 
-  </li>
+  
 
 
     {% for obj in adjuntos %}
-<li class="mix archivos mix_all" data-name="Archivos" style=" ">
-  <div class="files-content">
+    <li class="mix archivos mix_all" data-name="Archivos" style=" ">
+      <div class="files-content">
        <div class="files-titles">
           {% if obj.nombre %}
             {{obj.nombre}}
@@ -263,9 +265,9 @@
               </div>
           {% endif %}
           </div>
-         
+   </li>      
       {% endfor %}
-</li>
+
  </ul> <!-- fin del panel container -->
 <br><br>
 

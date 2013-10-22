@@ -7,39 +7,40 @@
               <p class="icon-footer">
                <img src="/static/img/home-footer.png">
               </p>
-              <a href="">Inicio</a>
+              <a href="/">Inicio</a>
             </li>
             
             <li>
               <p class="icon-footer" >
                <img src="/static/img/recurso-icon.png">
               </p>
-              <a href="">Recursos</a>
+              <a href="/recursos/">Recursos</a>
             </li>
            
             <li>
               <p class="icon-footer" >
                <img src="/static/img/socios-icon.png">
               </p>
-              <a href="">Socios RED-DES</a>
+              <a href="/lista/socios/">Socios RED-DES</a>
             </li>
         
             <li>
               <p class="icon-footer" >
                <img src="/static/img/paper-icon.png">
               </p>
-              <a href="#">Contactenos</a>
+              <a href="/contactenos/">Contactenos</a>
             </li>
           </ul>
   </nav>
 
   <ul class="country">
     <p class="country-title">Redes Centro America</p>
-    <li class="gua">Guatemala</li>
-    <li class="hon">Honduras</li>
-    <li class="sal">Salvador</li>
-    <li class="ni">Nicaragua</li>
-    <li class="cr">Costa Rica</li>
+    {% for pais in paises %}
+      <li class="{{pais|cut:" "|lower|slice:":3"}}"><a href="{% url "socios_pais" pais.id %}">{{pais}}</a></li>
+    {% empty %}
+      <li class="gua">No existen socios</li>
+    {% endfor %}
+    
   </ul>
   
    <span class="copyright">
@@ -48,7 +49,6 @@
     <br><br>
 <span class="copyright">
     RED-DES is licensed under creative Commons Attribution-NonCommercial
-
 </span>
 </div>
 </div>

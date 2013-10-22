@@ -6,66 +6,208 @@
 
 
 {% block extra_js %}
-<script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.sortable.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}"></script>
 
-  <script>
-  $('#tab-side-container').easytabs();
-  $(function() { 
-    // Setup the player to autoplay the next track
-    var a = audiojs.createAll({
-      trackEnded: function() {
-        var next = $('ol li.playing').next();
-        if (!next.length) next = $('ol li').first();
-        next.addClass('playing').siblings().removeClass('playing');
-        audio.load($('a', next).attr('data-src'));
-        audio.play();
-      }
-    });
+<script type="text/javascript">
+        
+            /* 
+            *   We would normally recommend that all JavaScript is kept in a seperate .js file,
+            *   but we have included it in the document head for convenience.
+            */
+            
+            // NICE IMAGE LOADING
+            
+            /* 
+            *   Not part of MixItUp, but this is a great lightweight way 
+            *   to gracefully fade-in images with CSS3 after they have loaded
+            */
+            
+            function imgLoaded(img){    
+                $(img).parent().addClass('loaded');
+            };
+            
+            // ON DOCUMENT READY:
+        
+            $(function(){
+                
+                // INSTANTIATE MIXITUP
+                
+                $('#Parks').mixitup({
+                    layoutMode: 'list', // Start in list mode (display: block) by default
+                    listClass: 'list', // Container class for when in list mode
+                    gridClass: 'grid', // Container class for when in grid mode
+                    effects: ['fade','blur'], // List of effects 
+                    listEffects: ['fade','rotateX'] // List of effects ONLY for list mode
+                });
+                
+                // HANDLE LAYOUT CHANGES
+                
+                // Bind layout buttons to toList and toGrid methods:
+                
+                $('#ToList').on('click',function(){
+                    $('.button').removeClass('active');
+                    $(this).addClass('active');
+                    $('#Parks').mixitup('toList');
+                });
 
-    // Load in a track on click
-    $('ol li').click(function(e) {
-      e.preventDefault();
-      $(this).addClass('playing').siblings().removeClass('playing');
-      audio.load($('a', this).attr('data-src'));
-      audio.play();
-    });
-    
-  });
-</script>
+                $('#ToGrid').on('click',function(){
+                    $('.button').removeClass('active');
+                    $(this).addClass('active');
+                    $('#Parks').mixitup('toGrid');
+                });
+                
+                // HANDLE MULTI-DIMENSIONAL CHECKBOX FILTERING
+                
+                /*  
+                *   The desired behaviour of multi-dimensional filtering can differ greatly 
+                *   from project to project. MixItUp's built in filter button handlers are best
+                *   suited to simple filter operations, so we will need to build our own handlers
+                *   for this demo to achieve the precise behaviour we need.
+                */
+                
+                var $filters = $('#Filters').find('li'),
+                    dimensions = {
+                        region: 'all', // Create string for first dimension
+                    };
+                    
+                // Bind checkbox click handlers:
+                
+                $filters.on('click',function(){
+                    var $t = $(this),
+                        dimension = $t.attr('data-dimension'),
+                        filter = $t.attr('data-filter'),
+                        filterString = dimensions[dimension];
+                        
+                    if(filter == 'all'){
+                        // If "all"
+                        if(!$t.hasClass('active')){
+                            // if unchecked, check "all" and uncheck all other active filters
+                            $t.addClass('active').siblings().removeClass('active');
+                            // Replace entire string with "all"
+                            filterString = 'all';   
+                        } else {
+                            // Uncheck
+                            $t.removeClass('active');
+                            // Emtpy string
+                            filterString = '';
+                        }
+                    } else {
+                        // Else, uncheck "all"
+                        $t.siblings('[data-filter="all"]').removeClass('active');
+                        // Remove "all" from string
+                        filterString = filterString.replace('all','');
+                        if(!$t.hasClass('active')){
+                            // Check checkbox
+                            $t.addClass('active');
+                            // Append filter to string
+                            filterString = filterString == '' ? filter : filterString+' '+filter;
+                        } else {
+                            // Uncheck
+                            $t.removeClass('active');
+                            // Remove filter and preceeding space from string with RegEx
+                            var re = new RegExp('(\\s|^)'+filter);
+                            filterString = filterString.replace(re,'');
+                        };
+                    };
+                    
+                    // Set demension with filterString
+                    dimensions[dimension] = filterString;
+                    
+                    // We now have two strings containing the filter arguments for each dimension:  
+                    console.info('dimension 1: '+dimensions.region);
+                    
+                    /*
+                    *   We then send these strings to MixItUp using the filter method. We can send as
+                    *   many dimensions to MixitUp as we need using an array as the second argument
+                    *   of the "filter" method. Each dimension must be a space seperated string.
+                    *
+                    *   In this case, MixItUp will show elements using OR logic within each dimension and
+                    *   AND logic between dimensions. At least one dimension must pass for the element to show.
+                    */
+                    
+                    $('#Parks').mixitup('filter',[dimensions.region])            
+                });
+
+            });
+        </script>
+
+
 {% endblock extra_js %}
 
+
+
+
+
+
+
+
 {% block contenido %}
+<div class="patter-content">
+
 
 <div class="row">
   <div class="large-12 columns">
 
-<div id="tab-side-container">
- <ul>
-  <li><a href="#side-tab1">Fotos</a></li>
-  <li><a href="#side-tab2">Videos</a></li>
-  <li><a href="#side-tab3">Audios</a></li>
-  <li><a href="#side-tab4">Adjuntos</a></li>
- </ul>
- <div class="panel-container">
-  <div id="side-tab1">
+  <div class="wrapper wf">
+    
+ <!-- BEGIN CONTROLS -->
+      
+      <nav class="controls just">
+        <div class="group" id="Sorts">
+          <div class="button active" id="ToList"><i></i>List</div>
+          <div class="button" id="ToGrid"><i></i>Grid</div>
+        </div>
+        <div class="group" id="Filters">
+          <div class="drop_down wf">
+            <span class="anim150">Categorias</span>
+            <ul class="anim250">
+              <li class="" data-filter="all" data-dimension="region">Todas</li>
+              <li data-filter="fotos" data-dimension="region" class="active">Fotos</li>
+              <li data-filter="video" data-dimension="region" class="active">Videos</li>
+              <li data-filter="audios" data-dimension="region">Audios</li>
+              <li data-filter="archivos" data-dimension="region" class="active">Archivos</li>
+            </ul>
+          </div>
+          
+        </div>
+      </nav>
+      
+      <!-- END CONTROLS -->
+
+
+
+
+<ul id="Parks" class="just list" style="  ">
+
+
+  
    
    {% for obj in fotos %}
-        {% thumbnail obj.imagen "190x140" crop="10%" as img %}
-          <img src="/media/{{img}}">
+   <li class="mix fotos mix_all" data-name="Fotos" style=" ">
+   
+   <div class="img_wrapper loaded">
+        {% thumbnail obj.imagen "250x150" crop="10%" as img %}
+          <img src="/media/{{img}}"  onload="imgLoaded(this)">
         {% endthumbnail %}
+    </div>
     {% empty %}
           <p>No existen fotos en el sitio</p>
-    {% endfor %}
-      <a href="{% url 'fotos_lista'%}">Ver más</a>
-  </div>
 
-  <div id="side-tab2">
+    </li>
+    {% endfor %}
+    
+    
+  
+
+ <li class="mix video mix_all" data-name="Video" style=" ">
    
     <div class="video-container">
        
       {% for obj in videos %}
-      <div class="video-sample">{% video obj.url as video %}
-        <div class="play-icon">
+      <div class="video-grid">{% video obj.url as video %}
+        <div class="play-icon-grid">
           <a data-reveal-id="videoModal-{{obj.id}}" href="">
             <img src="{{STATIC_URL}}img/play.png">
           </a>
@@ -78,13 +220,15 @@
           {% endvideo %}
       </div>
     {% endfor %}
-        <a href="{% url 'videos_lista'%}">Ver más</a>
+
       </div>
 
-  </div>
+  </li>
 
-  <div id="side-tab3">
-   
+   <li class="mix audios mix_all" data-name="Audios" style=" ">
+   <div class="meta region">
+            <p>audios</p>
+   </div>
     {% for obj in audios %}
       <div class="audio-container">
         <audio  preload="auto">
@@ -97,47 +241,44 @@
     {% endfor %}    
       <a href="{% url 'audio_lista'%}">Ver más</a>
 
-  </div>
-  <div id="side-tab4">
-   
-<table>
-  <thead>
-    <tr>
-      <th width="200">Nombre documento</th>
-      <th width="150">Descargar</th>
-    </tr>
-  </thead>
-  <tbody>
+  </li>
+
+
     {% for obj in adjuntos %}
-        <tr>
+<li class="mix archivos mix_all" data-name="Archivos" style=" ">
+  <div class="files-content">
+       <div class="files-titles">
           {% if obj.nombre %}
-            <td>{{obj.nombre}}</td>
-            <td><div class="descargar">
+            {{obj.nombre}}
+        </div>
+          <div class="meta region">
               <i class="icon-download"></i>
-              <a href="/media/{{obj.archivo}}">Descargar archivo</a>
-              </div></td>
+              <a href="/media/{{obj.archivo}}">Descargas</a>
+            </div>
           {% else %}
-            <td>{{obj.titulo}}</td>
-            <td><div class="descargar">
+            {{obj.titulo}}
+            <div class="meta region">
               <i class="icon-download"></i>
               <a href="/media/{{obj.adjunto}}">Descargar archivo</a>
-              </div></td>
+              </div>
           {% endif %}
-        </tr> 
+          </div>
+         
       {% endfor %}
-  </tbody>
-</table>
-    <a href="{% url 'adjuntos_lista'%}">Ver más</a>
-  </div>
-
- </div> <!-- fin del panel container -->
-</div> <!-- fin del tab-side-container -->
-
+</li>
+ </ul> <!-- fin del panel container -->
 <br><br>
 
+
   </div>
+    
+    <!-- END DEMO WRAPPER -->
+
 </div>
-  
+</div>
+
+
+</div> 
 
   <!--Video Modal box content --> 
 {% for obj in videos %}

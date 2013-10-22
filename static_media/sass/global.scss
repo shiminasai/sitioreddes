@@ -589,6 +589,14 @@ a.tiny.event.button {
 }
 /**** video ***/
 
+
+.play-icon-grid {
+z-index: 25;
+position: absolute;
+margin-top: 2%;
+margin-left: 9%;
+}
+
 .video-sample {
 	margin-bottom: 18px;
 	border: 1px solid #555555;
@@ -598,7 +606,17 @@ a.tiny.event.button {
 	box-shadow:         0px 3px 5px rgba(50, 50, 50, 0.75);
 
 }
+.video-container {
+	float: left;
+	
+	clear: both;
+}
 
+.video-grid{
+	float: left;
+	margin: 10px;
+	width: 200px;
+}
 .video-list {
 	float: left;
 	margin: 15px;
@@ -932,7 +950,17 @@ margin-left: 37%;
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
 }
+.files-titles {
+	font-size: 14px;
+	margin-right: 10px;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+}
 
+.files-content{
+
+
+}
 
 /**** footer ****/
 #footer {

@@ -845,8 +845,8 @@ span.author {
 	float: left;
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-left: 50%;
-	margin-top: 50px;
+	margin-left: 37%;
+	margin-top: 139px;
 	padding: 10px;
 	background: #009bc7;
 	color: #fff;
@@ -1049,10 +1049,18 @@ background: $orange;
 }
 
 .copyright {
-	
 	color: $white;
-	
 }
+.copyright-sesion {
+	float: left;
+	font-size: 11px;
+}
+
+.copyright-creativa {
+	
+	font-size: 12px;
+}
+
 #IrArriba {
 position: fixed;
 bottom: 30px; /* Distancia desde abajo */

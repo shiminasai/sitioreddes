@@ -48,7 +48,9 @@
       	{% for imagen in object.fotos.all %}
       		{% thumbnail imagen.imagen "580x280" crop="30%" as img %}
       			<div class="img-pagina"><img src="/media/{{img}}"></div>
-      	  {% endthumbnail %} 
+      	  {% endthumbnail %}
+        {%empty%}
+          <div class="img-pagina"><img src="http://placehold.it/580x280"></div>
       	{%endfor%}
       </div>
       {% if object.fotos.all.count > 1%}

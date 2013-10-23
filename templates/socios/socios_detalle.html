@@ -28,11 +28,13 @@
 
     </div>
     <div class="large-4 column">
-      <h1 class="h-sidebar">Notas de socio</h1>
+      <h1 class="h-sidebar">Notas del socio</h1>
       <div class="small-line"></div>
       <div class="related-post">
       {% for obj in noticias %}
-          <div class="related-content">{{obj}}</div> <br>
+          <div class="related-content"><i class="fa fa-pencil"></i><a href="/noticias/{{obj.slug}}/">{{obj}}</a>
+          </div> <br>
+        
         {%empty%}
           <p>No tiene notas</p>
       {% endfor %}
@@ -42,7 +44,8 @@
       <div class="related-post">
       {% for obj in publicaciones %}
 
-          <div class="related-content">{{obj}}</div> <br>
+          <div class="related-content"><i class="fa fa-book"></i><a href="/recursos/">{{obj}}</a>
+          </div> <br>
       {% empty %}
           <p>No tiene publicaciones</p>
       {% endfor %}

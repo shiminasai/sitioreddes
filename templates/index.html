@@ -127,10 +127,10 @@
              
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
+                    <a  class="th radius" href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/190x140" alt="">
+                  <img  class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
                 <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}} </span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
@@ -148,10 +148,10 @@
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
+                    <a class="th radius" href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/190x140" alt="">
+                  <img class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
                 <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
@@ -170,10 +170,10 @@
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
+                    <a class="th radius" href="{{obj.get_absolute_url}}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
-                  <img src="http://placehold.it/190x140" alt="">
+                  <img class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
                 <a href="{{obj.get_absolute_url}}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>

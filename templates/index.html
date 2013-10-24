@@ -13,9 +13,8 @@
     });    
 
 </script>
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-<script type="text/javascript" src="{% static 'js/jmpress.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.jmslideshow.js' %}"></script>
+
+
 <script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
    <script type="text/javascript">
    $('#tab-container').easytabs();
@@ -25,11 +24,6 @@
           animation   : { transitionDuration : '0.9s' }
         };
         
-        $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
-          autoplay  : true,
-          bgColorSpeed: '0.9s',
-          arrows    : false
-        }));
         
       });
     </script>
@@ -59,32 +53,64 @@
     
   <div class="slide-box">
     
-      
-      <section id="jms-slideshow" class="jms-slideshow">
-        {% for obj in ultimas_destacadas %}
-            {% for caratula in obj %}
+   <div class="carousel-container">
 
-            <div class="step" data-color="color-{{forloop.parentloop.counter}}" {%if forloop.parentloop.counter == 2%} data-y="900" data-rotate-x="80" {%elif forloop.parentloop.counter == 3%} data-x="-100" data-z="1500" data-rotate="170" {%elif forloop.parentloop.counter == 4%} data-x="4500" data-z="1000" data-rotate-y="45" {%else%} data-x="3000" {%endif%}>
-              <div class="jms-content">
-                <h3>{{caratula.titulo}}</h3>
-                <p data-jmpress="warp-left">{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
-                <a class="jms-link" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
-                <h5 class="jms-link">{{caratula.pais}}</h5>
-              </div>
-              {% for imagen in caratula.fotos.all|slice:"1" %}
-                {% thumbnail imagen.imagen "350x330" crop="10%" as img %}
-                  <img src="/media/{{img}}">
-                {% endthumbnail %}
-              {% empty %}
-                <img src="http://placehold.it/350x330">
-              {% endfor %}
-            </div>
+    <div id="carousel-example-generic" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
 
-            {% endfor %}
-          
-        {% endfor %}
-      </section>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    
+    <div class="carousel-inner">
+    <div class="item active"><!-- class of active since it's the first item -->
+      <img src="http://placehold.it/680x380" alt="" />
+      <div class="carousel-caption">
+        <p>Texto 1</p>
+        <p>poner el pais</p>
 
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://placehold.it/680x380" alt="" />
+      <div class="carousel-caption">
+        <p>Texto 2</p>
+        <p>poner el pais</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://placehold.it/680x380" alt="" />
+      <div class="carousel-caption">
+        <p>Texto 3</p>
+        <p>poner el pais</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="http://placehold.it/680x380" alt="" />
+      <div class="carousel-caption">
+        <p>Texto 4</p>
+        <p>poner el pais</p>
+      </div>
+    </div>
+  </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</div>
+<!-- /.carousel -->
+</div>
    
      
     </div> <!-- slide-box  final -->
@@ -94,22 +120,18 @@
 <section class="feeds-content">
 <div class="row">
 <div class="large-12 column">
-<section class="tabs">
-  <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
-    <label for="tab-1" class="tab-label-1">Energia renovable</label>
-    
-  <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
-    <label for="tab-2" class="tab-label-2">Produccion Sostenible</label>
-    
-  <input id="tab-3" type="radio" name="radio-set" class="tab-selector-3" />
-    <label for="tab-3" class="tab-label-3">Fortalecimiento institucional</label>
-      
-          <div class="clear-shadow"></div>
-        
-  <div class="content">
-    <div class="content-1">
-        
-        {% for obj in noticias_energia %}
+<section class="tabss">
+  <ul class="tabs">
+  <li class="active" rel="tab1">Energia renovable</li>
+  <li rel="tab2">Produccion Sostenible</li>
+  <li rel="tab3">Fortalecimiento institucional</li>
+  
+</ul>
+
+  <div class="tab_container">
+  <h3 class="d_active tab_drawer_heading" rel="tab1">Energia renovable</h3>
+  <div id="tab1" class="tab_content">
+   {% for obj in noticias_energia %}
             <p class="news_front_list"> 
              
                 {% for imagen in  obj.fotos.all|slice:"1"%}
@@ -127,10 +149,11 @@
               
              </p>
       {% endfor %}      
-    </div>
-    <div class="content-2">
-          
-              {% for obj in noticias_produccion %}
+  </div>
+  <!-- #tab1 -->
+  <h3 class="tab_drawer_heading" rel="tab2">Produccion Sostenible</h3>
+  <div id="tab2" class="tab_content">
+     {% for obj in noticias_produccion %}
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
@@ -148,10 +171,11 @@
             </p>
               {% endfor %}
            
-    </div>
-    <div class="content-3">
-      
-              {% for obj in noticias_fortalecimiento %}
+  </div>
+  <!-- #tab2 -->
+  <h3 class="tab_drawer_heading" rel="tab3">Fortalecimiento institucional</h3>
+  <div id="tab3" class="tab_content">
+     {% for obj in noticias_fortalecimiento %}
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
@@ -168,10 +192,11 @@
 
                 </p>
               {% endfor %} 
-                     
-    </div>
-            
   </div>
+  <!-- #tab3 -->
+</div>
+<!-- .tab_container -->
+
 </section><!--end section tab content -->
 </div>
 </div>

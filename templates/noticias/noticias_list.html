@@ -27,7 +27,7 @@
      </div>
      <div class="large-4 column">
        <div class="filtro">
-        <h1 class="h-titles">Buscar por Categorias</h1>
+        <h1 class="side-titles">Buscar por Categorias</h1>
         <ul class="cat-list">
           {% for  obj in  categorias%}
             <li><a href="{% url 'noticias_categoria' obj.id %}">{{obj.nombre}}</a></li>
@@ -37,6 +37,8 @@
         
         </div>
 
+       
+      {% include "sidebar_lista.html" %}
      </div>
 
   <div class="large-12 column">

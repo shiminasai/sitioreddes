@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% block contenido %}
-<div class="social-content">
+<div class="content-digital">
   <div class="row">
     <div class="large-8  column">
       {% for obj in socio %}
@@ -31,25 +31,33 @@
       <h1 class="h-sidebar">Notas del socio</h1>
       <div class="small-line"></div>
       <div class="related-post">
-      {% for obj in noticias %}
-          <div class="related-content"><i class="icon-pencil"></i><a href="/noticias/{{obj.slug}}/">{{obj}}</a>
-          </div> <br>
-        
-        {%empty%}
-          <p>No tiene notas</p>
-      {% endfor %}
-    </div>
+        {% for obj in noticias %}
+            <div class="related-content">
+              <i class="icon-pencil"></i>
+              <a href="/noticias/{{obj.slug}}/">{{obj}}</a>
+            </div> 
+            <br>
+          
+          {%empty%}
+            <p>No tiene notas</p>
+        {% endfor %}
+      </div>
       <h1 class="h-sidebar">Publicaciones de socio</h1>
       <div class="small-line"></div>
       <div class="related-post">
-      {% for obj in publicaciones %}
+        {% for obj in publicaciones %}
 
-          <div class="related-content"><i class="icon-book"></i><a href="/recursos/">{{obj}}</a>
-          </div> <br>
-      {% empty %}
-          <p>No tiene publicaciones</p>
-      {% endfor %}
+        <div class="related-content">
+          <i class="icon-book"></i>
+          <a href="/recursos/">{{obj}}</a>
+            </div> <br>
+        {% empty %}
+            <p>No tiene publicaciones</p>
+        {% endfor %}
       </div>
+
+
+
 
     </div>
 

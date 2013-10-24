@@ -112,7 +112,7 @@
        </div>
 
       <div class="large-4 columns">
-        <h1 class="h-titles">Notas por categoria</h1>
+        <h1 class="side-titles">Notas por categoria</h1>
         <div class="small-line"></div>
         <div class="related-post">
           {% for obj in relacion %}
@@ -124,6 +124,9 @@
             <p>No existen noticias relacionada a esta categoria</p>
           {% endfor %}
         </div>
+        
+      {% include "sidebar_lista.html" %}
+
       </div>
 
     </div>

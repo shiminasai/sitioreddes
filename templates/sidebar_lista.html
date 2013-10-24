@@ -1,16 +1,22 @@
-  <div class="large-3 columns">
-    
-    <div class="box-orange"><a href="/donacion/">Infórmate</a></div>
-    <br>
-    <br>
-    <div class="title-sidebar">Eventos</div>
-    <div class="event-sidebar">
-    {% for obj in eventos %}
-      <div class="calendar-icon">{{obj.fecha_inicio|date:"j M"}}</div>
-      <div class="text-sidebar"><a href="{{obj.get_absolute_url}}">{{obj.titulo}}</a></div>
-    {% endfor %}
-    </div>
-    <br>
-    <div class="title-sidebar">Contactenos</div>
-   
-  </div>
+<div class="sidebar-social">
+        
+          <h1 class="side-titles">Siguenos en Twitter</h1> 
+          <div class="small-line"></div> 
+           <a class="twitter-timeline"  data-dnt="true" data-chrome="noheader nofooter" data-chrome-noscrollbar="true" data-tweet-limit="3" height="350" href="https://twitter.com/programaREDDES" data-widget-id="393044867233767425"></a>
+
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <h1 class="side-titles">Siguenos en facebook</h1>
+        <div class="small-line"></div>
+          <div class="fb-like-box" data-href="http://www.facebook.com/nicaragua.simas" data-width="305" data-height="310" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+     
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=200691280061950";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+</div>

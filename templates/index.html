@@ -68,36 +68,26 @@
   <div class="carousel-inner">
     
     <div class="carousel-inner">
-    <div class="item active"><!-- class of active since it's the first item -->
-      <img src="http://placehold.it/680x380" alt="" />
+    {% for obj in ultimas_destacadas %}
+      <div class="item">
+      
       <div class="carousel-caption">
-        <p>Texto 1</p>
-        <p>poner el pais</p>
-
+        <p>{{obj.descripcion}}</p>
+        <p>{{obj.pais}}</p>
       </div>
     </div>
-    <div class="item">
-      <img src="http://placehold.it/680x380" alt="" />
-      <div class="carousel-caption">
-        <p>Texto 2</p>
-        <p>poner el pais</p>
-      </div>
-    </div>
-    <div class="item">
+    {% empty %}
+      <div class="item">
       <img src="http://placehold.it/680x380" alt="" />
       <div class="carousel-caption">
         <p>Texto 3</p>
         <p>poner el pais</p>
       </div>
     </div>
-    <div class="item">
-      <img src="http://placehold.it/680x380" alt="" />
-      <div class="carousel-caption">
-        <p>Texto 4</p>
-        <p>poner el pais</p>
-      </div>
+    {% endfor %}
+    
+    
     </div>
-  </div>
     
   </div>
 

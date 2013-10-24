@@ -48,4 +48,4 @@ class InicioTexto(models.Model):
     texto = RichTextField()
 
     def __unicode__(self):
-        return u'%s' % str(self.nombre)
+        return u'%s' % (self.nombre)

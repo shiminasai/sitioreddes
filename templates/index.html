@@ -69,21 +69,22 @@
     
     <div class="carousel-inner">
     {% for obj in ultimas_destacadas %}
-      <div class="item">
+      {% for caratula in obj %}
+        <div class="item">
+        {% for imagen in caratula.fotos.all|slice:"1" %}
+          {% thumbnail imagen.imagen "680x380" crop="10%" as img %}
+            <img src="/media/{{img}}">
+          {% endthumbnail %}
+        {%empty%}
+          <img src="http://placehold.it/680x380" alt="" />
+        {% endfor %}
+      <div class="carousel-caption-{{forloop.parentloop.counter}}">
+        <p>{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
+        <p>{{caratula.pais}}</p>
+      </div>
+    </div>
+      {% endfor %}
       
-      <div class="carousel-caption">
-        <p>{{obj.descripcion}}</p>
-        <p>{{obj.pais}}</p>
-      </div>
-    </div>
-    {% empty %}
-      <div class="item">
-      <img src="http://placehold.it/680x380" alt="" />
-      <div class="carousel-caption">
-        <p>Texto 3</p>
-        <p>poner el pais</p>
-      </div>
-    </div>
     {% endfor %}
     
     

@@ -308,8 +308,8 @@ ul.tabs li {
   line-height: 31px;
   border-top: 1px solid #333;
   border-left: 1px solid #333;
-  border-bottom: 1px solid #333;
-  background-color: #666;
+  border-bottom: 0px solid #333;
+  background-color: #4598a6;
   color: #ccc;
   overflow: hidden;
   position: relative;
@@ -1895,7 +1895,7 @@ input[type=submit] {
 }
 
 /* line 1649, ../sass/global.scss */
-.carousel-caption {
+.carousel-caption-1 {
   position: absolute;
   z-index: 10;
   padding-top: 20px;
@@ -1912,12 +1912,100 @@ input[type=submit] {
 }
 
 /* line 1665, ../sass/global.scss */
-.carousel-caption .btn {
+.carousel-caption-2 {
+  position: absolute;
+  z-index: 10;
+  padding-top: 20px;
+  background: #EBBBBC;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  width: 250px;
+  height: 100%;
+  top: 0;
+  right: 19%;
+  bottom: 10px;
+}
+
+/* line 1681, ../sass/global.scss */
+.carousel-caption-3 {
+  position: absolute;
+  z-index: 10;
+  padding-top: 20px;
+  background: #EED9C0;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  width: 250px;
+  height: 100%;
+  top: 0;
+  right: 19%;
+  bottom: 10px;
+}
+
+/* line 1697, ../sass/global.scss */
+.carousel-caption-4 {
+  position: absolute;
+  z-index: 10;
+  padding-top: 20px;
+  background: #DFEBB1;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  width: 250px;
+  height: 100%;
+  top: 0;
+  right: 19%;
+  bottom: 10px;
+}
+
+/* line 1713, ../sass/global.scss */
+.carousel-caption-5 {
+  position: absolute;
+  z-index: 10;
+  padding-top: 20px;
+  background: #C1E6E5;
+  padding-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  width: 250px;
+  height: 100%;
+  top: 0;
+  right: 19%;
+  bottom: 10px;
+}
+
+/* line 1729, ../sass/global.scss */
+.carousel-caption-1 .btn {
+  text-shadow: none;
+}
+
+/* line 1732, ../sass/global.scss */
+.carousel-caption-2 .btn {
+  text-shadow: none;
+}
+
+/* line 1735, ../sass/global.scss */
+.carousel-caption-3 .btn {
+  text-shadow: none;
+}
+
+/* line 1738, ../sass/global.scss */
+.carousel-caption-4 .btn {
+  text-shadow: none;
+}
+
+/* line 1741, ../sass/global.scss */
+.carousel-caption-5 .btn {
   text-shadow: none;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 1670, ../sass/global.scss */
+  /* line 1746, ../sass/global.scss */
   .carousel-control .icon-prev,
   .carousel-control .icon-next {
     width: 30px;
@@ -1927,13 +2015,37 @@ input[type=submit] {
     font-size: 30px;
   }
 
-  /* line 1677, ../sass/global.scss */
-  .carousel-caption {
+  /* line 1753, ../sass/global.scss */
+  .carousel-caption-1 {
     right: 18%;
     padding-bottom: 30px;
   }
 
-  /* line 1682, ../sass/global.scss */
+  /* line 1757, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 18%;
+    padding-bottom: 30px;
+  }
+
+  /* line 1761, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 18%;
+    padding-bottom: 30px;
+  }
+
+  /* line 1765, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 18%;
+    padding-bottom: 30px;
+  }
+
+  /* line 1769, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 18%;
+    padding-bottom: 30px;
+  }
+
+  /* line 1773, ../sass/global.scss */
   .carousel-indicators {
     bottom: 20px;
   }

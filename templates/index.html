@@ -7,7 +7,7 @@
   <script type="text/javascript" >
     $(document).ready(function () {  
         $('#divRss').FeedEk({
-            FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
+            FeedUrl: 'http://blog.red-des.org/feed/rss/',
             MaxCount: 2
         });
     });    
@@ -21,7 +21,7 @@
       $(function() {
         
         var jmpressOpts = {
-          animation   : { transitionDuration : '0.9s' }
+          animation   : { transitionDuration : '8s' }
         };
         
         
@@ -58,10 +58,9 @@
     <div id="carousel-example-generic" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    {%for cont in ultimas_destacadas%}
+    <li data-target="#carousel-example-generic" data-slide-to="{{forloop.counter}}" {%if foorloop.counter == 0%} class="active" {%endif%}></li>
+    {%endfor%}
   </ol>
 
   <!-- Wrapper for slides -->

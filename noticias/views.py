@@ -18,8 +18,9 @@ def index(request, template='index.html'):
     #ultimas 5 noticias de distintos paises destacadas
     ultimas_destacadas = []
     for obj in Pais.objects.all():
-        ultimas_destacadas.append(Noticias.objects.filter(destacada=True,pais=obj).order_by('-id')[0:1])
-
+        info = Noticias.objects.filter(destacada=True,pais=obj).order_by('-id')[0:1]
+        if info:
+            ultimas_destacadas.append(info)
     #2 videos 
     ultimos_videos = Videos.objects.order_by('-id')[0:2]
     #2 eventos

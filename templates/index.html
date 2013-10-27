@@ -78,8 +78,10 @@
           <img src="http://placehold.it/680x380" alt="" />
         {% endfor %}
       <div class="carousel-caption-{{forloop.parentloop.counter}}">
+        <p>{{caratula.titulo|striptags|safe|truncatewords:4}}</p>
         <p>{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
         <p>{{caratula.pais}}</p>
+        <a class="btn" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
       </div>
     </div>
       {% endfor %}

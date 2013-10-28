@@ -7,6 +7,7 @@ from multimedia.models import Fotos
 from django.contrib.auth.models import User
 from sorl.thumbnail import ImageField
 from sitioreddes.utils import get_file_path
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -25,7 +26,7 @@ class Socios(models.Model):
     nombre = models.CharField('Nombre organización',max_length=50)
     pais = models.ForeignKey(Pais)
     position = GeopositionField(null=True, blank=True)
-    descripcion = models.TextField()
+    descripcion = RichTextField('Descripción')
     contacto = models.CharField(max_length=250)
     telefono = models.CharField(max_length=50)
     logo = ImageField(upload_to=get_file_path, blank=True, null=True)

@@ -237,6 +237,7 @@ width: 80px;
 	padding: 15px;
 	font-size: 18px;
 	font-weight: bold;
+	margin-bottom: 10px;
 	color: $white;
 	text-align: center;
 }
@@ -254,6 +255,7 @@ width: 80px;
 	color: #323232;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
+	margin-top: 10px;
 	margin-bottom: 20px;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -470,6 +472,7 @@ h2.title-event {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
+	margin-bottom: 15px
 }
 .eventos-fronts{
 	float: left;
@@ -961,10 +964,11 @@ li.mix.video.mix_all {
 /**** footer ****/
 #footer {
 background: $orange;
-
+padding-bottom: 2em;
  a{
  	color:$white;
  }
+
 }
 .country-title{ 
 	font-size: 16px;
@@ -1051,13 +1055,19 @@ background: $orange;
 .copyright-sesion {
 	float: left;
 	font-size: 11px;
+	color: #fff;
 }
 
 .copyright-creativa {
 	
 	font-size: 12px;
+	color: #fff;
 }
-
+.donante {
+	color:#fff;
+	float: right;
+	font-size: 12px;
+}
 #IrArriba {
 position: fixed;
 bottom: 30px; /* Distancia desde abajo */
@@ -1534,8 +1544,22 @@ font-size: 12px;
 .carousel-container{
 	margin-right: auto;
 	margin-left: auto;
+	position:absolute;
+	width: 980px;
+  left:0;
+  right:0;
+  .btn {
+
+  	margin-top: 90px;
+  	font-size: 12px;
+  	
+  }
+  a:hover {
+  	color: #fff;
+  }
 
 }
+
 
 
 .carousel {
@@ -1556,7 +1580,7 @@ font-size: 12px;
 .carousel-inner > .item > a > img {
   //display: block;
   
-  margin-right: 22%;
+  margin-right: 24%;
   max-width: 100%;
   height: auto;
   line-height: 1;
@@ -1633,7 +1657,7 @@ font-size: 12px;
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  margin-left: -10px;
+  margin-left: -80px;
   font-family: serif;
 }
 .carousel-control .icon-prev:before {
@@ -1645,7 +1669,7 @@ font-size: 12px;
 .carousel-indicators {
   position: absolute;
   bottom: 4px;
-  right: 22%;
+  right: 8%;
   z-index: 15;
   width: 100px;
   margin-left: -30%;
@@ -1670,6 +1694,7 @@ font-size: 12px;
   background-color: #ffffff;
 }
 .carousel-caption-1 {
+	right: 0;
   position: absolute;
   z-index: 10;
   padding-top: 20px;
@@ -1680,25 +1705,23 @@ font-size: 12px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 250px;
 	height: 100%;
-	
 	top: 0;
-	right: 19%;
+	margin-left: 10em;
 	bottom: 10px;
 }
 .carousel-caption-2 {
+	right: 0;
   position: absolute;
   z-index: 10;
   padding-top: 20px;
-  background: #EBBBBC;
+  background: #40cc75;
   padding-bottom: 20px;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 250px;
 	height: 100%;
-	
 	top: 0;
-	right: 19%;
 	bottom: 10px;
 }
 .carousel-caption-3 {
@@ -1714,7 +1737,7 @@ font-size: 12px;
 	height: 100%;
 	
 	top: 0;
-	right: 19%;
+	right: 1%;
 	bottom: 10px;
 }
 .carousel-caption-4 {
@@ -1730,7 +1753,7 @@ font-size: 12px;
 	height: 100%;
 	
 	top: 0;
-	right: 19%;
+	right: 1%;
 	bottom: 10px;
 }
 .carousel-caption-5 {
@@ -1746,7 +1769,7 @@ font-size: 12px;
 	height: 100%;
 	
 	top: 0;
-	right: 19%;
+	right: 1%;
 	bottom: 10px;
 }
 .carousel-caption-1 .btn {
@@ -1765,37 +1788,60 @@ font-size: 12px;
   text-shadow: none;
 }
 @media screen and (min-width: 768px) {
-  .carousel-control .icon-prev,
+
+	.carousel-container{
+		margin-right: auto;
+		margin-left: auto;
+		position:absolute;
+		width: 980px;
+}
+  .carousel-control .icon-prev {
+  	 width: 30px;
+    height: 30px;
+    margin-left: -80px;
+    font-size: 30px;
+  }
   .carousel-control .icon-next {
     width: 30px;
     height: 30px;
-    margin-top: -15px;
-    margin-left: -15px;
+    margin-left: 80px;
     font-size: 30px;
   }
   .carousel-caption-1 {
-    right: 18%;
+    right: 1%;
     padding-bottom: 30px;
   }
   .carousel-caption-2 {
-    right: 18%;
+    right: 1%;
     padding-bottom: 30px;
   }
   .carousel-caption-3 {
-    right: 18%;
+    right: 1%;
     padding-bottom: 30px;
   }
   .carousel-caption-4 {
-    right: 18%;
+    right: 1%;
     padding-bottom: 30px;
   }
   .carousel-caption-5 {
-    right: 18%;
+    right: 1%;
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: 20px;
+    bottom: 10px;
   }
 }
 
+@media all and (max-width: 760px) and (min-width: 300px) {
+  
+.carousel-container{
+		margin-right: auto;
+		margin-left: auto;
+		position:absolute;
+		width: 100%;
+	}
+		
 
+
+ 
+}

@@ -51,11 +51,11 @@
 
 <section id= "hero-content">
     
-  <div class="slide-box">
+<div class="slide-box">
     
    <div class="carousel-container">
 
-    <div id="carousel-example-generic" class="carousel slide">
+  <div id="carousel-example-generic" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     {%for cont in ultimas_destacadas%}
@@ -71,15 +71,17 @@
       {% for caratula in obj %}
         <div class="item">
         {% for imagen in caratula.fotos.all|slice:"1" %}
-          {% thumbnail imagen.imagen "680x380" crop="10%" as img %}
+          {% thumbnail imagen.imagen "690x380" crop="10%" as img %}
             <img src="/media/{{img}}">
           {% endthumbnail %}
         {%empty%}
-          <img src="http://placehold.it/680x380" alt="" />
+          <img src="http://placehold.it/690x380" alt="" />
         {% endfor %}
       <div class="carousel-caption-{{forloop.parentloop.counter}}">
+        <p>{{caratula.titulo|striptags|safe|truncatewords:4}}</p>
         <p>{{caratula.descripcion|striptags|safe|truncatewords:4}}</p>
         <p>{{caratula.pais}}</p>
+        <a class="btn" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
       </div>
     </div>
       {% endfor %}
@@ -98,12 +100,12 @@
   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
     <span class="icon-next"></span>
   </a>
-</div>
+  </div>
 <!-- /.carousel -->
 </div>
    
      
-    </div> <!-- slide-box  final -->
+</div> <!-- slide-box  final -->
 
 </section><!--hero content  final -->
 
@@ -112,9 +114,9 @@
 <div class="large-12 column">
 <section class="tabss">
   <ul class="tabs">
-  <li class="active" rel="tab1">Energia renovable</li>
-  <li rel="tab2">Produccion Sostenible</li>
-  <li rel="tab3">Fortalecimiento institucional</li>
+  <li class="active" rel="tab1"><i class="icon-sun"></i>&nbsp;&nbsp;Energia renovable</li>
+  <li rel="tab2"><i class="icon-cog"></i>&nbsp;&nbsp;Produccion Sostenible</li>
+  <li rel="tab3"><i class="icon-suitcase"></i>&nbsp;&nbsp;Fortalecimiento institucional</li>
   
 </ul>
 
@@ -198,7 +200,7 @@
   <!--publicaciones -->
 
 <div class="large-6 columns">
-<div class="title-bar">Publicaciones</div>
+<div class="title-bar"><i class="icon-book"></i>&nbsp;&nbsp;Publicaciones</div>
         <div id="ri-grid" class="ri-grid ri-grid-size-1 ri-shadow">
           <img class="ri-loading-image" src="{{STATIC_URL}}images/loading.gif"/>
           <ul>
@@ -248,7 +250,7 @@
 <div class="row">
 
   <div class="large-3 columns">
-    <div class="title-bar">Unete a RED-DES</div>
+    <div class="title-bar"><i class="icon-group"></i>&nbsp;&nbsp;Unete a RED-DES</div>
     <div class="socio_button">Hazte socio</div>
   </div>
   <div class="large-4 columns">
@@ -273,7 +275,7 @@
       </div>
   </div>
   <div class="large-5 columns">
-    <div class="title-bar">Redes sociales</div>
+    <div class="title-bar"><i class="icon-bullhorn icon-1x"></i>&nbsp;&nbsp;Redes sociales</div>
     <div id="tab-container" class="tab-container">
       <ul class='etabs'>
         <li class='tab'><a href="#tabs1-html">Twitter</a></li>

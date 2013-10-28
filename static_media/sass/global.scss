@@ -848,10 +848,13 @@ span.author {
 	clear: both;
 }
 .text-pages{
-	margin-right: 15px;
-	text-align: justify;
 	font-size: 14px;
+
+	img {
+		margin-right: 10px;
+	}
 }
+
 .dates{
 	font-size: 12px;
 	color: #17bee1;
@@ -935,6 +938,26 @@ margin-left: 37%;
 
 }
 
+li.mix.video.mix_all {
+	float: left;
+	margin-right: 30px;
+}
+#Parks.grid{
+
+	.video-recurso {
+		text-align: center;
+		width: 200px;
+		font-size: 13px;
+
+	}
+
+	.play-icon-grid {
+		z-index: 25;
+		position: absolute;
+		margin-top: 40%;
+		margin-left: 50%;
+	}
+} 
 /**** footer ****/
 #footer {
 background: $orange;

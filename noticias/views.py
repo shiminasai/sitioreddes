@@ -154,8 +154,8 @@ def ficha_socio(request, id, template='socios/socios_detalle.html'):
     socio = Socios.objects.filter(id=id)
     for obj in socio:
         variable = obj.autor.id
-    noticias = Noticias.objects.filter(autor__id=variable)
-    publicaciones = Publicaciones.objects.filter(autor__id=variable)
+    noticias = Noticias.objects.filter(autor__id=variable)[:4]
+    publicaciones = Publicaciones.objects.filter(autor__id=variable)[:4]
     return render(request,template,{'socio':socio, 'noticias':noticias,
                                     'publicaciones':publicaciones})
 

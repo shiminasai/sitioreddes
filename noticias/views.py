@@ -167,12 +167,11 @@ def recursos(request, template="recursos.html"):
     from itertools import chain
 
     fotos = Fotos.objects.order_by('-id')[0:6]
-    videos = Videos.objects.order_by('-id')[0:8]
-    audios = Audio.objects.order_by('-id')[0:8]
-    adjuntos1 = Adjuntos.objects.order_by('-id')[0:4]
-    documetos = Publicaciones.objects.order_by('-id')[0:4]
+    videos = Videos.objects.order_by('-id')[0:6]
+    audios = Audio.objects.order_by('-id')[0:6]
+    adjuntos1 = Adjuntos.objects.order_by('-id')[0:6]
+    documetos = Publicaciones.objects.order_by('-id')[0:6]
     adjuntos = list(chain(adjuntos1, documetos,))
-    
-    print adjuntos
+
     return render(request, template, {'fotos':fotos,'videos':videos,
                                       'audios':audios, 'adjuntos':adjuntos})

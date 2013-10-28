@@ -211,12 +211,11 @@ $(function() {
    <div class="img_wrapper loaded">
         {% thumbnail obj.imagen "250x150" crop="10%" as img %}
           <img src="/media/{{img}}"  onload="imgLoaded(this)">
-        {% endthumbnail %}
-        {{obj.nombre}}
+        {% endthumbnail %}     
     </div>
+    {{obj.nombre}}
     {% empty %}
           <p>No existen fotos en el sitio</p>
-
     </li>
     {% endfor %}
     

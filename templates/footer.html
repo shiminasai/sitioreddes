@@ -28,13 +28,13 @@
               <p class="icon-footer" >
                <img src="/static/img/paper-icon.png">
               </p>
-              <a href="/contactenos/">Contactenos</a>
+              <a href="/contactenos/">Contáctenos</a>
             </li>
           </ul>
   </nav>
 
   <ul class="country">
-    <p class="country-title">Redes Centro America</p>
+    <p class="country-title">RED-DES en Centroamérica</p>
     {% for pais in paises %}
       <li class="{{pais|cut:" "|lower|slice:":3"}}"><a href="{% url "socios_pais" pais.id %}">{{pais}}</a></li>
     {% empty %}

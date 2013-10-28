@@ -11,17 +11,17 @@
          <div class="socios-logo"><img src="/media/{{img}}" alt="{{obj.nombre}}"></div>
       {% endthumbnail %}<br>
       <div class="socios-info">
-      <span><i class="icon-compass"></i> &nbsp; &nbsp;Pais: {{obj.pais}}</span> <br>
+      <span><i class="icon-compass"></i> &nbsp; &nbsp;País: {{obj.pais}}</span> <br>
       <span><i class="icon-envelope icon-2"></i>&nbsp; &nbsp;Contacto: {{obj.contacto}}</span> <br>
-      <span><i class="icon-phone icon-2"></i>&nbsp; &nbsp;Telefono: {{obj.telefono}}</span> <br>
+      <span><i class="icon-phone icon-2"></i>&nbsp; &nbsp;Teléfono: {{obj.telefono}}</span> <br>
       
-     <span><i class="icon-link icon-2"></i>&nbsp; &nbsp;Pagina web: <a href="{{obj.pagina_web}}">{{obj.pagina_web}}</a></span> <br><br>
+     <span><i class="icon-link icon-2"></i>&nbsp; &nbsp;Página Web: <a href="{{obj.pagina_web}}">{{obj.pagina_web}}</a></span> <br><br>
       </div>
 
 
       </div>
      
-      <div class="socios-text">{{obj.descripcion}}</div>
+      <div class="socios-text">{{obj.descripcion|safe}}</div>
 
     {% empty %}
         <p>No hay datos que mostrar</p>

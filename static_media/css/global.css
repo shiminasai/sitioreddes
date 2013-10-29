@@ -2004,8 +2004,10 @@ input[type=submit] {
   position: absolute;
   z-index: 10;
   padding-top: 20px;
-  background: #17bee1;
-  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background: #28afcc;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -2016,14 +2018,13 @@ input[type=submit] {
   bottom: 10px;
 }
 
-/* line 1760, ../sass/global.scss */
+/* line 1762, ../sass/global.scss */
 .carousel-caption-2 {
   right: 0;
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #40cc75;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #3c8d3f;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -2033,13 +2034,12 @@ input[type=submit] {
   bottom: 10px;
 }
 
-/* line 1775, ../sass/global.scss */
+/* line 1776, ../sass/global.scss */
 .carousel-caption-3 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #E9574F;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #c43131;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -2050,13 +2050,12 @@ input[type=submit] {
   bottom: 10px;
 }
 
-/* line 1791, ../sass/global.scss */
+/* line 1790, ../sass/global.scss */
 .carousel-caption-4 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
+  padding: 20px;
   background: #8E655C;
-  padding-bottom: 20px;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -2067,13 +2066,12 @@ input[type=submit] {
   bottom: 10px;
 }
 
-/* line 1807, ../sass/global.scss */
+/* line 1804, ../sass/global.scss */
 .carousel-caption-5 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #e77e23;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #df7323;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -2084,33 +2082,14 @@ input[type=submit] {
   bottom: 10px;
 }
 
-/* line 1823, ../sass/global.scss */
-.carousel-caption-1 .btn {
-  text-shadow: none;
-}
-
-/* line 1826, ../sass/global.scss */
-.carousel-caption-2 .btn {
-  text-shadow: none;
-}
-
-/* line 1829, ../sass/global.scss */
-.carousel-caption-3 .btn {
-  text-shadow: none;
-}
-
-/* line 1832, ../sass/global.scss */
-.carousel-caption-4 .btn {
-  text-shadow: none;
-}
-
-/* line 1835, ../sass/global.scss */
-.carousel-caption-5 .btn {
+/* line 1818, ../sass/global.scss */
+.enlace2 a {
+  color: #000;
   text-shadow: none;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 1840, ../sass/global.scss */
+  /* line 1824, ../sass/global.scss */
   .carousel-container {
     margin-right: auto;
     margin-left: auto;
@@ -2118,7 +2097,7 @@ input[type=submit] {
     width: 980px;
   }
 
-  /* line 1846, ../sass/global.scss */
+  /* line 1830, ../sass/global.scss */
   .carousel-control .icon-prev {
     width: 30px;
     height: 30px;
@@ -2126,7 +2105,7 @@ input[type=submit] {
     font-size: 30px;
   }
 
-  /* line 1852, ../sass/global.scss */
+  /* line 1836, ../sass/global.scss */
   .carousel-control .icon-next {
     width: 30px;
     height: 30px;
@@ -2134,43 +2113,38 @@ input[type=submit] {
     font-size: 30px;
   }
 
-  /* line 1858, ../sass/global.scss */
+  /* line 1842, ../sass/global.scss */
   .carousel-caption-1 {
     right: 1%;
-    padding-bottom: 30px;
+  }
+
+  /* line 1846, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+  }
+
+  /* line 1850, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+  }
+
+  /* line 1854, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+  }
+
+  /* line 1858, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
   }
 
   /* line 1862, ../sass/global.scss */
-  .carousel-caption-2 {
-    right: 1%;
-    padding-bottom: 30px;
-  }
-
-  /* line 1866, ../sass/global.scss */
-  .carousel-caption-3 {
-    right: 1%;
-    padding-bottom: 30px;
-  }
-
-  /* line 1870, ../sass/global.scss */
-  .carousel-caption-4 {
-    right: 1%;
-    padding-bottom: 30px;
-  }
-
-  /* line 1874, ../sass/global.scss */
-  .carousel-caption-5 {
-    right: 1%;
-    padding-bottom: 30px;
-  }
-
-  /* line 1878, ../sass/global.scss */
   .carousel-indicators {
     bottom: -10px;
   }
 }
 @media all and (max-width: 760px) and (min-width: 300px) {
-  /* line 1885, ../sass/global.scss */
+  /* line 1869, ../sass/global.scss */
   .carousel-container {
     margin-right: auto;
     margin-left: auto;
@@ -2178,27 +2152,34 @@ input[type=submit] {
     width: 100%;
   }
 }
-/* line 1897, ../sass/global.scss */
+/* line 1881, ../sass/global.scss */
 .car_titulo {
   font-size: 18px;
   font-weight: bold;
 }
 
-/* line 1902, ../sass/global.scss */
+/* line 1886, ../sass/global.scss */
 .car_breve {
   font-size: 12px;
   color: white;
-  padding: 12px;
-  text-align: justify;
+  padding: 0px 7px 0px 9px;
+  text-align: left;
+  text-shadow: none;
 }
 
-/* line 1910, ../sass/global.scss */
+/* line 1893, ../sass/global.scss */
+.car_pais {
+  margin: 1px 2px 3px 4px;
+  padding: 1px 2px 3px 4px;
+}
+
+/* line 1899, ../sass/global.scss */
 .control-label {
   font-size: 13px;
   padding-bottom: 10px;
 }
 
-/* line 1914, ../sass/global.scss */
+/* line 1903, ../sass/global.scss */
 #pony_form {
   padding: 44px;
   border: #555555 solid 2px;
@@ -2207,7 +2188,7 @@ input[type=submit] {
   border-radius: 5px;
 }
 
-/* line 1923, ../sass/global.scss */
+/* line 1912, ../sass/global.scss */
 .recur-more {
   display: inline-block;
   width: auto;

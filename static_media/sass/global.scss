@@ -1746,8 +1746,10 @@ font-size: 12px;
   position: absolute;
   z-index: 10;
   padding-top: 20px;
-  background: #17bee1;
-  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background: #28afcc;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -1761,9 +1763,8 @@ font-size: 12px;
 	right: 0;
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #40cc75;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #3c8d3f;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -1775,15 +1776,13 @@ font-size: 12px;
 .carousel-caption-3 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #E9574F;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #c43131;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 250px;
 	height: 100%;
-	
 	top: 0;
 	right: 1%;
 	bottom: 10px;
@@ -1791,15 +1790,13 @@ font-size: 12px;
 .carousel-caption-4 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
+  padding: 20px;
   background: #8E655C;
-  padding-bottom: 20px;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 250px;
 	height: 100%;
-	
 	top: 0;
 	right: 1%;
 	bottom: 10px;
@@ -1807,33 +1804,20 @@ font-size: 12px;
 .carousel-caption-5 {
   position: absolute;
   z-index: 10;
-  padding-top: 20px;
-  background: #e77e23;
-  padding-bottom: 20px;
+  padding: 20px;
+  background: #df7323;
   color: #ffffff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 250px;
 	height: 100%;
-	
 	top: 0;
 	right: 1%;
 	bottom: 10px;
 }
-.carousel-caption-1 .btn {
-  text-shadow: none;
-}
-.carousel-caption-2 .btn {
-  text-shadow: none;
-}
-.carousel-caption-3 .btn {
-  text-shadow: none;
-}
-.carousel-caption-4 .btn {
-  text-shadow: none;
-}
-.carousel-caption-5 .btn {
-  text-shadow: none;
+.enlace2 a {
+	color: #000;
+	text-shadow: none;
 }
 @media screen and (min-width: 768px) {
 
@@ -1857,23 +1841,23 @@ font-size: 12px;
   }
   .carousel-caption-1 {
     right: 1%;
-    padding-bottom: 30px;
+    
   }
   .carousel-caption-2 {
     right: 1%;
-    padding-bottom: 30px;
+    
   }
   .carousel-caption-3 {
     right: 1%;
-    padding-bottom: 30px;
+    
   }
   .carousel-caption-4 {
     right: 1%;
-    padding-bottom: 30px;
+    
   }
   .carousel-caption-5 {
     right: 1%;
-    padding-bottom: 30px;
+    
   }
   .carousel-indicators {
     bottom: -10px;
@@ -1902,8 +1886,13 @@ font-size: 12px;
 .car_breve {
     font-size: 12px;
     color: $white;
-    padding: 12px;
-		text-align: justify;
+    padding: 0px 7px 0px 9px;
+	text-align: left;
+	text-shadow: none;
+}
+.car_pais {
+    margin: 1px 2px 3px 4px;
+    padding: 1px 2px 3px 4px;
 }
 
 

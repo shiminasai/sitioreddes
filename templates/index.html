@@ -47,6 +47,52 @@
 {% endblock extra_js %}
 
 {% block contenido %}
+<style type="text/css">
+.jump-link a {
+position:relative;
+height: 24px;
+line-height: 24px;
+text-align: left;
+text-decoration: none;
+padding: 4px 6px 4px 14px;
+color: #6E6E6E;
+background: #cacaca;
+font-size: 12px;
+text-shadow: none;
+}
+.jump-link a:hover {
+background: #585858;
+}
+.jump-link a:after {
+background-color: white;
+content: "";
+float: right;
+left: 0;
+position: absolute;
+top: 10px; 
+height: 6px;
+width: 6px; 
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+.jump-link a:before {
+border-color: transparent #cacaca transparent transparent ;
+border-style: solid;
+border-width: 11px 13px 13px 13px; 
+content: "";
+float: left;
+left:-26px;
+height: 0;
+position: absolute;
+top: 0;
+width: 0;
+}
+.jump-link a:hover:before {
+border-color: transparent #585858 transparent transparent;
+}
+  
+</style>
 <!--header -->  
 
 <section id= "hero-content">
@@ -79,9 +125,9 @@
         {% endfor %}
       <div class="carousel-caption-{{forloop.parentloop.counter}}">
         <p class="car_titulo">{{caratula.titulo|safe|truncatewords:4}}</p>
-        <p class="car_breve">{{caratula.descripcion|striptags|safe|truncatewords:44}}</p>
+        <p class="car_breve">{{caratula.descripcion|striptags|safe|truncatewords:34}}</p>
         <p class="car_pais">{{caratula.pais}}</p>
-        <a class="button" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
+        <div class="jump-link"><a href="{{caratula.get_absolute_url}}">Leer m&aacutes</a></div>
       </div>
     </div>
       {% endfor %}

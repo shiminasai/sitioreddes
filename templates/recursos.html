@@ -58,7 +58,7 @@ $(function() {
                 $('#Parks').mixitup({
                     layoutMode: 'list', // Start in list mode (display: block) by default
                     listClass: 'list', // Container class for when in list mode
-                    gridClass: 'grid', // Container class for when in grid mode
+                    //gridClass: 'grid', // Container class for when in grid mode
                     effects: ['fade','blur'], // List of effects 
                     listEffects: ['fade','rotateX'] // List of effects ONLY for list mode
                 });
@@ -178,7 +178,7 @@ $(function() {
       <nav class="controls just">
         <div class="group" id="Sorts">
           <div class="button active" id="ToList"><i></i>List</div>
-          <div class="button" id="ToGrid"><i></i>Grid</div>
+          <!-- <div class="button" id="ToGrid"><i></i>Grid</div>-->
         </div>
         <div class="group" id="Filters">
           <div class="drop_down wf">
@@ -213,7 +213,7 @@ $(function() {
           <img src="/media/{{img}}"  onload="imgLoaded(this)">
         {% endthumbnail %}     
     </div>
-    {{obj.nombre}}
+    <span class="text-recursos">{{obj.nombre}}</span>
     {% empty %}
           <p>No existen fotos en el sitio</p>
     </li>
@@ -231,7 +231,7 @@ $(function() {
         </div>
          
           <a data-reveal-id="videoModal-{{obj.id}}" href="">
-          {% thumbnail video.thumbnail "190x140" crop="10%" as img %}
+          {% thumbnail video.thumbnail "250x150" crop="10%" as img %}
               <img src="/media/{{ img}}" alt="">
           {% endthumbnail %} </a>
           {% endvideo %}
@@ -242,19 +242,7 @@ $(function() {
 
       
 
-    {% for obj in audios %}
-      <li class="mix audios mix_all" data-name="Audios" style=" ">
-        <div class="audio-container">
-          <audio  preload="auto">
-            <source src="/media/{{obj.audio}}">
-          </audio>
-          <span class="titulo-audio">{{obj.nombre}}</span>
-        </div>
-      {%empty%}
-        <p>No existen audios en el sitio</p>
-      </li>
-      {% endfor %}
-
+   
   
 
 
@@ -279,6 +267,25 @@ $(function() {
           </div>
    </li>      
       {% endfor %}
+
+
+
+
+   {% for obj in audios %}
+      <li class="mix audios mix_all" data-name="Audios" style=" ">
+        <div class="audio-container">
+          <audio  preload="auto">
+            <source src="/media/{{obj.audio}}">
+          </audio>
+          <span class="titulo-audio">{{obj.nombre}}</span>
+        </div>
+      {%empty%}
+        <p>No existen audios en el sitio</p>
+      </li>
+      {% endfor %}
+
+
+      <div class="recur-more">leer más</div>
 
  </ul> <!-- fin del panel container -->
 

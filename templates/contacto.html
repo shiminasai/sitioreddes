@@ -43,21 +43,21 @@
 {% endblock extra_js %}
 
 {% block contenido %}
-
+<div class="content-digital">
   <div class="row">
   
-  <h1 class="content-title">Contactenos</h1>
-  </div>
-  <div class="bg-single">
-  <div class="row">
+  <h1 class="h-titles">Contactenos</h1>
+  
+  
+  
    <div class="large-12 columns">
-    <div class="large-6 contactos column">
+    <div class="large-8 contactos column">
       
       <form id="pony_form" method="POST" class='form-horizontal' >{% csrf_token %}
       {% for field in form %}
         <div class='control-group{% if field.errors %} error{% endif %}'>
             <label class='control-label' for='{{ field.auto_id }}'>{{ field.label }}</label>
-            <div class='controls'>
+            <div class='control'>
             {{ field }}
             {% for error in field.errors %}
             <span class='help-inline'>{{ error }}</span>
@@ -70,7 +70,7 @@
     </div>
     </form>
     </div>
-  <div class="large-5 contactos columns">
+  <div class="large-4 contactos columns">
     {% if texto2 %}
        {% for obj in texto2 %}
          {{obj.texto|safe}}
@@ -80,7 +80,7 @@
     {% endif %} 
   </div>
   </div>
- </div>
+</div>
 </div>
 
 {% endblock contenido %}

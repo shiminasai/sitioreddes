@@ -364,9 +364,10 @@
 #Parks.list .meta{
 	display: inline-block;
 	width: 205px;
+	margin-right: 20px;
 	text-align: center;
 	line-height: 99px;
-	border-left: 1px solid #d7d7d7;
+	border-right: 1px solid #d7d7d7;
 	height: 100%;
 	vertical-align: top;
 }

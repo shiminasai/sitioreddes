@@ -10,14 +10,17 @@
         {% for obj in object_list %}
         <div class="foto-list">
             <div>
-            {% thumbnail obj.imagen "300x240" crop="10%" as img %}
-                <img src="/media/{{img}}">
+            {% thumbnail obj.imagen "300x200" crop="10%" as img %}
+                <img class="opacity" src="/media/{{img}}">
             {% endthumbnail %}
             </div>
 
-         <span class="fotos-titles">
-            {{obj.nombre}} >> <a href="/media/{{obj.imagen}}" download="{{obj.nombre}}" title="{{obj.nombre}}">Descargar</a></span>
-
+         <span class="pic-title">
+            {{obj.nombre}}  
+        </span>
+        <span class="downloads">
+            <a href="/media/{{obj.imagen}}" download="{{obj.nombre}}" title="{{obj.nombre}}"><i class="icon-download"></i>Descargar</a>
+        </span>
         </div>
 
 
@@ -25,22 +28,21 @@
             <p>No existen fotos</p>
         {% endfor %}
 <br>
-
-{% if is_paginated %}
-    <div class="pagination">
-        <span class="page-links">
-            {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}">previo</a>
-            {% endif %}
-            <span class="page-current">
-                Pagina {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">próximo</a>
-            {% endif %}
-        </span>
-    </div>
-{% endif %}
+<div class="large-12 column">
+ <div class="paginador">
+    <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="arrow unavailable"><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% endif %}
+    {% for numero in page_obj.paginator.page_range %}
+      <li class="{%if numero == 1 %}current{%endif%}"><a href="?page={{numero}}">{{numero}}</a></li>
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="arrow"><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% endif %}
+    </ul>
+  </div>
+</div>
 
 
     </div>

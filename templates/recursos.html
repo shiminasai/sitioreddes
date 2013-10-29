@@ -32,18 +32,6 @@ $(function() {
     });
     
  });
-        
-            /* 
-            *   We would normally recommend that all JavaScript is kept in a seperate .js file,
-            *   but we have included it in the document head for convenience.
-            */
-            
-            // NICE IMAGE LOADING
-            
-            /* 
-            *   Not part of MixItUp, but this is a great lightweight way 
-            *   to gracefully fade-in images with CSS3 after they have loaded
-            */
             
             function imgLoaded(img){    
                 $(img).parent().addClass('loaded');
@@ -79,21 +67,12 @@ $(function() {
                     $('#Parks').mixitup('toGrid');
                 });
                 
-                // HANDLE MULTI-DIMENSIONAL CHECKBOX FILTERING
-                
-                /*  
-                *   The desired behaviour of multi-dimensional filtering can differ greatly 
-                *   from project to project. MixItUp's built in filter button handlers are best
-                *   suited to simple filter operations, so we will need to build our own handlers
-                *   for this demo to achieve the precise behaviour we need.
-                */
                 
                 var $filters = $('#Filters').find('li'),
                     dimensions = {
                         region: 'all', // Create string for first dimension
                     };
                     
-                // Bind checkbox click handlers:
                 
                 $filters.on('click',function(){
                     var $t = $(this),

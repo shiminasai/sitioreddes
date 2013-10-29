@@ -79,9 +79,9 @@
         {% endfor %}
       <div class="carousel-caption-{{forloop.parentloop.counter}}">
         <p class="car_titulo">{{caratula.titulo|safe|truncatewords:4}}</p>
-        <p class="car_breve">{{caratula.descripcion|safe|truncatewords:4}}</p>
+        <p class="car_breve">{{caratula.descripcion|striptags|safe|truncatewords:44}}</p>
         <p class="car_pais">{{caratula.pais}}</p>
-        <a class="btn" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
+        <a class="button" href="{{caratula.get_absolute_url}}">Leer m&aacutes</a>
       </div>
     </div>
       {% endfor %}

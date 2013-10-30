@@ -1034,7 +1034,7 @@ li.mix.video.mix_all {
 /**** footer ****/
 #footer {
 background: $orange;
-padding-bottom: 2em;
+padding-bottom: 1em;
  a{
  	color:$white;
  }
@@ -1132,7 +1132,6 @@ padding-bottom: 2em;
 
 .copyright-creativa {
 	text-align: center;
-	
 	font-size: 12px;
 	color: #fff;
 	font-weight: bold;
@@ -1140,7 +1139,7 @@ padding-bottom: 2em;
 .text-comds {
 }
 .text-comds img {
-	padding-bottom: 10px;
+	padding: 9px 2px 3px 4px;
 }
 .donante {
 	color:#fff;
@@ -1149,10 +1148,13 @@ padding-bottom: 2em;
 	
 	font-weight: bold;
 }
-
+.menu-site {
+	padding: 14px 2px 3px 4px;
+}
 .menu-site h2 {
 	color: #fff;
 	font-size: 18px;
+	
 }
 .menu-site li{
 color: #fff;

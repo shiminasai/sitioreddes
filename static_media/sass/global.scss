@@ -581,12 +581,20 @@ margin-left: 9%;
 .video-list {
 	float: left;
 	margin: 15px;
+
+	img {
+		border-radius: 10px;
+		-moz-box-shadow:    3px 3px 3px 4px #ccc;
+  -webkit-box-shadow: 3px 3px 3px 4px #ccc;
+  box-shadow:         3px 3px 3px 4px #ccc;
+	}
 }
 
 .video-title{ 
 	margin-top: 10px;
 	text-align: center;
 	font-size: 14px;
+	font-weight: bold;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -909,8 +917,33 @@ margin-top: 30%;
 margin-left: 37%;
 }
 
+.play-list {
+background: url('../img/play.png') no-repeat center;
+z-index: 25;
+width: 32px;
+height: 32px;
+position: absolute;
+margin-top: 5em;
+margin-left: 4.5em;
+}
 
-
+/**** Audio Lista *****/
+.audio-container { 
+	float: left;
+	margin: 10px;
+	width: 460px;
+	display: inline-block;
+	border-bottom: #dedede 2px solid;
+	padding-bottom: 10px;
+}
+.audio-titles{
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+.audiojs {
+	margin-bottom: 10px;
+}
 
 /**** Share button ****/
 
@@ -1099,23 +1132,39 @@ padding-bottom: 2em;
 
 .copyright-creativa {
 	text-align: center;
-	margin-top: 50px;
+	
 	font-size: 12px;
 	color: #fff;
 	font-weight: bold;
 }
 .text-comds {
-	float: left;
-	margin-left: 250px;
-	margin-top: 7px;
+	
 }
 .donante {
 	color:#fff;
-	float: right;
+	
 	font-size: 12px;
 	
 	font-weight: bold;
 }
+
+.menu-site h2 {
+	color: #fff;
+	font-size: 18px;
+}
+.menu-site li{
+color: #fff;
+font-size: 13px;
+a {
+	color: #fff;
+	&:hover{
+		font-weight: bold;
+	}
+
+}
+}
+
+
 #IrArriba {
 position: fixed;
 bottom: 30px; /* Distancia desde abajo */

@@ -31,12 +31,14 @@
 <div class="patter-content">
 <div class="row">
     <div class="large-12 news-list column">
+      <h2 class="h-titles"><i class="icon-microphone"></i>&nbsp;Nuestra lista de Audios</h2>
         {% for obj in object_list %}
-            <h1 class="h-titles">{{obj.nombre}} >> <a href="/media/{{obj.audio}}" download="{{obj.nombre}}" title="{{obj.nombre}}">Descargar</a></h1>
+           
             <div class="audio-container">
                 <audio  preload="auto">
                   <source src="/media/{{obj.audio}}">
                 </audio>
+                 <span class="audio-titles">{{obj.nombre}} <i class="icon-share-alt"></i> <a href="/media/{{obj.audio}}" download="{{obj.nombre}}" title="{{obj.nombre}}"><i class="icon-download"></i>Descargar</a></span>
             </div>
         {% empty %}
             <p>No existen audios</p>

@@ -10,6 +10,7 @@
     <tr>
       <th width="400">Nombre documento</th>
       <th width="450">Descargar</th>
+      <th width="450">Tamaño/Peso</th>
     </tr>
   </thead>
   <tbody>
@@ -32,6 +33,12 @@
               {% endif %}
               
               </div></td>
+              {% if obj.adjunto %}
+                <td>{{obj.adjunto.size|filesizeformat}}</td>
+              {%else%}
+                <td>0</td>
+              {% endif %}
+              
           {% endif %}
         </tr> 
       {% endfor %}

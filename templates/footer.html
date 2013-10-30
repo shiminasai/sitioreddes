@@ -1,55 +1,6 @@
 <section id="footer">
 <div class="row">
 <div class="large-12 footer columns">
-  <nav class="menu-footer">
-          <ul class="footer-nav">
-            <li>
-              <p class="icon-footer">
-               <img src="/static/img/home-footer.png">
-              </p>
-              <a href="/">Inicio</a>
-            </li>
-            
-            <li>
-              <p class="icon-footer" >
-               <img src="/static/img/recurso-icon.png">
-              </p>
-              <a href="/recursos/">Recursos</a>
-            </li>
-           
-            <li>
-              <p class="icon-footer" >
-               <img src="/static/img/socios-icon.png">
-              </p>
-              <a href="/lista/socios/">Socios RED-DES</a>
-            </li>
-        
-            <li>
-              <p class="icon-footer" >
-               <img src="/static/img/paper-icon.png">
-              </p>
-              <a href="/contactenos/">Contáctenos</a>
-            </li>
-          </ul>
-  </nav>
-
-  <ul class="country">
-    <p class="country-title">RED-DES en Centroamérica</p>
-    {% for pais in paises %}
-      <li class="{{pais|cut:" "|lower|slice:":3"}}"><a href="{% url "socios_pais" pais.id %}">{{pais}}</a></li>
-    {% empty %}
-      <li class="gua">No existen socios</li>
-    {% endfor %}
-  </ul>
- 
-  
-  <div class="copyright-creativa">
-   
-
-    
-  </div>
-
-
 <div class="menu-site">
 <div class="small-2 columns">
   <h2>
@@ -75,26 +26,41 @@
 
 </div>
 
-<div class="small-8 columns">
+<div class="small-4 columns">
   <h2>
     Apoyo
   </h2>
 <ul>
-  <li> <div class="text-comds">RED-DES is licensed under creative Commons Attribution-NonCommercial<br>
-      <img src="/static/img/ccommons.png">
-      </div></li>
+  
   <li><div class="donante">Auspiciado por:
     <img src="/static/img/hivos.jpg">
     </div></li>
-  <li>Desarrollado por Simas</li>
+  <li>Desarrollado por <a href="http://www.simas.org.ni">SIMAS</a></li>
 </ul>
 
 </div>
 
+<div class="small-2 columns">
+  <h2>
+    
+  </h2>
+  
+</div>
+
+<div class="small-2 columns">
+
+</div>
+
+</div>
+<hr>
+
+<div class="copyright-creativa">
+   <div class="text-comds">RED-DES is licensed under creative Commons Attribution-NonCommercial<br>
+      <img src="/static/img/ccommons.png">
+    </div>
 
 </div>
 
 </div>
 </div>
 </section>
-

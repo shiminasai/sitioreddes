@@ -25,7 +25,12 @@
             <td>{{obj.titulo}}</td>
             <td><div class="descargar">
               <i class="icon-download"></i>
-              <a href="/media/{{obj.adjunto}}">Descargar archivo</a>
+              {% if obj.adjunto %}
+                <a href="/media/{{obj.adjunto}}">Descargar archivo</a>
+              {%else%}
+                No subio adjunto, verifique por favor!!
+              {% endif %}
+              
               </div></td>
           {% endif %}
         </tr> 

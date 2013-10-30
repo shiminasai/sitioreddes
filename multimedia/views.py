@@ -9,7 +9,8 @@ class FotosListView(ListView):
 
 class VideosListView(ListView):
     template_name = 'multimedia/videos_list.html'
-    model = Videos
+    queryset= Videos.objects.order_by('-id')
+    #model = Videos
     paginate_by = 6
 
 class AudioListView(ListView):

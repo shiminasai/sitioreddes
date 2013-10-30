@@ -22,7 +22,7 @@
                 </a>
                 {% endvideo %}
 
-           <div class="video-title">{{obj.nombre}}</div>
+           <div class="video-title">{{obj.nombre|truncatewords:5}}</div>
           </div>   
              
         {% empty %}

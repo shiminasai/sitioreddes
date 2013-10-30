@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from django.shortcuts import render
 from .models import *
+from publicaciones.models import *
 
 class FotosListView(ListView):
     template_name = 'multimedia/fotos_list.html'
@@ -20,5 +21,5 @@ class AudioListView(ListView):
 
 class AdjuntoListView(ListView):
     template_name = 'multimedia/adjuntos_list.html'
-    model = Adjuntos
-    paginate_by = 6
+    model = Publicaciones
+    paginate_by = 12

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load url from future %}
 {% load thumbnail%}
 
 {% block extra_js %}
@@ -147,7 +147,7 @@
           {% for obj in relacion %}
           <div class="related-content">
             <i class="icon-th-large"></i>
-            <a href="{{obj.get_absolute_url}}">{{obj}}</a> <br>
+            <a href="{% url 'noticias_detalle' obj.id obj.slug %}">{{obj}}</a> <br>
           </div>
           {% empty %}
             <p>No existen noticias relacionada a esta categoria</p>

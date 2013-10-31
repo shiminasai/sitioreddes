@@ -1028,7 +1028,19 @@ li.mix.video.mix_all {
 		font-weight: bold;
 		font-family: 'Open Sans', sans-serif;
 }
-	
+
+li.mix.audio.mix_all {
+	float: left;
+	line-height: none;
+	margin-right: 30px;
+}
+
+.audio-content {
+	line-height: 20px;
+	margin-right: 30px;
+	padding: 1px 2px 3px 4px;
+
+}
 
 
 /**** footer ****/

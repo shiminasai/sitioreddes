@@ -137,12 +137,6 @@ $(function() {
 {% endblock extra_js %}
 
 
-
-
-
-
-
-
 {% block contenido %}
 <div class="patter-content">
 
@@ -197,6 +191,7 @@ $(function() {
           <p>No existen fotos en el sitio</p>
     </li>
     {% endfor %}
+    <li><a href="/multimedias/fotos/">Ver m&aacutes fotos</a></li>
     
        
       {% for obj in videos %}
@@ -218,12 +213,8 @@ $(function() {
       <div class="video-recurso">{{obj.nombre}}</div>
 </li>
     {% endfor %}
-
+<li><a href="/multimedias/videos/">Ver m&aacutes videos</a></li>
       
-
-   
-  
-
 
     {% for obj in adjuntos %}
     <li class="mix archivos mix_all" data-name="Archivos" style=" ">
@@ -246,25 +237,23 @@ $(function() {
           </div>
    </li>      
       {% endfor %}
-
+<li><a href="/multimedias/adjuntos/">Ver m&aacutes archivos</a></li>
 
 
 
    {% for obj in audios %}
       <li class="mix audios mix_all" data-name="Audios" style=" ">
-        <div class="audio-container">
+        <div class="audio-content">
           <audio  preload="auto">
             <source src="/media/{{obj.audio}}">
           </audio>
-          <span class="titulo-audio">{{obj.nombre}}</span>
+          <span class="text-audio">{{obj.nombre}}</span>
         </div>
       {%empty%}
         <p>No existen audios en el sitio</p>
       </li>
       {% endfor %}
-
-
-      <div class="recur-more">leer más</div>
+<li><a href="/multimedias/audios/">Ver m&aacutes audios</a></li>
 
  </ul> <!-- fin del panel container -->
 

@@ -3,7 +3,7 @@ from .views import FotosListView, AudioListView, VideosListView, AdjuntoListView
 from .models import *
 
 urlpatterns = patterns('',
-        url(r'^audio/$',  AudioListView.as_view(), 
+        url(r'^audios/$',  AudioListView.as_view(), 
                                            name='audio_lista'),
         url(r'^videos/$',  VideosListView.as_view(), 
                                            name='videos_lista'),

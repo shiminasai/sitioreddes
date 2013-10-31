@@ -6,6 +6,8 @@
 
 
 {% block extra_js %}
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui.sortable.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.mixitup.min.js' %}"></script>
@@ -118,20 +120,16 @@ $(function() {
                     // We now have two strings containing the filter arguments for each dimension:  
                     console.info('dimension 1: '+dimensions.region);
                     
-                    /*
-                    *   We then send these strings to MixItUp using the filter method. We can send as
-                    *   many dimensions to MixitUp as we need using an array as the second argument
-                    *   of the "filter" method. Each dimension must be a space seperated string.
-                    *
-                    *   In this case, MixItUp will show elements using OR logic within each dimension and
-                    *   AND logic between dimensions. At least one dimension must pass for the element to show.
-                    */
                     
                     $('#Parks').mixitup('filter',[dimensions.region])            
                 });
 
             });
-        </script>
+
+      $('.link-shoto').magnificPopup({ 
+          type: 'image',
+      });
+      </script>
 
 
 {% endblock extra_js %}
@@ -183,10 +181,12 @@ $(function() {
    
    <div class="img_wrapper loaded">
         {% thumbnail obj.imagen "250x150" crop="10%" as img %}
-          <img src="/media/{{img}}"  onload="imgLoaded(this)">
+          <a class="link-shoto" href="/media/{{obj.imagen}}"><img src="/media/{{img}}"  onload="imgLoaded(this)"></a>
         {% endthumbnail %}     
     </div>
-    <span class="text-recursos">{{obj.nombre}}</span>
+    <span class="text-recursos">{{obj.nombre}}
+      <a href="/media/{{obj.imagen}}" download="{{obj.nombre}}" title="{{obj.nombre}}"><i class="icon-download"></i>Descargar</a>
+    </span>
     {% empty %}
           <p>No existen fotos en el sitio</p>
     </li>

@@ -111,7 +111,8 @@
 {% endblock extra_js %}
 
 {% block contenido %}
-    <br><br>
+<div class="patter-content">
+    <br>
     <div class="forma">
       <form action="" method="POST">{% csrf_token %}
         {{form}}
@@ -123,4 +124,5 @@
     <div id="mapa" style="width: 100%; height: 600px;"></div>
     </div>
     <br><br>
+</div>
 {% endblock contenido %}

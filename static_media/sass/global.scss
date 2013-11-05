@@ -45,14 +45,16 @@ body {
 .social_icons {
 	float: left;
 	margin-top: 2.2em;
-	margin-left: 20%;
+	margin-left: 140px;
+	padding-right: 20px;
 }
 
 .search_box {
 	width: 140px;
-	margin-top: 2.2em;;
+	margin-top: 2.2em;
 	margin-right: 20px;
-	float: right;
+	float: left;
+	
 }
 
 .alineado { 
@@ -169,12 +171,14 @@ body {
 .nav-mobile {
 	display:none; /* Hide from browsers that don't support media queries */
 	cursor:pointer;
-	position:absolute;
+	position: relative;
+	left: 70%;
+	z-index: 30;
 	top:0;
-	right:0;
+	
 	background:url(../img/nav.svg) no-repeat center center;
 	height:40px;
-	width:0px;
+	width:40px;
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
@@ -1487,13 +1491,43 @@ background: url(../img/upflecha.png) no-repeat center center;
     Media Queries
 \*------------------------------------*/
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
+@media only screen and (min-width: 658px) and (max-width: 800px) {
+
+.menu-principal {
+	margin-left: 40px;
+}
+.social_icons {
+float: left;
+margin-top: 2.2em;
+margin-left: 0;
+}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 568px) {
 	.nav-mobile {
 		display:block;
 	}
+	.slide-box {
+		position: relative;
+		margin-top: 20px;
+	}
+
+	.social_icons {
+	float: left;
+	margin-top: 0;
+
+	}
+	.search_box {
+		margin-top: 0;
+		float: none;
+	}
 	.nav {
 		width:100%;
-		padding:40px 0 0;
+		padding:20px 0 0;
+		margin-left: 120px;
+		position: relative;
+		z-index: 20;
+		background: #fff;
 	}
 	.nav-list {
 		display:none;

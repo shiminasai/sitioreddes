@@ -8,13 +8,13 @@ class SociosAdmin(admin.ModelAdmin):
         elif request.user.is_staff:
             return self.model.objects.filter(autor=request.user)
 
-    def save_model(self, request, obj, form, change):
-        instance = form.save(commit=False)
-        instance.autor = request.user
-        instance.save()
-        return instance
+    # def save_model(self, request, obj, form, change):
+    #     instance = form.save(commit=False)
+    #     instance.autor = request.user
+    #     instance.save()
+    #     return instance
 
-    exclude = ['autor']
+    # exclude = ['autor']
     list_display = ['nombre','pais','contacto','autor']
     list_filter = ('autor','pais',)
     search_fields = ('nombre',)

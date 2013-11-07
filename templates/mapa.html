@@ -60,6 +60,7 @@
   map.setMapTypeId('map_style');
   if ({{variable}} == 1){
        $.getJSON('/ver_mapa_completo/',{varPais:varPais}, function(data){
+          console.log(data);
           $.each(data, function(i, elemento){
               var latlng = new google.maps.LatLng(elemento.lat, elemento.lon);
               var marker = new google.maps.Marker({

@@ -6,6 +6,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 
+from noticias.feeds import CategoriaFeed
+from noticias.feeds import NoticiasFeed
+
 urlpatterns = patterns('',
     url(r'^$', 'noticias.views.index', name='index'),
     url(r'^noticias/', include('noticias.urls')),
@@ -27,8 +30,12 @@ urlpatterns = patterns('',
     url(r'^contactenos/$', 'noticias.views.contacto', name='contactenos'),
     url(r'^contacto_ajax/$', 'noticias.views.contacto_ajax', name='contacto_ajax'),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'^feeds/$', NoticiasFeed(), name='noticias_feeds_noticias'),
+    url(r'^categories/(?P<slug>[-\w]+)/$', CategoriaFeed(), name='noticias_feeds_categoria'),
 )
 
+                        
+                       
 urlpatterns += staticfiles_urlpatterns()
 
 if DEBUG:

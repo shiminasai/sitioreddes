@@ -147,7 +147,7 @@
           {% for obj in relacion %}
           <div class="related-content">
             <i class="icon-th-large"></i>
-            <a href="{% url 'noticias_detalle' obj.id obj.slug %}">{{obj}}</a> <br>
+            <a href="{% url 'noticias_detalle' obj.slug %}">{{obj}}</a> <br>
           </div>
           {% empty %}
             <p>No existen noticias relacionada a esta categoria</p>

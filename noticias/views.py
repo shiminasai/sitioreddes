@@ -102,7 +102,7 @@ def mapa_completo(request):
                     lat=float(objeto.position.latitude),
                     ruta=objeto.get_absolute_url(),
                 )
-    lista.append(dicc)
+        lista.append(dicc)
     serializado = json.dumps(lista)
     return HttpResponse(serializado, mimetype='application/json')
 

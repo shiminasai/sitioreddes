@@ -114,7 +114,7 @@ ul.lista-social li {
         <p class="car_titulo">{{caratula.titulo|safe|truncatewords:4}}</p>
         <p class="car_breve">{{caratula.descripcion|striptags|safe|truncatewords:34}}</p>
         <p class="car_pais">{{caratula.pais}}</p>
-        <div class="jump-link"><a href="{% url 'noticias_detalle' caratula.id caratula.slug %}">Leer m&aacutes</a></div>
+        <div class="jump-link"><a href="{% url 'noticias_detalle' caratula.slug %}">Leer m&aacutes</a></div>
       </div>
     </div>
       {% endfor %}
@@ -161,12 +161,12 @@ ul.lista-social li {
              
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a  class="th radius" href="{% url 'noticias_detalle' obj.id obj.slug %}"><img src="/media/{{img}}"></a>
+                    <a  class="th radius" href="{% url 'noticias_detalle' obj.slug %}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img  class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <a href="{% url 'noticias_detalle' obj.id obj.slug %}"><span class="feed-title">{{obj.titulo}} </span></a>
+                <a href="{% url 'noticias_detalle' obj.slug %}"><span class="feed-title">{{obj.titulo}} </span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -182,12 +182,12 @@ ul.lista-social li {
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a class="th radius" href="{% url 'noticias_detalle' obj.id obj.slug %}"><img src="/media/{{img}}"></a>
+                    <a class="th radius" href="{% url 'noticias_detalle' obj.slug %}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <a href="{% url 'noticias_detalle' obj.id obj.slug %}"><span class="feed-title">{{obj.titulo}}</span></a>
+                <a href="{% url 'noticias_detalle' obj.slug %}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -204,12 +204,12 @@ ul.lista-social li {
               <p class="news_front_list"> 
                 {% for imagen in  obj.fotos.all|slice:"1"%}
                   {% thumbnail imagen.imagen "190x140" crop="10%" as img %}
-                    <a class="th radius" href="{% url 'noticias_detalle' obj.id obj.slug %}"><img src="/media/{{img}}"></a>
+                    <a class="th radius" href="{% url 'noticias_detalle' obj.slug %}"><img src="/media/{{img}}"></a>
                   {% endthumbnail %}
                 {% empty %}
                   <img class="th radius" src="http://placehold.it/190x140" alt="">
                 {% endfor %} <br>
-                <a href="{% url 'noticias_detalle' obj.id obj.slug %}"><span class="feed-title">{{obj.titulo}}</span></a>
+                <a href="{% url 'noticias_detalle' obj.slug %}"><span class="feed-title">{{obj.titulo}}</span></a>
                 <span class="feed-date">{{obj.fecha}}</span>
                 <span class="feed-text">{{obj.descripcion|striptags|safe|truncatewords:12}}</span>
               {% empty %}
@@ -322,7 +322,7 @@ ul.lista-social li {
     </div>
     <div id="tabs1-js">
      
-      <div class="fb-like-box" data-href="http://www.facebook.com/nicaragua.simas" data-width="420" data-height="310" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
+      <div class="fb-like-box" data-href="http://www.facebook.com/PROGRAMA.REDDES" data-width="420" data-height="310" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
    
       <div id="fb-root"></div>
       <script>(function(d, s, id) {

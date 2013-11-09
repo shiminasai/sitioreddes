@@ -28,9 +28,14 @@ class Noticias(models.Model):
 
     autor = models.ForeignKey(User)
 
-    def save(self, *args, **kwargs):
-        self.slug = (slugify(self.titulo))
+    def save(self, *args, **kwargs):  
+        add = not self.pk
         super(Noticias, self).save(*args, **kwargs)
+        if add:
+            self.slug = (slugify(self.titulo)) + '-' + str(self.id)
+            kwargs['force_insert'] = False # create() uses this, which causes error.
+            super(Noticias, self).save(*args, **kwargs)
+
 
     def get_absolute_url(self):
         return reverse('noticias_detalle', kwargs={'slug': self.slug})
@@ -39,6 +44,7 @@ class Noticias(models.Model):
         verbose_name = 'Noticia'
         verbose_name_plural = 'Noticias'
         ordering = ('-fecha',)
+        unique_together = ('slug',)
 
     def __unicode__(self):
         return u'%s' % self.titulo

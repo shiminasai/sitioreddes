@@ -12,17 +12,17 @@
           {% if noticia.fotos.all %}
             {% for imagen in noticia.fotos.all|slice:"1" %}
             {% thumbnail imagen.imagen "750x400" crop="10%" as img %}
-                <div class="img-news-list"><a href="{% url 'noticias_detalle' noticia.id noticia.slug %}"><img src="/media/{{img}}"></a></div>
+                <div class="img-news-list"><a href="{% url 'noticias_detalle' noticia.slug %}"><img src="/media/{{img}}"></a></div>
             {% endthumbnail %}          
           {% endfor %}
           {%else%}
-          <div class="img-news-list"><a href="{% url 'noticias_detalle' noticia.id noticia.slug %}">
+          <div class="img-news-list"><a href="{% url 'noticias_detalle' noticia.slug %}">
           <img src="http://placehold.it/750x400"></a></div>
           {% endif %}
           <span class="date-publish">Publicado:{{noticia.fecha|date:"j  F, Y"}}</span>
-          <h2 class="tlist-news"><a href="{% url 'noticias_detalle' noticia.id noticia.slug %}">{{noticia.titulo}}</a></h2>
+          <h2 class="tlist-news"><a href="{% url 'noticias_detalle' noticia.slug %}">{{noticia.titulo}}</a></h2>
           <div class="news-post-list">{{ noticia.descripcion|striptags|safe|truncatewords:16 }}</div>
-          <span class="more-news"><a href="{% url 'noticias_detalle' noticia.id noticia.slug %}">Leer m&aacutes</a></span>
+          <span class="more-news"><a href="{% url 'noticias_detalle' noticia.slug %}">Leer m&aacutes</a></span>
         </div>
   	   {% endfor %}
      </div>

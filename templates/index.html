@@ -5,49 +5,26 @@
 {% load embed_video_tags %}
 
 {% block extra_js %}
-  <script type="text/javascript" >
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
+   <script type="text/javascript">
+
     $(document).ready(function () {  
         $('#divRss').FeedEk({
             FeedUrl: 'http://blog.red-des.org/feed/rss/',
             MaxCount: 2,
             DescCharacterLimit:90,
         });
+
+     $('.carousel').carousel({
+            interval: 3500
+        })
+
+     $('#tab-container').easytabs();
     });    
 
 </script>
-
-
-<script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
-   <script type="text/javascript">
-   $('#tab-container').easytabs();
-      $(function() {
-        
-        var jmpressOpts = {
-          animation   : { transitionDuration : '8s' }
-        };
-        
-        
-      });
-    </script>
-    <noscript>
-      <style>
-      .step {
-        width: 100%;
-        position: relative;
-      }
-      .step:not(.active) {
-        opacity: 1;
-        filter: alpha(opacity=99);
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=99)";
-      }
-      .step:not(.active) a.jms-link{
-        opacity: 1;
-        margin-top: 40px;
-      }
-      </style>
-    </noscript>
 {% endblock extra_js %}
-
 {% block contenido %}
 <style type="text/css">
 .jump-link a {

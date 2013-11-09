@@ -12,7 +12,7 @@
         e.preventDefault();
         $.post('{% url 'contacto_ajax' %}', $("#pony_form").serialize(),
           function(data) {
-            data = eval('('+data+')');
+            //data = eval('('+data+')');
             if ("exito" == data){
                   $('#pony_form')[0].reset();
 
@@ -24,8 +24,7 @@
 
                    alertify.success("Se ha enviado con exito su mensaje gracias.");
                 }else{
-                    console.log("hubo un error");
-                    alertify.error("Ocurrieron error lo lamentamos vuelva a intentar");
+                    alertify.error("Ocurrieron error lo lamentamos vuelva a intentar o refresque la pagina");
                 }
       });
   });

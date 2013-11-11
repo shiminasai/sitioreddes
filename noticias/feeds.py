@@ -37,7 +37,7 @@ class NoticiasFeed(Feed):
     
 class CategoriaFeed(NoticiasFeed):
     def description(self, obj):
-        return "%s: Latest entries in category '%s'" % (current_site.name, obj.nombre)
+        return "%s: Ultimas entradas en categoria '%s'" % (current_site.name, obj.nombre)
     
     def get_object(self, request, slug):
         return Categoria.objects.get(slug=slug)

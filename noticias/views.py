@@ -86,7 +86,7 @@ def contacto_ajax(request):
             message = form.cleaned_data['mensaje']
             sender = form.cleaned_data['correo']
 
-            recipients = ['crocha09.09@gmail.com',]
+            recipients = ['crocha09.09@gmail.com','xsandino@gmail.com']
 
             send_mail(subject, message, sender, recipients)
             return HttpResponse( json.dumps( 'exito' ), mimetype='application/json' )

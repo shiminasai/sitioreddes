@@ -12,13 +12,11 @@ current_site = Site.objects.get_current()
 
 class NoticiasFeed(Feed):
     title = "%s: Ultimas noticias" % current_site.name
-    link = "http://red-des.info/"
+    link = "http://red-des.org/"
     author_name = "RED-DES CentroAmerica"
     description = "Ultimas noticias %s" % current_site.name
     feed_type = Atom1Feed
     
-    
-
     #description_template = 'feeds/entry_description.html'
     #title_template = 'feeds/entry_title.html'
     #
@@ -51,4 +49,4 @@ class CategoriaFeed(NoticiasFeed):
     #    return obj.get_absolute_url()
     
     def title(self, obj):
-        return "%s: Latest entries in category '%s'" % (current_site.name, obj.nombre)
+        return "%s: Ultimas entradas por categoria '%s'" % (current_site.name, obj.nombre)

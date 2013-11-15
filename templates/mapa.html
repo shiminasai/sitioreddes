@@ -60,14 +60,14 @@
   map.setMapTypeId('map_style');
   if ({{variable}} == 1){
        $.getJSON('/ver_mapa_completo/',{varPais:varPais}, function(data){
-          console.log(data);
+          //console.log(data);
           $.each(data, function(i, elemento){
               var latlng = new google.maps.LatLng(elemento.lat, elemento.lon);
               var marker = new google.maps.Marker({
                   position: latlng,
                   map: map,
                   name: elemento.nombre,
-                  //icon: '/files/img/wifi.png'
+                  icon: '/static/img/marker-icon.png'
               });
               google.maps.event.addListener(marker, "click", function() {
                var html = '<b>'+ elemento.nombre +'</b> ' +
@@ -89,7 +89,7 @@
                   position: latlng,
                   map: map,
                   name: elemento.nombre,
-                  //icon: '/files/img/wifi.png'
+                  icon: '/static/img/marker-icon.png'
               });
               google.maps.event.addListener(marker, "click", function() {
                var html = '<b>'+ elemento.nombre +'</b> ' +

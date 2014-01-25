@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
 from socios.models import Pais, Socios
+from envivo.models import Envivo
 
 def index(request, template='index.html'):
     #ultimas 3 noticias
@@ -33,6 +34,8 @@ def index(request, template='index.html'):
     texto = InicioTexto.objects.filter(id=1)
     #fotos de las publicaciones
     shotos = Publicaciones.objects.order_by('-id')[0:24]
+    #boton en vivo si esta en true
+    envivo = Envivo.objects.filter(vivo=True)
     
     return render(request, template, {'noticias_energia':noticias_energia,
                         'noticias_produccion':noticias_produccion,

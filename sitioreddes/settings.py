@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'foros',
     'multimedia',
     'socios',
+    'envivo',
     # Terceras aplicaciones
     'sorl.thumbnail',
     'ckeditor',

@@ -34,8 +34,6 @@ def index(request, template='index.html'):
     texto = InicioTexto.objects.filter(id=1)
     #fotos de las publicaciones
     shotos = Publicaciones.objects.order_by('-id')[0:24]
-    #boton en vivo si esta en true
-    envivo = Envivo.objects.filter(vivo=True)
     
     return render(request, template, {'noticias_energia':noticias_energia,
                         'noticias_produccion':noticias_produccion,
@@ -178,3 +176,7 @@ def recursos(request, template="recursos.html"):
 
     return render(request, template, {'fotos':fotos,'videos':videos,
                                       'audios':audios, 'adjuntos':adjuntos})
+
+def envivo_lista(request, template="envivo.html"):
+    datos = Envivo.objects.all()[0]
+    return render(request,template,{'datos':datos})

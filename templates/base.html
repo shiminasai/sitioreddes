@@ -58,7 +58,9 @@
     		{% for item in menuitems %}
     			<li  class="nav-item"><a href="{{ item.url }}" title="{{ item.title|escape }}" {% if item.current %} {% endif %}>{{ item.title }}</a></li>
     		{% endfor %}
-
+          {% if envivo %}
+              <li  class="nav-item"><a class="button alert" href="/envivos/" title="en vivo">En Vivo</a></li>
+          {% endif %}
        </ul>
     </nav>
     </div>

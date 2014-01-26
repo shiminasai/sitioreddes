@@ -11,6 +11,7 @@ from noticias.feeds import NoticiasFeed
 
 urlpatterns = patterns('',
     url(r'^$', 'noticias.views.index', name='index'),
+    url(r'^envivos/$', 'noticias.views.envivo_lista', name='envivo'),
     url(r'^noticias/', include('noticias.urls')),
     url(r'^publicaciones/', include('publicaciones.urls')),
     url(r'^multimedias/', include('multimedia.urls')),

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<section class="content-digital">
+    <div class="title-content">---- {{datos.titulo}} ----</div>
+        <div class="row">
+            <div class="large-12 vivo columns">
+                {{datos.url|safe}}
+            </div>
+       </div>
+</section>
+
+{% endblock contenido %}

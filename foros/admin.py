@@ -37,4 +37,4 @@ class ComentariosAdmin(admin.ModelAdmin):
 admin.site.register(Foros, ForoAdmin)
 admin.site.register(Aportes, AportesAdmin)
 admin.site.register(Comentarios, ComentariosAdmin)
-admin.site.register(Adjuntos)
+#admin.site.register(Adjuntos)

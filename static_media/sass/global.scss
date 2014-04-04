@@ -461,7 +461,9 @@ ul.feedEkList {
 /**** Eventos *****/
 
 h2.title-event {
+	width: 200px;
 	font-size: 12px;
+	float: left;
 	margin-bottom: 20px;
 	color: $font-black;
 	a {
@@ -481,6 +483,7 @@ h2.title-event {
 }
 .eventos-fronts{
 	float: left;
+	display: inline-block;
 }
 .fecha-box {
 	float: left;

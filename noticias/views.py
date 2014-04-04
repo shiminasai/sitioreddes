@@ -25,7 +25,7 @@ def index(request, template='index.html'):
     #2 videos 
     ultimos_videos = Videos.objects.order_by('-id')[0:2]
     #2 eventos
-    ultimos_eventos = Eventos.objects.order_by('-id')[0:4]
+    ultimos_eventos = Eventos.objects.order_by('-fecha_inicio')[0:4]
     #3 ultimas publicaciones
     ultimas_publicaciones = Publicaciones.objects.order_by('-id')[0:2]
     #4 ultimos audios

@@ -26,6 +26,6 @@ class MultimediaAdmin(admin.ModelAdmin):
     inlines = [VideosAdmin, AudiosAdmin]
 
 admin.site.register(Multimedia,MultimediaAdmin)
-admin.site.register(Videos)
-admin.site.register(Fotos)
-admin.site.register(Audio)
+#admin.site.register(Videos)
+#admin.site.register(Fotos)
+#admin.site.register(Audio)

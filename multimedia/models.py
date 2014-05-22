@@ -68,7 +68,8 @@ class Adjuntos(models.Model):
 	fileDir = 'adjuntos/'
 
 	def __unicode__(self):
-		return self.nombre
+		return u'%s' % (self.nombre)
+
 	class Meta:
 		verbose_name_plural = "Adjuntos"
 

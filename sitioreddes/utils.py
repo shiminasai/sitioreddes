@@ -21,6 +21,5 @@ def repl(match):
 def get_file_path(instance, filename):
     ext = filename.split('.')[-1]
     nombre = p.sub(repl, filename.replace('.'+filename.split('.')[-1], ''))
-    #nombre = p.sub(repl, filename.split('.')[-2])
     filename = "%s.%s" % (nombre, ext)
     return os.path.join(instance.fileDir, filename)

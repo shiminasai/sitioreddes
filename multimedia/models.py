@@ -22,7 +22,7 @@ class Fotos(models.Model):
 	fileDir = 'fotos/'
 
 	def __unicode__(self):
-		return self.nombre
+		return u'%s' % (self.nombre)
 	class Meta:
 		verbose_name_plural = "Fotos"
 
@@ -38,7 +38,7 @@ class Audio(models.Model):
 	fileDir = 'audios/'
 	
 	def __unicode__(self):
-		return self.nombre
+		return u'%s' % (self.nombre)
 	class Meta:
 		verbose_name_plural = "Audios"
 
@@ -53,7 +53,7 @@ class Videos(models.Model):
 
 
 	def __unicode__(self):
-		return self.nombre
+		return u'%s' % (self.nombre)
 	class Meta:
 		verbose_name_plural = "Videos"
 

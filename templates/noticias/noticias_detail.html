@@ -138,7 +138,14 @@
 
         </ul>
       <i class="icon-tag"></i> &nbsp;<span class="cat-tag">{% for obj in object.categoria.all %}{{obj.nombre}}{% endfor %}</span>
+      <br><br>
+      {% if object.adjunto.all %}
+      Documentos adjuntos:<br><br>
+         <span class="cat-tag">{% for obj in object.adjunto.all %}<i class="icon-cloud-download"></i> &nbsp;<a href="/media/{{obj.archivo}}">{{obj.nombre}}</a> <br>{% endfor %}</span>
+      {% endif %} 
+      
        </div>
+       
 
       <div class="large-4 columns">
         <h1 class="side-titles">Notas Relacionadas</h1>

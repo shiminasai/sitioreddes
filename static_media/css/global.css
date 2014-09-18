@@ -330,14 +330,17 @@ background-color: white;
   margin-top: 25px;
 }
 @media screen and (max-width: 480px){
-.tabss h3{
-border-bottom: 1px solid;
-background: white;
-color: black;
-border-left: none;
-border-top: none;
-border-right: none;
-}
+  .top-bar.expanded .title-area {
+  background: #3c8d3f;
+  }
+  .tabss h3{
+    border-bottom: 1px solid;
+    background: white;
+    color: black;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    }
 .tab_drawer_heading{
   background: white;
   color:black;
@@ -433,7 +436,7 @@ ul.tabs li.active {
 .top-bar{
   height: 45px;
   vertical-align: middle;
-  background-color: black;
+  background-color: #3c8d3f;
 }
 .fb-like-box{
   width: 200px;
@@ -442,16 +445,19 @@ ul.tabs li.active {
   margin-top: 0px;
 }
 
+.top-bar.expanded .title-area {
+  background: #3c8d3f;
+  }
 .top-bar-section .right li a:not(.button) {
 padding: 0 0px;
-background-color:black;
+background-color:#3c8d3f;
 
 }
 .top-bar-section .has-form{
-  background-color: black;
+  background-color: #3c8d3f;
 }
 .top-bar-section li a:not(.button){
-  background-color: black;
+  background-color: #3c8d3f;
   color: white;
 }
 .reddes_logo{
@@ -1725,7 +1731,7 @@ li.mix.audio.mix_all {
   .top-bar{
   height: 45px;
   vertical-align: middle;
-  background-color: black;
+  background-color: #3c8d3f;
 }
 
 
@@ -1736,16 +1742,19 @@ li.mix.audio.mix_all {
   margin-top: 0px;
 }
 
+.top-bar.expanded .title-area {
+  background: #3c8d3f;
+  }
 .top-bar-section .right li a:not(.button) {
 padding: 0 0px;
-background-color:black;
+background-color:#3c8d3f;
 
 }
 .top-bar-section .has-form{
-  background-color: black;
+  background-color: #3c8d3f;
 }
 .top-bar-section li a:not(.button){
-  background-color: black;
+  background-color: #3c8d3f;
   color: white;
 }
 .reddes_logo{
@@ -1772,7 +1781,7 @@ background-color:black;
   .top-bar{
   height: 45px;
   vertical-align: middle;
-  background-color: #994812;
+  background-color: #3c8d3f;
 }
 
 #hero-content {
@@ -1789,20 +1798,20 @@ padding-left: 35px;
   margin-top: 0px;
 }
 
+.top-bar.expanded .title-area {
+  background: #3c8d3f;
+  }
 .top-bar-section .right li a:not(.button) {
 padding: 0 0px;
-background-color:black;
+background-color:#3c8d3f;
 
 }
 .top-bar-section .has-form{
-  background-color: #f87e11;
+  background-color: #3c8d3f;
 }
 .top-bar-section li a:not(.button){
-  background-color: #f87e11;
+  background-color: #3c8d3f;
   color: white;
-}
-.top-bar.expanded .title-area{
-  background-color: #994812;
 }
 .reddes_logo{
   visibility: hidden;
@@ -2376,6 +2385,22 @@ input[type=submit] {
 }
 
 @media screen and (min-width: 768px) {
+
+  .top-bar.expanded .title-area {
+  background: #3c8d3f;
+  }
+.top-bar-section .right li a:not(.button) {
+padding: 0 0px;
+background-color:#3c8d3f;
+
+}
+.top-bar-section .has-form{
+  background-color: #3c8d3f;
+}
+.top-bar-section li a:not(.button){
+  background-color: #3c8d3f;
+  color: white;
+}
   /* line 1929, ../sass/global.scss */
   .carousel-container {
     margin-right: auto;

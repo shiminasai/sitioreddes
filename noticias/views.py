@@ -13,9 +13,9 @@ from envivo.models import Envivo
 
 def index(request, template='index.html'):
     #ultimas 3 noticias
-    noticias_energia = Noticias.objects.filter(categoria__id=1).order_by('-fecha')[0:4]
-    noticias_produccion = Noticias.objects.filter(categoria__id=2).order_by('-fecha')[0:4]
-    noticias_fortalecimiento = Noticias.objects.filter(categoria__id=3).order_by('-fecha')[0:4]
+    noticias_energia = Noticias.objects.filter(categoria__id=1).order_by('-fecha')[0:3]
+    noticias_produccion = Noticias.objects.filter(categoria__id=2).order_by('-fecha')[0:3]
+    noticias_fortalecimiento = Noticias.objects.filter(categoria__id=3).order_by('-fecha')[0:3]
     #ultimas 5 noticias de distintos paises destacadas
     ultimas_destacadas = []
     for obj in Pais.objects.all():

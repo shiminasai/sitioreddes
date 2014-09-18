@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{% static 'css/global.css' %}" />
     <link rel="stylesheet" href="{% static 'css/parks.css' %}" />
     <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}" />
+
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
@@ -40,16 +41,82 @@
 {% load menubuilder %}
 {% load googlesearch_inclusion_tags %}
 <body>
-<!--header -->
+
+
+
+
+
+<a href="/"><div class="reddes_logo"></div></a>
+<div class="row menu">
+
+<nav class="top-bar data-options="is_hover:false"">
+  <ul class="title-area">
+    
+    <li class="name">
+      <h1 id=""><a href="#"></a></h1>
+
+    </li>
+    
+    <li class="toggle-topbar menu-icon"><a href="#"><span class="color">Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+   
+    <ul class="left">
+      <li><a href="#"><a href="/"><img src="/static/img/home.png" alt="inicio"></a></li>
+      <li><a href="#">Quienes Somos</a></li>
+      <li><a href="#">Propósito</a></li>
+      <li><a href="#">Socios</a></li>
+
+      <li class="has-dropdown"><a href="#">Recursos</a>
+        <ul class="dropdown">
+          <li><a href="#">Documentos</a></li>
+          <li><a href="#">Audio</a></li>
+          <li><a href="#">Video</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Noticias</a></li>
+    </ul>
+
+    
+    <ul class="right">
+      
+      <li class="has-form">
+
+          <div class="row collapse">
+            <div class="small-6 columns btext">{% googlesearch_form %}</div>
+            
+            <div class="small-6 columns">
+              <a href="https://www.facebook.com/PROGRAMA.REDDES"><img src="/static/img/facebook.png"></a>
+              <a href="https://twitter.com/programareddes"><img src="/static/img/twitter.png"></a>
+              <a href="http://www.youtube.com/user/ProgramaREDDES"><img src="/static/img/youtube.png"></a>
+
+            </div>
+          </div>
+
+      </li>
+
+    </ul>
+  </section>
+</nav>
+
+</div>
+
+
+
+
+
+<!-- 
 
 <div class="top-header">
 
-<!--logo -->
+
 <a href="/"><div class="reddes_logo"></div>
 </a>
-<!--logo -->
-<!--Menu principal -->
+
+
 <header id="header_container">
+
 <div class="row">
     <div class="large-12 columns">
     <div class="menu-principal">
@@ -66,7 +133,7 @@
     </nav>
     </div>
 
-    <div class="social_icons">
+   <div class="social_icons">
     <a href="https://www.facebook.com/PROGRAMA.REDDES"><img src="/static/img/facebook.png"></a>
     <a href="https://twitter.com/programareddes"><img src="/static/img/twitter.png"></a>
     <a href="http://www.youtube.com/user/ProgramaREDDES"><img src="/static/img/youtube.png"></a>
@@ -75,13 +142,13 @@
     <div class="search_box">{% googlesearch_form %}</div>
 
     </div>
-    
+ 
 </div>
 </header>
-<!--Menu Principal -->
-</div><!--Top Header -->
 
+</div>
 
+-->
 {% block contenido %}{% googlesearch_results %}{% endblock contenido %}
 {% include "footer.html" %}
 <script> 
@@ -178,17 +245,33 @@ $(document).ready(function() {
             $(function() {
             
                 $( '#ri-grid' ).gridrotator( {
-                    rows            : 3,
-                    columns         : 4,
+
                     preventClick    : false,
-                    w320 : {
-                        rows : 4,
-                        columns : 4
-                    },
-                    w240 : {
-                        rows : 3,
-                        columns : 3
-                    }
+                    
+                    w1024           : {
+                      rows    : 3,
+                      columns : 8
+                  },
+                   
+                  w768            : {
+                      rows    : 3,
+                      columns : 7
+                  },
+                   
+                  w480            : {
+                      rows    : 3,
+                      columns : 5
+                  },
+                   
+                  w320            : {
+                      rows    : 2,
+                      columns : 3
+                  },
+                   
+                  w240            : {
+                      rows    : 2,
+                      columns : 3
+                  },
                 } );
             
             });

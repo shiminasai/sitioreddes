@@ -330,6 +330,9 @@ background-color: white;
   margin-top: 25px;
 }
 @media screen and (max-width: 480px){
+  .share_box{
+      display: none;
+    }
   .carousel-caption-1 {
     right: 1%;
     display: none;
@@ -485,6 +488,9 @@ ul.tabs li.active {
 }
 
 @media screen and (max-width: 480px) {
+  .share_box{
+      display: none;
+    }
   /* line 366, ../sass/global.scss */
   .carousel-caption-1 {
     right: 1%;
@@ -1209,6 +1215,18 @@ span.author {
 }
 
 /**** Share button ****/
+.share_box{
+  position:fixed;
+  width:87px;
+  top:38%;
+  border:3px solid #a1a1a1;
+  background:#FFF;
+  padding:8px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
 /* line 956, ../sass/global.scss */
 .share-buttom li {
   display: inline-block;
@@ -1813,6 +1831,38 @@ li.mix.audio.mix_all {
 \*------------------------------------*/
 
 @media only screen and (min-width: 458px) and (max-width: 800px) {
+
+    .share_box{
+      display: none;
+    }
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
   .top-bar{
   height: 45px;
   vertical-align: middle;
@@ -1863,6 +1913,9 @@ background-color:#3c8d3f;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) {
+  .share_box{
+      display: none;
+    }
   .carousel-caption-1 {
     right: 1%;
     display: none;
@@ -2591,6 +2644,9 @@ background-color:#3c8d3f;
 }
 @media all and (max-width: 760px) and (min-width: 300px) {
   /* line 1974, ../sass/global.scss */
+  .share_box{
+      display: none;
+    }
   .carousel-container {
     margin-right: auto;
     margin-left: auto;

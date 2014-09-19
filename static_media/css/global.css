@@ -330,6 +330,63 @@ background-color: white;
   margin-top: 25px;
 }
 @media screen and (max-width: 480px){
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
+
   .top-bar.expanded .title-area {
   background: #3c8d3f;
   }
@@ -429,6 +486,34 @@ ul.tabs li.active {
 
 @media screen and (max-width: 480px) {
   /* line 366, ../sass/global.scss */
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
   .tabs {
     display: none;
   }
@@ -1778,6 +1863,62 @@ background-color:#3c8d3f;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 568px) {
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
+  .carousel-caption-1 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1951, ../sass/global.scss */
+  .carousel-caption-2 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1955, ../sass/global.scss */
+  .carousel-caption-3 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1959, ../sass/global.scss */
+  .carousel-caption-4 {
+    right: 1%;
+    display: none;
+  }
+
+  /* line 1963, ../sass/global.scss */
+  .carousel-caption-5 {
+    right: 1%;
+    display: none;
+  }
   .top-bar{
   height: 45px;
   vertical-align: middle;

@@ -7,6 +7,7 @@
 {% block extra_js %}
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.easytabs.js' %}" ></script>
+<script> $(document).foundation(); </script>
    <script type="text/javascript">
 
     $(document).ready(function () {  
@@ -21,7 +22,41 @@
         })
 
      $('#tab-container').easytabs();
-    });    
+    });
+
+    $(function() {
+            
+                $( '#ri-grid' ).gridrotator( {
+
+                    preventClick    : false,
+                    
+                    w1024           : {
+                      rows    : 3,
+                      columns : 8
+                  },
+                   
+                  w768            : {
+                      rows    : 3,
+                      columns : 7
+                  },
+                   
+                  w480            : {
+                      rows    : 3,
+                      columns : 5
+                  },
+                   
+                  w320            : {
+                      rows    : 2,
+                      columns : 3
+                  },
+                   
+                  w240            : {
+                      rows    : 2,
+                      columns : 3
+                  },
+                } );
+            
+            });   
 
 </script>
 {% endblock extra_js %}

@@ -330,6 +330,7 @@ background-color: white;
   margin-top: 25px;
 }
 @media screen and (max-width: 480px){
+
   .share_box{
       display: none;
     }
@@ -487,6 +488,21 @@ ul.tabs li.active {
   display: none;
 }
 
+/* line 1624, ../sass/global.scss */
+#tabs1-html {
+  font-size: .875em;
+  padding: 20px;
+  height: 350px !important;
+  background: #fff;
+  border: 1px solid #e9e9e9;
+  border-bottom: 2px solid #e9e9e9;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
 @media screen and (max-width: 480px) {
   .share_box{
       display: none;
@@ -1831,7 +1847,12 @@ li.mix.audio.mix_all {
 \*------------------------------------*/
 
 @media only screen and (min-width: 458px) and (max-width: 800px) {
-
+  .slide-box{
+    top: 2%;
+  }
+  #hero-content {
+height: 368px;
+}
     .share_box{
       display: none;
     }
@@ -1912,7 +1933,8 @@ background-color:#3c8d3f;
     margin-left: 0;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 568px) {
+@media only screen and (min-width: 250px) and (max-width: 568px) {
+
   .share_box{
       display: none;
     }
@@ -1979,12 +2001,18 @@ background-color:#3c8d3f;
 }
 
 #hero-content {
-height: 260px;
+height: 175px;
 }
 .tabss p.news_front_list {
 padding-left: 35px;
 
 }
+#tabs1-html {
+font-size: .875em;
+padding: 2px;
+height: 350px !important;
+}
+
 .fb-like-box{
   width: 200px;
 }
@@ -2025,7 +2053,7 @@ background-color:#3c8d3f;
   /* line 1512, ../sass/global.scss */
   .slide-box {
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   /* line 1517, ../sass/global.scss */
@@ -2218,21 +2246,6 @@ input[type=submit] {
   padding: 0;
 }
 
-/* line 1624, ../sass/global.scss */
-#tabs1-html {
-  font-size: .875em;
-  padding: 20px;
-  height: 350px !important;
-  background: #fff;
-  border: 1px solid #e9e9e9;
-  border-bottom: 2px solid #e9e9e9;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
 
 /* line 1642, ../sass/global.scss */
 .tab {
@@ -2579,7 +2592,9 @@ input[type=submit] {
 }
 
 @media screen and (min-width: 768px) {
-
+.reddes_logo{
+  display: none;
+}
   .top-bar.expanded .title-area {
   background: #3c8d3f;
   }
@@ -2587,7 +2602,7 @@ input[type=submit] {
 padding: 0 0px;
 background-color:#3c8d3f;
 
-}
+} 
   /* line 1929, ../sass/global.scss */
   .carousel-container {
     margin-right: auto;

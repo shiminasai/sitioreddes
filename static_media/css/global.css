@@ -113,7 +113,7 @@ background-color: white;
 /* line 96, ../sass/global.scss */
 .slide-box {
   text-align: center;
-  position: absolute;
+
   top: 4%;
   left: 0px;
   width: 100%;
@@ -239,6 +239,7 @@ background-color: white;
 /* line 214, ../sass/global.scss */
 .feeds-content {
   background: #4598a6;
+  margin-top: 40px;
 }
 
 /* line 219, ../sass/global.scss */
@@ -330,7 +331,10 @@ background-color: white;
   margin-top: 25px;
 }
 @media screen and (max-width: 480px){
-
+.feeds-content {
+ 
+  margin-top: 20px;
+}
   .share_box{
       display: none;
     }
@@ -504,6 +508,10 @@ ul.tabs li.active {
   border-bottom-left-radius: 3px;
 }
 @media screen and (max-width: 480px) {
+  .feeds-content {
+ 
+  margin-top: 20px;
+}
   .share_box{
       display: none;
     }
@@ -1846,6 +1854,10 @@ li.mix.audio.mix_all {
     Media Queries
 \*------------------------------------*/
 @media only screen and (min-width: 458px) and (max-width: 800px) {
+  .feeds-content {
+ 
+  margin-top: 20px;
+}
   .slide-box{
     top: 2%;
   }
@@ -1933,7 +1945,10 @@ background-color:#3c8d3f;
   }
 }
 @media only screen and (min-width: 250px) and (max-width: 568px) {
-
+.feeds-content {
+ 
+  margin-top: 20px;
+}
   .share_box{
       display: none;
     }
@@ -2589,16 +2604,18 @@ input[type=submit] {
   color: #000;
   text-shadow: none;
 }
+.top-bar-section {
+z-index: 1;
+}
 
 @media screen and (min-width: 768px) {
-
 
   .top-bar.expanded .title-area {
   background: #3c8d3f;
   }
 .top-bar-section .right li a:not(.button) {
 padding: 0 0px;
-background-color:#3c8d3f;
+
 
 } 
   /* line 1929, ../sass/global.scss */

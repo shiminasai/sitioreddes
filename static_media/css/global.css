@@ -2632,6 +2632,8 @@ padding: 0 0px;
     height: 30px;
     margin-left: -80px;
     font-size: 30px;
+    font-size: 65px;
+    color: #E77E11;
   }
 
   /* line 1941, ../sass/global.scss */
@@ -2640,6 +2642,8 @@ padding: 0 0px;
     height: 30px;
     margin-left: 80px;
     font-size: 30px;
+    font-size: 65px;
+    color: #E77E11;
   }
 
   /* line 1947, ../sass/global.scss */
